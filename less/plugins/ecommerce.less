@@ -1,0 +1,474 @@
+
+
+// -----------------------------
+// 	Widgets
+// -----------------------------
+
+//  1.   Ecommerce Search
+//  2.   Ecommerce Filters
+//  3.   Ecommerce Product List
+//  4.   Ecommerce Single Product
+
+
+
+// -----------------------------
+//  1. Ecommerce Search
+// -----------------------------
+
+
+// Product Search
+.fieldset--search {
+
+    // Input and Button Full Width at Mobile
+    .form-group {
+
+        // Input Container
+        &:first-child {
+			.flex-grow(1);
+
+			@media only screen and (max-width: 900px) {
+				width: 100%;
+			}
+
+			@media @tablet-860px {
+				width: auto;
+			}
+		}
+
+		// Button Container
+        &:last-child {
+        	.flex-grow(0);
+        	margin-right: 0;
+        }
+    }
+
+    .ecomproductslist__button {
+    	background: @color-swatch3 image('/images/search-icon.svg') no-repeat center;
+    	color: @color-swatch3!important;
+        margin-top: 33px;
+        overflow: hidden;
+        text-indent: -9999px;
+        height: 54px;
+        width: 55px;
+
+        @media @mobile {
+            margin-top: 0;
+        }
+
+        &:hover {
+        	color: @font-swatch7-background-color-hover!important;
+        }
+    }
+}
+
+// Keep Search Inputs and Button inline at Mobile
+.product-filters .fieldset--search {
+	.form-body {
+		@media @mobile-650px {
+			.flex-wrap(nowrap);
+		}
+	}
+}
+
+
+
+// -----------------------------
+//  2. Ecommerce Filters
+// -----------------------------
+
+
+// Products Title
+.listing-title {
+    padding-bottom: 35px;
+    @media @mobile-650px {
+        padding-top: 20px;
+    }
+}
+
+
+// Bring Search and Filters Inline
+// ------------------------------------------
+
+// Form Container
+form.ecomproductslist__form {
+	.ultimate-flex;
+
+	@media only screen and (max-width: 900px) {
+		.flex-wrap(wrap);
+	}
+
+	// Search and Filters
+	.fieldset--search, .fieldset--filters {
+		.flex-grow(1);
+	}
+
+	// Search
+	.fieldset--search {
+		.flex(1 15%);
+		padding-right: 15px;
+
+		@media only screen and (max-width: 900px) {
+			.flex(1 100%);
+			padding: 0 0 15px 0;
+		}
+	}
+}
+
+// Product Filters
+.product-filters {
+
+	// Legend
+	legend {
+		margin-bottom: 15px;
+	}
+
+	// Search and Filter Container 
+    .ecomproductslist__form-body {
+        .ultimate-flex;
+
+        @media @tablet-860px {
+            .flex-wrap(wrap);
+        }
+    }
+
+    // Filters
+    .fieldset--filters {
+
+        .form-group {
+            .flex-grow(1);
+
+            @media @tablet-860px {
+                width: 47.5%;
+
+                &:nth-child(2) {
+	            	margin-right: 0;
+	            }
+            }
+            @media @mobile-650px {
+            	margin-right: 0;
+                width: 100%;
+            }
+
+            &:last-child {
+            	margin-right: 0;
+            }
+        }
+        select {
+            width: 100%;
+        }
+    }
+}
+
+
+
+// -----------------------------
+//  3. Ecommerce Product List
+// -----------------------------
+
+
+// Product list 
+/*ul.product-list {
+	.flex-display;
+	.flex-wrap(wrap);
+}
+
+// Product list item
+li.product-item {
+	.flex-grow(1);
+	.flex(1 25%);
+
+	.product-item-article {
+		margin-right: 30px;
+	}
+
+	// Every third product is larger
+	&:nth-child(3n+3) {
+		.flex(1 50%);
+
+		// Last item in the row, remove right margin
+		.product-item-article {
+			margin-right: 0;
+		}
+	}
+
+	// Every third product is larger
+	&:nth-child(4n+4) {
+		.flex(1 50%);
+	}
+
+	// If there is a fourth product then the third from above is nullified
+	&:nth-child(4n+2) {
+		.flex(1 25%);
+	}
+}*/
+
+ul.product-list {
+
+	li.product-item {
+		padding: 10px 40px 10px 0;
+		width: 25%;
+
+		@media @tablet-860px {
+			width: 50%;
+		}
+
+		@media @mobile-650px {
+			padding: 0!important;
+			width: 100%!important;
+		}
+
+		&:nth-child(3n+3) {
+		padding-right: 0;
+		width: 50%;
+
+		@media @tablet-860px {
+			padding-right: 40px;
+		}
+
+			// Last item in the row, remove right margin
+			.product-item-article {
+				margin-right: 0;
+			}
+
+			.product-item-image, .product-item-image .image-link {
+				height: 400px;
+				line-height: 400px;
+
+				@media @tablet-860px {
+					height: 200px;
+					line-height: 200px;
+				}
+			}
+		}
+
+		// Every third product is larger
+		&:nth-child(4n+4) {
+			width: 50%;
+
+			@media @tablet-860px {
+				padding-right: 0;			}
+
+			.product-item-image, .product-item-image .image-link{
+				height: 400px;
+				line-height: 400px;
+
+				@media @tablet-860px {
+					height: 200px;
+					line-height: 200px;
+				}
+			}
+		}
+
+		// If there is a fourth product then the third from above is nullified
+		&:nth-child(4n+2) {
+			width: 25%;
+
+			@media @tablet-860px {
+				padding-right: 0;
+				width: 50%;
+			}
+
+			.product-item-image, .product-item-image .image-link {
+				height: 200px;
+				line-height: 200px;
+			}
+		}
+
+		// Some kind of witchcraft, makes everything eve until there are 6 products
+		&:nth-child(1):nth-last-child(5),
+		&:nth-child(2):nth-last-child(4),
+		&:nth-child(3):nth-last-child(3),
+		&:nth-child(4):nth-last-child(2),
+		&:nth-child(5):nth-last-child(1) {
+			width: 25%;
+
+			@media @tablet-860px {
+				width: 50%;
+			}
+			.product-item-image, .product-item-image .image-link {
+				height: 200px;
+				line-height: 200px;
+			}
+		}
+	}
+
+	.product-item-image {
+		@media @mobile-650px {
+			margin-top: 25px;
+		}
+	}
+
+	.product-item-title {
+		color: @font-swatch4-color;
+		font-size: bkscale(@font-swatch4-font-size, 0.85);
+
+		a {
+			color: @font-swatch4-color;
+		}
+	}
+
+	.product-item-price {
+		color: @color-swatch2;
+		font-size: bkscale(@font-swatch3-font-size, 0.95);
+	}
+}
+
+
+// Pagination
+.listing-pagination {
+    // Pagination Buttons
+    .button {
+        background-color: lighten(@font-swatch7-background-color, 45%);
+        margin: 30px 0 20px;
+        min-width: 0px;
+        padding: 3px 15px;
+        &:hover {
+            background-color: @font-swatch7-background-color;
+        }
+    }
+    .current .button {
+        background-color: @font-swatch7-background-color;
+    }
+    // Previous Button Icon
+    .button--previous {
+        position: relative;
+        &:before {
+            font-size: 10px;
+        }
+        &:hover:before {
+            //.animation(icon-bounce, 1.5s, ease, infinite, normal);
+        }
+    }
+    // Next Button Icon
+    .button--next {
+        position: relative;
+        &:after {
+            font-size: 10px;
+        }
+        &:hover:after {
+            //.animation(icon-bounce, 1.5s, ease, infinite, reverse);
+        }
+    }
+}
+
+
+
+// Masonry Gallery
+// ---------------
+
+
+
+    // Gallery Masonry Transitions
+    .masonry {
+      -webkit-transition-duration: 0.3s;
+         -moz-transition-duration: 0.3s;
+          -ms-transition-duration: 0.3s;
+           -o-transition-duration: 0.3s;
+              transition-duration: 0.3s;
+    }
+
+    .masonry {
+      -webkit-transition-property: height, width;
+         -moz-transition-property: height, width;
+          -ms-transition-property: height, width;
+           -o-transition-property: height, width;
+              transition-property: height, width;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------
+//  4. Ecommerce Single Product
+// -----------------------------
+
+
+.product-article {
+	.flex-display;
+	.align-items(center);
+	position: relative;
+	min-height: 78vh;
+}
+
+.product-image {
+	display: none;
+}
+
+
+.product-images {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 42%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.product-gallery {
+	background-color: lighten(@color-swatch7, 5%);
+	margin: 0;
+	position: relative;
+	height: 100%;
+
+	.gallery-item {
+		width: 100%;
+		height: auto;
+		line-height: auto;
+		cursor: pointer;
+	}
+
+	.image-button {
+	display: block;
+
+		.image {
+			width: 100%;
+		}
+	}
+}
+
+.product-content {
+	padding-left: 50%;
+}
+
+.image-link {
+	height: auto;
+	width: auto;
+	.image {
+		vertical-align: top;
+	}
+}
+
+.message {
+	background-color: rgba(194,14,15,0.65);
+	color: white;
+	display: inline-block;
+	margin: 0 0 30px;
+	padding: 0 20px 0 40px;
+	&:before {
+		left: 15px;
+	}
+
+	p {
+		color: white;
+		line-height: 2.25;
+	}
+}
+
+

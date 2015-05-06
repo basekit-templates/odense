@@ -1,0 +1,369 @@
+
+// -----------------------------
+// 	Widgets
+// -----------------------------
+
+//  1.   Contact Form
+//  2.   Twitter Widget
+//	3.	 Social Icons
+//	4.	 HR Line
+//	5.	 
+
+
+
+// -----------------------------
+//  1. Contact Form
+// -----------------------------
+
+.contactform {
+
+}
+
+
+
+// -----------------------------
+//  2. Twitter Widget
+// -----------------------------
+
+
+// Twitter widget container
+ul.tweet-list {
+	padding-left: 0;
+	margin-top: 65px;
+}
+
+// Single tweet
+.tweet-list li {
+	background-color: rgb(250,250,250);
+	border: 1px solid rgb(225,225,225);
+	margin-bottom: 25px;
+	.border-radius(6px);
+	padding: 25px;
+
+	// Take the account name from the first tweet and position it outside the tweet container
+	&:first-child .account-link {
+		top: -50px;
+		position: absolute;
+		left: 0;
+		display: block;
+		width: 100%;
+
+		.account-link {
+			display: block;
+		}
+	}
+
+	// Hide the account name on any tweet that's not the first
+	&:not(:first-child) .account-link {
+		display: none;
+		visibility: hidden;
+	}
+
+	// Re-add margin to final tweet
+	&:last-child {
+		margin-bottom: 25px;
+	}
+
+	// Adds chat style triangle to last tweet
+	&:last-child:after {
+		border-style: solid;
+		border-width: 0 30px 30px 0;
+		border-color: transparent rgb(250,250,250) transparent transparent;
+		content: "";
+		margin-top: 25px;
+		position: absolute;
+		right: 25px;
+		width: 0;
+		height: 0;
+	}
+
+	&:last-child:before {
+		  border-style: solid;
+		  border-width: 0 31px 30px 0;
+		  border-color: transparent rgb(225,225,225) transparent transparent;
+		  content: "";
+		  margin-top: 25px;
+		  position: absolute;
+		  right: 24px;
+		  width: 0;
+		  height: 0;
+		  position: absolute;
+		  bottom: -5px;
+	}
+}
+
+// Twitter account name styling
+.account-name {
+	font-family: @font-swatch2-font-family;
+	font-size: @font-swatch4-font-size;
+
+	// Adds twitter icon to the right of the account name
+	&:after {
+		color: @color-swatch2;
+		content: "\f099";
+		font-family: 'FontAwesome', sans-serif;
+		position: absolute;
+		right: 0;
+	}
+}
+
+// Hide Twitter avatar
+.twitter__avatar {
+	display: none;
+	visibility: hidden;
+}
+
+// Tweet content
+.tweet-content {
+	color: darken(@font-swatch5-color, 15%);
+	padding-bottom: 0.5em;
+}
+
+// Tweet metadata (Date and platform)
+.tweet-metadata {
+	font-size: bkscale(@font-swatch5-font-size, 0.85);
+	font-style: italic;
+	time, span {
+		color: darken(@font-swatch5-color, 5%);
+	}
+}
+
+
+
+// -----------------------------
+//  3. Social Icons
+// -----------------------------
+
+
+// Hide social icons text
+.social-name {
+	display: none;
+	visibility: hidden;
+}
+
+// Social links background
+.social-link {
+	background-color: @font-swatch7-background-color;
+	color: @font-swatch7-color;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+
+	&:before {
+		font-size: 18px;
+		line-height: 40px;
+		margin: 0;
+	}
+
+	&:hover {
+		background-color: @font-swatch7-background-color-hover;
+		color: @font-swatch7-color-hover;
+	}
+}
+
+
+
+// -----------------------------
+//  4. HR Line
+// -----------------------------
+
+hr.rule {
+	background-color: @color-swatch7;
+}
+
+
+
+// -----------------------------
+//  5. Company Address
+// -----------------------------
+
+.companyaddress {
+	p {
+		padding-bottom: 0.25em;
+	}
+}
+
+
+
+// -----------------------------
+//  6. Sign Up Widget
+// -----------------------------
+
+.signupform {
+
+	.form-body {
+		.flex-display;
+	}
+
+	.form-group {
+		.flex-grow(0);
+
+		&:first-child {
+			.flex-grow(1);
+			padding-right: 15px;
+		}
+	}
+
+	button {
+		margin-top: 35px;
+	}
+}
+
+
+
+// -----------------------------
+//  7. Image Widget
+// -----------------------------
+
+.imagewidget {
+	.image-title {
+		color: @font-swatch2-color;
+		font-family: @font-swatch2-font-family;
+		font-size: @font-swatch4-font-size;
+		margin-bottom: 8px;
+	}
+	.image-description {
+		font-family: @font-swatch5-font-family;
+		font-size: @font-swatch5-font-size;
+	}
+}
+
+
+
+// -----------------------------
+//  8. Slideshow Widget
+// -----------------------------
+
+.widget__gallery {
+    // Gallery List
+    ul.gallery-list {
+        .clearfix;
+        padding-top: 10px;
+    }
+    // Gallery Item
+    li.gallery-item {
+        display: inline-block;
+        float: left;
+        margin-right: 3.33%;
+        position: relative;
+        width: 31%;
+        margin-bottom: 2%;
+        vertical-align: top;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+        // Display at 50% at tablet
+        @media @tablet-860px {
+            width: 48%;
+            &:nth-child(2n) {
+                margin-right: 0!important;
+            }
+            &:nth-child(3n) {
+                margin-right: 3.33%;
+            }
+        }
+        // Display at 100% at mobile
+        @media @mobile-650px {
+            margin-right: 0!important;
+            width: 100%;
+            margin-bottom: 4%;
+        }
+        .image-link {
+            -webkit-filter: grayscale(0%);
+            .transition(all 0.5s ease-in-out);
+        }
+        &:hover {
+            opacity: 1!important;
+            .image-link {
+                background-blend-mode: multiply;
+                text-decoration: none;
+            }
+            figcaption {
+                background-color: fade(@color-swatch4, 65%);
+                display: flex;
+                height: 100%;
+                opacity: 1;
+                .transform(scale(0.85));
+                .transition(all 0.5s ease-in-out);
+                visibility: visible;
+                overflow: hidden;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    height: 10px;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    .gradient(fade(@color-swatch4, 0%), fade(@color-swatch4, 10%));
+                }
+            }
+        }
+    }
+    .gallery__figure {
+        .transition(all 0.5s ease-in-out);
+        &:hover {
+        }
+    }
+
+    // Hide Figcaption
+    figcaption {
+        // Flex
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        position: absolute;
+        display: block;
+        height: 0;
+        margin: 0;
+        padding: 0 15px;
+        opacity: 0;
+        text-align: center;
+        top: 0;
+        .transform(scale(0.85));
+        width: 100%;
+        visibility: hidden;
+        @media @mobile {
+            left: 0;
+        }
+        .caption-link:hover {
+            text-decoration: none;
+        }
+        .image-title {
+            color: @color-swatch1;
+            text-transform: uppercase;
+            font-family: @font-swatch4-font-family;
+            letter-spacing: 1px;
+            font-size: 15px;
+            display: block;
+            padding: 6px 12px 5px;
+        }
+        .image-description {
+            color: darken(@color-swatch1, 15%);
+            font-size: 15px;
+            line-height: 23px;
+        }
+    }
+
+    // Use Background Image
+    .image-link {
+        display: block;
+        padding-bottom: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        // Hide Inline Image
+        .image {
+            display: none;
+        }
+    }
+}
+
+

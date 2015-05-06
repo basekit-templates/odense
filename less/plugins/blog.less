@@ -1,0 +1,242 @@
+
+
+// -----------------------------
+// 	Blog
+// -----------------------------
+
+//  1.   Blog Search
+//  2.   Blog Post List
+//  3.   Blog Post
+
+
+
+// -----------------------------
+//  1. Blog Search
+// -----------------------------
+
+.blogsearch {
+
+	.form-body {
+		.flex-display;
+	}
+
+	.form-group {
+		.flex-grow(0);
+
+		&:first-child {
+			.flex-grow(1);
+			padding-right: 15px;
+		}
+	}
+
+	button {
+		margin-top: 35px;
+	}
+}
+
+
+// -----------------------------
+//  2. Blog Post List
+// -----------------------------
+
+.blogpostlist {
+	.post-article {
+		.flex-display;
+		.flex-wrap(wrap);
+		position: relative;
+	}
+
+	.post-image, .post-content, .post-footer {
+		.flex-grow(0);
+	}
+
+	.post-image, .post-content {
+		.flex(0 50%);
+
+		@media @tablet-860px {
+			.flex(0 100%);
+		}
+	}
+
+	.post-image {
+		padding-right: 65px;
+		order: 1;
+
+		@media @tablet-860px {
+			padding-right: 0;
+		}
+	}
+
+	.post-content {
+		order: 2;
+		margin: 0;
+		margin-bottom: 30px;
+		padding: 25px 0 20px;
+
+		@media @tablet-860px {
+			order: 3;
+			padding: 12px 0 20px;
+		}
+
+		h2 a {
+			color: @font-swatch4-color;
+		}
+
+		.read-more {
+			background-color: @font-swatch7-background-color;
+	        color: @font-swatch7-color;
+	        font-size: bkscale(@font-swatch7-font-size, 0.85);
+	        letter-spacing: @font-swatch7-letter-spacing;
+	        margin-top: 20px;
+	        min-width: 100px;
+	        padding: 10px 14px;
+	        text-transform: uppercase;
+	        .transition(all 0.5s ease-in-out);
+
+	        &:hover {
+	            background-color: @font-swatch7-background-color-hover;
+	            color: @font-swatch7-color-hover;
+	        }
+		}
+	}
+
+	.post-footer {
+		.flex(0 50%);
+		.flex-align(flex-end);
+		order: 3;
+		padding-left: 50%;
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		@media @tablet-860px {
+			order: 2;
+			padding-left: 0;
+			position: relative;
+		}
+
+		.timestamp {
+			color: lighten(@font-swatch4-color, 20%);
+			font-size: bkscale(@font-swatch7-font-size, 0.85);
+			font-weight: @font-swatch7-font-weight;
+			letter-spacing: 1px;
+			margin: 0;
+			text-transform: uppercase;
+
+			@media @tablet-860px {
+				margin: 25px 0 0;
+			}	
+		}
+	}
+}
+
+
+
+// -----------------------------
+//  3. Blog Post
+// -----------------------------
+
+.blogpost {
+	.post-article {
+		.flex-display;
+		.flex-wrap(wrap);
+		position: relative;
+	}
+
+	.post-image, .post-content, .post-footer {
+		.flex-grow(0);
+	}
+
+	.post-image {
+		.flex(0 100%);
+
+		.image {
+			max-height: 600px;
+		}
+	}
+
+	.post-content {
+		.flex(0 75%);
+		padding: 20px 65px 30px 0;
+
+		@media @tablet-860px {
+			.flex( 0 100%);
+			padding-bottom: 0;
+			padding-right: 0;
+		}
+	}
+
+	.post-footer {
+		border: 2px solid @color-swatch7;
+		.flex(0 25%);
+		padding: 0;
+		margin-top: 55px;
+		height: 100%;
+
+		@media @tablet-860px {
+			.flex( 0 100%);
+			margin-top: 0;
+		}
+
+		.category-title, .tags-title {
+			display: block;
+			line-height: 1;
+		}
+
+		.post-category, .post-tags {
+			border-bottom: 2px solid @color-swatch7;
+			padding: 20px 25px 10px;
+		}
+
+		.timestamp {
+			border-bottom: 2px solid @color-swatch7;
+			padding: 20px 25px;
+		}
+
+		.post-attributes {
+			margin: 0;
+		}
+
+		.sharing-links {
+			padding: 0 25px;
+
+			li.network-item {
+				margin: 10px 16px 10px 0;
+			}
+
+			button {
+				background-color: transparent;
+				font-size: 16px;
+				min-width: initial;
+				padding: 0;
+				height: 25px;
+				width: 15px;
+				&:hover {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+
+	.timestamp, .category-title, .category-link, .tags-title, .tag-link {
+		color: lighten(@font-swatch4-color, 20%);
+		font-size: bkscale(@font-swatch7-font-size, 0.85);
+		font-weight: @font-swatch7-font-weight;
+		letter-spacing: 1px;
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	.category-link, .tag-link {
+		color: @color-swatch2;
+
+		&:after {
+			content: ",";
+			position: relative;
+		}
+	}
+
+	.tag-item:last-child .tag-link:after, .category-link:after {
+		display: none;
+	}
+}

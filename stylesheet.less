@@ -1,0 +1,586 @@
+
+// -----------------------------
+// Table of Contents
+// -----------------------------
+
+//  1.   LESS Includes
+//  2.   Theme Styles
+
+
+
+// -----------------------------
+//  1. LESS Includes
+// -----------------------------
+
+
+// BK LESS Framework Include
+// -------------------------
+
+@import "@{templateCommon}/bk-less-framework.less";
+
+
+// Theme Includes
+// --------------
+
+@import "@{templateLocal}/less/mixins.less";            // Mixins
+@import "@{templateLocal}/less/type.less";              // Typography
+@import "@{templateLocal}/less/widgets.less";           // Widgets
+
+
+// Plugin Includes
+// ---------------
+
+@import "@{templateLocal}/less/plugins/blog.less";              // Blog
+@import "@{templateLocal}/less/plugins/menu.less";              // Menu
+@import "@{templateLocal}/less/plugins/ecommerce.less";         // Ecommerce
+
+
+
+// -----------------------------
+//  2. Theme Styles
+// -----------------------------
+
+
+
+// Global
+// ---------------
+
+
+// Container
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+
+    @media @tablet-860px {
+        margin: 0 25px;
+    }
+}
+
+
+
+// Form Styles
+// ---------------
+
+
+// Legends
+
+legend {
+    color: @font-swatch2-color;
+    font-family: @font-swatch2-font-family;
+    font-size: bkscale(@font-swatch3-font-size, 0.9);
+    margin-bottom: 25px;
+
+    @media @mobile-650px {
+        font-size: bkscale(@font-swatch3-font-size, 0.75);
+        line-height: bkscale(@font-swatch3-line-height, 0.8);
+    }
+}
+
+// Labels
+label {
+    color: lighten(@font-swatch4-color, 20%);
+    font-size: bkscale(@font-swatch7-font-size, 0.85);
+    font-weight: @font-swatch7-font-weight;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+// Inputs & textareas
+input[type="search"], 
+input[type="email"], 
+input[type="password"], 
+textarea, 
+.input--single-line {
+    border: 2px solid #ddd;
+    font-size: bkscale(@font-swatch5-font-size, 0.95);
+    padding: 10px;
+
+    &:focus {
+        border-color: @color-swatch2;
+    }
+}
+
+input[type="search"], 
+input[type="email"], 
+input[type="password"], 
+.product-filters .input--search,
+.input--single-line {
+    height: 54px;
+}
+
+// Selects
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #ddd;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 500;
+    height: 54px;
+    padding: 0 12px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+select::-ms-expand{
+    display: none;
+}
+
+.select-wrap {
+    position: relative;
+    &:after {
+        font-family: 'FontAwesome', sans-serif;
+        font-size: 16px;
+        text-rendering: auto;
+        content:"\f107";
+        position: absolute;
+        right: 15px;
+        top: 22%;
+    }
+}
+
+// Buttons in main zone only
+div[role="main"] {
+    button, .button {
+        background-color: @font-swatch7-background-color;
+        color: @font-swatch7-color;
+        letter-spacing: @font-swatch7-letter-spacing;
+        //min-width: 100px;
+        padding: 12px 20px;
+        text-transform: uppercase;
+        .transition(all 0.5s ease-in-out);
+
+        &:hover {
+            background-color: @font-swatch7-background-color-hover;
+            color: @font-swatch7-color-hover;
+        }
+    }
+}
+
+
+
+// Header
+// ---------------
+
+
+// Default header styling
+.template-header {
+    background-color: white;
+    padding: 20px 0;
+    position: relative;
+
+    .container {
+        .flex;
+        .flex-display;
+        .flex-wrap;
+    }
+
+    .brand, .template-nav {
+        .flex-grow(1);
+    }
+}
+
+// Logo & Company Name
+.brand {
+    padding-top: 12px;
+
+    // Logo & Company name
+    .widget {
+        display: inline-block;
+    }
+
+    //
+    .company-link {
+        text-transform: uppercase;
+        vertical-align: text-bottom;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+// Header styling if slideshow is present
+.home-page [data-widget-type="responsiveslideshow"] + .template-header {
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    .container {
+        margin: 0 35px;
+        max-width: 100%;
+    }
+
+    .company-link {
+        color: white;
+    }
+
+    .navigation-item {
+        &.selected {
+            color: white;
+        }
+        .item-name {
+            color: fade(white, 80%);
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}
+
+
+
+// Navigation
+// ---------------
+
+.navigation-toggle {
+    display: none;
+    visibility: hidden;
+
+    @media @tablet-860px {
+        visibility: visible;
+
+        background-color: transparent;
+        display: inline-block;
+        position: absolute;
+        height: 44px;
+        width: 40px;
+        right: 0;
+        text-indent: 1000px;
+        overflow: hidden;
+        line-height: 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            top: 0;
+            left: 50%;
+            right: 0;
+            margin-top: 15px;
+            margin-left: -13px;
+            background: @color-swatch7;
+            box-shadow: 0 7px 0 @color-swatch7;
+            .transition( all, 0.5s, ease );
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            top: 14px;
+            left: 50%;
+            right: 0;
+            margin-top: 15px;
+            margin-left: -13px;
+            background: @color-swatch7;
+            .transition( all, 0.5s, ease );
+        }
+    }
+}
+
+.navigation-item .item-namne {
+    padding: 6px 12px;
+}
+
+.navigation-list {
+    margin: 0;
+
+    @media @tablet-860px {
+        display: none;
+        &.open {
+            display: block;
+        }
+    }
+}
+
+
+
+// Slideshow
+// ---------------
+
+.home-page .responsiveslideshow {
+
+    // Adds black gradiented overlay to slideshow
+    &:after {
+        background-image: -ms-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+        background-image: -moz-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+        background-image: -o-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.4, fade(@color-swatch4, 20%)), color-stop(1, fade(@color-swatch4, 50%)));
+        background-image: -webkit-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+        background-image: linear-gradient(to bottom, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .slides-list {
+        position: relative;
+        height: 100vh;
+    }
+
+    // Overide the default display method to be able to transition
+    .slide-item {
+        display: list-item!important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        height: 0;
+        .transition(1s all ease-in-out);
+        visibility: hidden;
+
+        // Targeting the slideshow loops currently non visible slides
+        /*&[style="display: none;"] {
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0!important;
+            height: 0!important;
+            visibility: hidden!important;
+        }*/
+
+        // The active state for the slideshows next and previous controls
+        &.current {
+            height: auto;
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+        }
+    }
+
+    // Image element
+    figure {
+        background-repeat: no-repeat;
+        background-size: cover!important;
+        height: 100vh;
+    }
+
+    // Navigation buttons
+    .slide-navigation {
+        bottom: 35px;
+        position: absolute;
+        left: 35px;
+        margin: 0;
+        z-index: 2;
+
+        @media @mobile-650px {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        // Button styles
+        button {
+            background-color: transparent;
+            border-top: 2px solid fade(white, 40%);
+            border-bottom: 2px solid fade(white, 40%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            .transition(1s all ease-in-out);
+        }
+
+        // Button text
+        .control-text {
+            display: none;
+            height: 0;
+            visibility: hidden;
+        }
+
+        // Previous and next button
+        .previous-button, .next-button {
+            height: 60px;
+            width: 65px;
+
+            @media @mobile-650px {
+                he
+            }
+        }
+
+        // Next button
+        .next-button {
+            border-right: 2px solid fade(white, 40%);
+            margin-left: -4px;
+
+            &:after {
+                border-style: solid;
+                border-width: 8px 0 8px 10px;
+                border-color: transparent transparent transparent rgba(255,255,255, 0.8);
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                left: 22px;
+                top: 21px;
+                .transition(0.75s border ease-in-out);
+            }
+
+            &:hover:after {
+                border-color: transparent transparent transparent @color-swatch1;
+            }
+        }
+
+        // Previous button
+        .previous-button {
+            border-left: 2px solid fade(white, 40%);
+            margin-right: -3px;
+
+            &:before {
+                border-style: solid;
+                border-width: 8px 10px 8px 0;
+                border-color: transparent rgba(255,255,255, 0.8) transparent transparent;
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                right: 22px;
+                top: 21px;
+                .transition(0.75s border ease-in-out);
+            }
+
+            &:hover:before {
+                border-color: transparent @color-swatch1 transparent transparent;
+            }
+        }
+
+        // Pause button
+        .js-btn-play {
+            border-left: 2px solid fade(white, 40%);
+            border-right: 2px solid fade(white, 40%);
+            height: 60px;
+            width: 100px;
+            vertical-align: top;
+
+            &:after {
+                border-style: solid;
+                border-width: 11px 0 11px 13px;
+                border-color: transparent transparent transparent white;
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                left: 38px;
+                top: 18px;
+            }
+
+            &:before {
+                height: 0;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &.pause {
+                &:before, &:after {
+                    background-color: white;
+                    content: "";
+                    display: inline-block;
+                    margin: 0;
+                    opacity: 1;
+                    position: absolute;
+                    height: 20px;
+                    width: 3px;
+                    top: 19px;
+                    visibility: visible;
+                }
+                &:before {
+                    left: 40px;
+                }
+
+                &:after {
+                    border: none;
+                    left: 50px;
+                }
+            }
+        }
+    }
+
+    // Slide pagination
+    .slide-pagination {
+        bottom: 35px;
+        position: absolute;
+        right: 35px;
+        z-index: 2;
+
+        // Pagination list element
+        .pagination-item {
+            margin-left: 15px;
+            &.selected button {
+                 background-color: white;
+                 border: 2px solid white;
+                 position: relative;
+                 margin-top: -1px;
+                 height: 15px;
+                 width: 15px;
+            }
+        }
+
+        // Pagination button
+        button {
+            background-color: transparent;
+            border: 2px solid fade(white, 40%);
+            overflow: hidden;
+            padding: 0;
+            .rotate(45deg);
+            text-indent: -9999px;
+            height: 14px;
+            width: 14px;
+        }
+    }
+}
+
+
+
+// Main
+// ---------------
+
+div[role="main"] {
+    padding: 3em 1em;
+
+    &.ecom-product {
+        min-height: 78vh;
+        padding: 0 1em 0 0;
+    }
+}
+
+
+
+// Footer
+// ---------------
+
+.template-footer {
+    border-top: 1px solid gainsboro;
+    padding: 30px 0;
+    position: relative;
+
+    .container {
+        .flex;
+        .flex-display;
+        .flex-wrap;
+
+        margin: 0 auto;
+        max-width: 1200px
+    }
+
+    .widget {
+        .flex-grow(1);
+    }
+    .address-line {
+        display: inline-block;
+    }
+    .copyright {
+        padding: 0;
+        text-align: right;
+    }
+}

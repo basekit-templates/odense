@@ -1,0 +1,25 @@
+{% extends "layout.twig" %}
+{% block content %}
+
+<!-- CONTAINER -->
+<div class="template-container default-page">
+
+	<!-- HEADER -->
+	{% include "includes/header.twig" %}
+
+	<!-- MAIN SECTION -->
+	<div role="main">
+
+		<!-- MAIN WIDGET ZONE -->
+	   	{{zone('main')|raw}}
+
+	</div>
+	<!-- END MAIN SECTION -->
+
+	<!-- FOOTER -->
+	{% include "includes/footer.twig" %}
+
+</div>
+<!-- END CONTAINER -->
+
+{% endblock %}

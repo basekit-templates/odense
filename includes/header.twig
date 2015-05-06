@@ -1,0 +1,11 @@
+<header class="template-header">
+	<div class="container">
+		<div class="brand">
+			{{widget('logo', 'header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+			{{widget('companyname', 'companyname', {"business": "ODENSE", "showTplWidget":"0"})|raw}}
+		</div>
+		<nav class="template-nav">
+			{{widget('extendednavigation', 'header-nav', {"align":"right"})|raw}}
+		</nav>
+	</div>
+</header>

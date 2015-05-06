@@ -1,0 +1,91 @@
+{% extends "layout.twig" %}
+{% block content %}
+
+<!-- CONTAINER -->
+<div class="template-container">
+	<div class="home-page">
+
+		<!-- FULL SCREEN SLIDESHOW -->
+		{{widget('responsiveslideshow', 'slideshow', {
+			'duration':'3',
+			'transSpeed': '1000',
+			'transType': 'fade',
+			'showButtons': true,
+			'showBullets': true,
+			'allowPause': true,
+			'allowLoop': false,
+			'images':[
+			{
+				'imageHeight':'auto',
+				'imageWidth':'100%',
+				'url':'https://download.unsplash.com/photo-1428342319217-5fdaf6d7898e',
+				'title':'First slide title',
+				'description': 'First slide description'
+			},
+			{
+				'imageHeight':'auto',
+				'imageWidth':'100%',
+				'url':'https://download.unsplash.com/photo-1422433555807-2559a27433bd', 
+				'title':'Second slide title',
+				'description': 'Second slide description'
+			},
+			{
+				'imageHeight':'auto',
+				'imageWidth':'100%',
+				'url':'https://download.unsplash.com/photo-1421809313281-48f03fa45e9f',
+				'title':'Third slide title',
+				'description': 'Third slide description'
+			}
+			]
+		})|raw}}
+
+		<!-- HEADER -->
+		{% include "includes/header.twig" %}
+		
+	</div>
+
+	<!-- MAIN SECTION -->
+	<div role="main" id="main">
+
+		<div class="container">
+
+		<!-- MAIN ZONE -->
+		{{zone('main')|raw}}
+
+		</div>
+
+	</div>
+	<!-- END MAIN SECTION -->
+
+	<!-- FOOTER -->
+	{% include "includes/footer.twig" %}
+
+</div>
+<!-- END CONTAINER -->
+
+<!-- MASONRY GALLERY -->
+
+{% endblock %}
+
+
+{% block scripts %}
+
+	<!-- JQUERY -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<!-- imagesLoaded -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
+
+	<!-- Masonry -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.2.1/masonry.pkgd.min.js"></script>
+
+	<script>
+		var container = document.querySelector('.product-list');
+		imagesLoaded( container, function() {
+			var msnry = new Masonry( container, {
+				itemSelector: '.product-item'
+			});
+		});
+	</script>
+	
+{% endblock %}
