@@ -232,7 +232,7 @@ hr.rule {
 
 
 // -----------------------------
-//  8. Slideshow Widget
+//  8. Gallery Widget
 // -----------------------------
 
 .widget__gallery {
@@ -365,5 +365,74 @@ hr.rule {
         }
     }
 }
+
+// -----------------------------
+// 7.  Slideshow
+// -----------------------------
+
+
+// Slideshow Height
+.responsiveslideshow, .responsiveslideshow__figure {
+    position: relative;
+    min-height: 400px;
+}
+
+.responsiveslideshow {
+
+    // Slide Caption
+    .caption {
+        background-color: transparent;
+        bottom: -84px;
+        display: inline-block;
+        padding-left: 0;
+        width: auto;
+    }
+
+    // Slide Navigation Controls
+    .slide-navigation {
+        display: inline-block;
+        float: right;
+    }
+
+    // Overlay Slide Pagination Over Image
+    .slide-pagination {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+
+        // Restrict Width of Pagination
+        ul.pagination-list {
+            width: 50px;
+        }
+
+        li.pagination-item {
+            margin-bottom: 5px;
+            margin-left: 15px;
+
+            &.selected button {
+                 background-color: white;
+                 border: 2px solid white;
+                 position: relative;
+                 margin-top: -1px;
+                 height: 15px;
+                 width: 15px;
+            }
+        }
+
+        // Pagination button
+        button {
+            background-color: transparent;
+            overflow: hidden;
+            padding: 0!important;
+            .rotate(45deg);
+            text-indent: -9999px;
+            height: 14px;
+            width: 14px;
+        }
+
+    }
+
+}
+
 
 

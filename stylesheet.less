@@ -97,6 +97,7 @@ textarea,
 
     &:focus {
         border-color: @color-swatch2;
+        .transition(.3s all ease-in);
     }
 }
 
@@ -177,7 +178,12 @@ div[role="main"] {
     }
 
     .brand, .template-nav {
+        .flex(1 50%);
         .flex-grow(1);
+    }
+
+    .template-nav {
+        .align-self(flex-start);
     }
 }
 
@@ -187,7 +193,7 @@ div[role="main"] {
 
     // Logo & Company name
     .widget {
-        display: inline-block;
+
     }
 
     //
@@ -208,7 +214,7 @@ div[role="main"] {
     left: 0;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 9999;
 
     .container {
         margin: 0 35px;
@@ -285,8 +291,15 @@ div[role="main"] {
     }
 }
 
-.navigation-item .item-namne {
-    padding: 6px 12px;
+.navigation-item {
+
+    &:last-child .item-name {
+        padding-right: 0;
+    }
+
+    .item-name {
+        padding: 6px 12px;
+    }
 }
 
 .navigation-list {
@@ -368,6 +381,29 @@ div[role="main"] {
         height: 100vh;
     }
 
+    // Image title and description
+    .caption {
+        background-color: transparent;
+        bottom: initial;
+        padding: 0;
+        text-align: center;
+        top: 45%;
+
+        .image-title, .image-description {
+            color: @color-swatch1;
+        }
+
+        .image-title {
+            font-family: @font-swatch1-font-family;
+            font-size: @font-swatch1-font-size;
+            margin-bottom: 18px;
+        }
+
+        .image-description {
+            font-size: bkscale(@font-swatch5-font-size, 1.1);
+        }
+    }
+
     // Navigation buttons
     .slide-navigation {
         bottom: 35px;
@@ -403,10 +439,6 @@ div[role="main"] {
         .previous-button, .next-button {
             height: 60px;
             width: 65px;
-
-            @media @mobile-650px {
-                he
-            }
         }
 
         // Next button
@@ -435,6 +467,8 @@ div[role="main"] {
         // Previous button
         .previous-button {
             border-left: 2px solid fade(white, 40%);
+            border-right: 2px solid fade(white, 40%);
+
             margin-right: -3px;
 
             &:before {
@@ -453,6 +487,22 @@ div[role="main"] {
             &:hover:before {
                 border-color: transparent @color-swatch1 transparent transparent;
             }
+        }
+
+        // If the pause button is visible add a border left to the next button
+        .previous-button + .pause-toggle + .next-button {
+            border-left: 2px solid fade(white, 40%);
+        }
+
+        // If the pause button isn't visible remove the minus margin
+        .previous-button + .previous-next {
+            margin-left: 0;
+        }
+
+        // If the previous and next buttons are visible then remove borders from the play/pause button
+        .previous-button + .pause-toggle {
+            border-left: 0;
+            border-right: 0;
         }
 
         // Pause button
@@ -513,9 +563,22 @@ div[role="main"] {
         right: 35px;
         z-index: 2;
 
+        @media @mobile-650px {
+            bottom: initial;
+            right: 25px;
+            top: 45%;
+        }
+
         // Pagination list element
         .pagination-item {
             margin-left: 15px;
+
+            @media @mobile-650px {
+                display: block;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+            
             &.selected button {
                  background-color: white;
                  border: 2px solid white;
@@ -569,8 +632,9 @@ div[role="main"] {
         .flex-display;
         .flex-wrap;
 
-        margin: 0 auto;
-        max-width: 1200px
+        @media @tablet-860px {
+            display: block;
+        }
     }
 
     .widget {
@@ -582,5 +646,10 @@ div[role="main"] {
     .copyright {
         padding: 0;
         text-align: right;
+
+        @media @mobile-650px {
+            margin-top: 12px;
+            text-align: left;
+        }
     }
 }

@@ -3,22 +3,24 @@
 
 <!-- CONTAINER -->
 <div class="template-container">
+	<div class="ecom-product">
 
-	<!-- HEADER -->
-	{% include "includes/header.twig" %}
+		<!-- HEADER -->
+		{% include "includes/header.twig" %}
 
-	<!-- MAIN SECTION -->
-	<div role="main" class="ecom-product">
+		<!-- MAIN SECTION -->
+		<div role="main" class="ecom-product">
 
-		<!-- MAIN WIDGET ZONE -->
-		{{widget('ecomproduct', 'singleproduct', {})|raw}} 
+			<!-- MAIN WIDGET ZONE -->
+			{{widget('ecomproduct', 'singleproduct', {})|raw}} 
+
+		</div>
+		<!-- END MAIN SECTION -->
+
+		<!-- FOOTER -->
+		{% include "includes/footer.twig" %}
 
 	</div>
-	<!-- END MAIN SECTION -->
-
-	<!-- FOOTER -->
-	{% include "includes/footer.twig" %}
-
 </div>
 <!-- END CONTAINER -->
 
