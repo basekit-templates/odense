@@ -2,23 +2,28 @@
 {% block content %}
 
 <!-- CONTAINER -->
-<div class="template-container default-page">
+<div class="template-container">
+	<div class="default-page">
 
 	<!-- HEADER -->
 	{% include "includes/header.twig" %}
 
 	<!-- MAIN SECTION -->
-	<div role="main">
+	<div role="main" id="main">
 
-		<!-- MAIN WIDGET ZONE -->
-	   	{{zone('main')|raw}}
+		<div class="container">
+
+			<!-- MAIN ZONE -->
+			{{zone('main')|raw}}
+
+		</div>
 
 	</div>
-	<!-- END MAIN SECTION -->
 
 	<!-- FOOTER -->
 	{% include "includes/footer.twig" %}
 
+	</div>
 </div>
 <!-- END CONTAINER -->
 

@@ -378,6 +378,7 @@ hr.rule {
 }
 
 .responsiveslideshow {
+    padding-bottom: 80px;
 
     // Slide Caption
     .caption {
@@ -386,23 +387,97 @@ hr.rule {
         display: inline-block;
         padding-left: 0;
         width: auto;
+
+        .image-title {
+            color: @font-swatch4-color;
+            font-size: @font-swatch4-font-size;
+        }
+
+        .image-description {
+
+        }
     }
 
     // Slide Navigation Controls
     .slide-navigation {
-        display: inline-block;
-        float: right;
+        position: absolute;
+        top: 40%;
+        width: 100%;
+
+        button {
+            background-color: @color-swatch1;
+            position: absolute;
+            height: 65px;
+            width: 65px;
+
+            .icon:before {
+                margin-right: 0;
+            }
+        }
+
+        // Hides button control text (play, pause etc.)
+        button span.control-text {
+            display: none;
+        } 
+
+        // Rotate the previous and next buttons to look like diamonds
+        .previous-button, 
+        .next-button {
+            .transform(@transform: rotate(45deg));
+
+            &:before, &:after {
+                font-size: 28px;
+                line-height: 26px;
+                margin: 0;
+                position: absolute;
+                .transform(@transform: rotate(-45deg));
+                left: 18px;
+                right: 18px;
+                bottom: 20px;
+                top: 20px;
+            }
+        }
+
+        .previous-button {
+            left: -32px;
+
+            &:before {
+                content: "\2190";
+            }
+        }
+        .next-button {
+            right: -32px;
+
+            &:after {
+                content: "\2192";
+            }
+        }
+        .pause-toggle {
+            background-color: fade(@color-swatch1, 25%);
+            left: 45%;
+
+            &:before {
+                border-left: 3px solid fade(@color-swatch2, 75%);
+                border-right: 3px solid fade(@color-swatch2, 75%);
+                content: "";
+                font-size: 20px;
+                margin: 0;
+                padding: 0 3px;
+                vertical-align: top;
+            } 
+        }
     }
 
     // Overlay Slide Pagination Over Image
     .slide-pagination {
-        position: absolute;
-        right: 25px;
-        top: 25px;
+        display: inline-block;
+        float: right;
+        margin: 25px 0;
+        max-width: 40%;
 
         // Restrict Width of Pagination
         ul.pagination-list {
-            width: 50px;
+            text-align: right;
         }
 
         li.pagination-item {
@@ -410,8 +485,8 @@ hr.rule {
             margin-left: 15px;
 
             &.selected button {
-                 background-color: white;
-                 border: 2px solid white;
+                 background-color: @color-swatch2;
+                 border: 2px solid @color-swatch2;;
                  position: relative;
                  margin-top: -1px;
                  height: 15px;
@@ -421,7 +496,7 @@ hr.rule {
 
         // Pagination button
         button {
-            background-color: transparent;
+            background-color: @color-swatch3;
             overflow: hidden;
             padding: 0!important;
             .rotate(45deg);
@@ -436,3 +511,34 @@ hr.rule {
 
 
 
+// -----------------------------
+//  1. Yelp Widget
+// -----------------------------
+
+.review-list {
+    margin-left: 0;
+
+    .review-title {
+        margin-bottom: 5px;
+    }
+
+    .author-title, .review-author {
+        font-size: 21px;
+    }
+
+    .review-text {
+        padding: 10px 0px 2px;
+    }
+
+    .review-footer {
+        margin-top: 10px;
+
+        .timestamp {
+            font-size: 15px;
+        }
+    }
+
+    li {
+        list-style: none;
+    }
+}
