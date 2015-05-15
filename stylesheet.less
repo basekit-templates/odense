@@ -3,8 +3,9 @@
 // Table of Contents
 // -----------------------------
 
-//  1.   LESS Includes
-//  2.   Theme Styles
+//  1.  LESS Includes
+//  2.  Global Styles
+//  3.  Theme Styles 
 
 
 
@@ -128,6 +129,7 @@ select::-ms-expand{
     display: none;
 }
 
+// Add custom dropdown icon to selects
 .select-wrap {
     position: relative;
     &:after {
@@ -143,17 +145,17 @@ select::-ms-expand{
 
 // Buttons
 button, .button {
-    //background-color: @font-swatch7-background-color;
-    //color: @font-swatch7-color;
+    background-color: @font-swatch7-background-color;
+    color: @font-swatch7-color;
     letter-spacing: @font-swatch7-letter-spacing;
-    //min-width: 100px;
+    min-width: 100px;
     padding: 12px 20px;
     text-transform: uppercase;
     .transition(all 0.5s ease-in-out);
 
     &:hover {
-        //background-color: @font-swatch7-background-color-hover;
-        //color: @font-swatch7-color-hover;
+        background-color: @font-swatch7-background-color-hover;
+        color: @font-swatch7-color-hover;
     }
 }
 
@@ -170,7 +172,6 @@ button, .button {
     position: relative;
 
     .container {
-
         // Flex
         .flex;
         .flex-display;
@@ -178,10 +179,9 @@ button, .button {
     }
 
     .brand, .company-link {
-
         // Flex
         .flex-display;
-        .flex(1 50%);
+        .flex(1 1 auto);
         .flex-grow(1);
     }
 
@@ -200,6 +200,7 @@ button, .button {
         margin-right: 8px;
     }
 
+    // Company name colour
     .company-link {
         color: @font-swatch4-color;
     }
@@ -221,7 +222,6 @@ button, .button {
 
 // Logo & Company Name
 .brand {
-
     .company-link {
         text-transform: uppercase;
         vertical-align: text-bottom;
@@ -250,6 +250,10 @@ button, .button {
         .flex;
         .flex-display;
         .flex-wrap;
+
+        @media @tablet-860px {
+            margin: 0 25px;
+        }
     }
 
     // Make sure branding and navigation gets even split
@@ -257,7 +261,7 @@ button, .button {
 
         // Flex
         .flex-display;
-        .flex(1 50%);
+        .flex(1 1 auto);
         .flex-grow(1);
     }
 
@@ -276,6 +280,7 @@ button, .button {
         margin-right: 8px;
     }
 
+    // Company name colour when placed over a feature
     .company-link {
         color: @font-swatch10-color;
     }
@@ -300,53 +305,13 @@ button, .button {
 // Navigation
 // ---------------
 
+
+// Hide navigation toggle button
 .navigation-toggle {
     display: none;
-    visibility: hidden;
-
-    @media @tablet-860px {
-        visibility: visible;
-
-        background-color: transparent;
-        display: inline-block;
-        position: absolute;
-        height: 44px;
-        width: 40px;
-        right: 0;
-        text-indent: 1000px;
-        overflow: hidden;
-        line-height: 0;
-
-        &:before {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            top: 0;
-            left: 50%;
-            right: 0;
-            margin-top: 15px;
-            margin-left: -13px;
-            background: @color-swatch7;
-            box-shadow: 0 7px 0 @color-swatch7;
-            .transition( all, 0.5s, ease );
-        }
-        &:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            top: 14px;
-            left: 50%;
-            right: 0;
-            margin-top: 15px;
-            margin-left: -13px;
-            background: @color-swatch7;
-            .transition( all, 0.5s, ease );
-        }
-    }
 }
 
+// Universal navigation styling
 .navigation-item {
 
     &:last-child .item-name {
@@ -360,11 +325,91 @@ button, .button {
 
 .navigation-list {
     margin: 0;
+}
 
-    @media @tablet-860px {
-        display: none;
+// Mobile navigation styles
+@media @tablet {
+    .navigation-toggle {
+        background-color: transparent;
+        display: inline-block;
+        position: fixed; 
+        right: 25px;
+        margin-top: 20px;
+        text-indent: -9999px;
+        z-index: 9999;
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        &:before, &:after {
+            background: fade(black, 28%);
+            content: '';
+            margin: 0;
+            position: absolute;
+            right: 0;
+            height: 2px;
+            width: 32px;
+            .transform(rotate(0));
+            .transition(transform 0.5s ease);
+        }
+        &:before {
+              top: 0;
+              box-shadow: 0 7px 0 fade(black, 28%);
+        }
+        &:after { 
+              top: 14px;
+        }
+
+    }
+
+    // Toggle transition when navigation is open
+    .bk-extendednavigation.open .navigation-toggle {
+        &:before, &:after {
+            .transition(transform 0.5s ease);
+        }
+        &:before {
+            box-shadow: none;
+            .transform(rotate(45deg));
+        }
+        &:after {
+            top: 0;
+            .transform(rotate(-45deg));
+        }
+    }
+
+    // Sldie out navigation
+    .navigation-body {
+        background-color: @color-swatch1;
+        -webkit-box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
+        -moz-box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
+        box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
+        position: fixed;
+        top: 0;
+        right: -75%;
+        bottom: 0;
+        margin: 0;
+        padding-right: 15px;
+        padding-top: 100px;
+        height: 100%;
+        width: 75%;
+        .transition(right 400ms ease);
+
         &.open {
+            right: 0;
+        }
+
+        .navigation-item {
             display: block;
+            width: 100%;
+
+             &:last-child .item-name {
+                padding-right: 12px;
+            }
+
+            .item-name {
+                font-size: bkscale(@font-swatch6-font-size, 1.2);
+            }
         }
     }
 }
@@ -377,24 +422,6 @@ button, .button {
 .home-page {
 
     .responsiveslideshow {
-
-        // Adds black gradiented overlay to slideshow
-        &:after {
-            /*background-image: -ms-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-            background-image: -moz-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-            background-image: -o-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.4, fade(@color-swatch4, 20%)), color-stop(1, fade(@color-swatch4, 50%)));
-            background-image: -webkit-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-            background-image: linear-gradient(to bottom, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);*/
-
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
 
         .slides-list {
             position: relative;
@@ -688,6 +715,7 @@ div[role="main"] {
     position: relative;
 
     .container {
+        // Flex
         .flex;
         .flex-display;
         .flex-wrap;

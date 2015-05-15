@@ -24,6 +24,7 @@
 
         // Input Container
         &:first-child {
+        	margin-right: 0;
 			.flex-grow(1);
 
 			@media only screen and (max-width: 900px) {
@@ -33,6 +34,10 @@
 			@media @tablet-860px {
 				width: auto;
 			}
+		}
+
+		input {
+			border-right: 0;
 		}
 
 		// Button Container
@@ -119,7 +124,7 @@ form.ecomproductslist__form {
 
 	// Legend
 	legend {
-		margin-bottom: 15px;
+		display: none;
 	}
 
 	// Search and Filter Container 
@@ -217,8 +222,15 @@ li.product-item {
 			width: 100%!important;
 		}
 
-		&:nth-child(3n+3) {
-			padding-right: 0;
+		.product-item-image, .product-item-image .image-link {
+			background-color: transparent;
+		}
+
+		&:nth-child(3),
+		&:nth-child(9),
+		&:nth-child(15),
+		&:nth-child(21),
+		&:nth-child(27) {
 			width: 50%;
 
 			@media @tablet-860px {
@@ -241,8 +253,11 @@ li.product-item {
 			}
 		}
 
-		// Every third product is larger
-		&:nth-child(4n+4) {
+		&:nth-child(4),
+		&:nth-child(10),
+		&:nth-child(16),
+		&:nth-child(22),
+		&:nth-child(28) {
 			width: 50%;
 
 			@media @tablet-860px {
@@ -259,8 +274,54 @@ li.product-item {
 			}
 		}
 
+		&:nth-child(3n+3) {
+			padding-right :0;
+		}
+
+		/*&:nth-child(3n+3) {
+			padding-right: 0;
+			width: 50%;
+
+			@media @tablet-860px {
+				padding-right: 40px;
+			}
+
+			// Last item in the row, remove right margin
+			.product-item-article {
+				margin-right: 0;
+			}
+
+			.product-item-image, .product-item-image .image-link {
+				height: 400px;
+				line-height: 400px;
+
+				@media @tablet-860px {
+					height: 200px;
+					line-height: 200px;
+				}
+			}
+		}*/
+
+		// Every third product is larger
+		/*&:nth-child(4n+4) {
+			width: 50%;
+
+			@media @tablet-860px {
+				padding-right: 0;			}
+
+			.product-item-image, .product-item-image .image-link{
+				height: 400px;
+				line-height: 400px;
+
+				@media @tablet-860px {
+					height: 200px;
+					line-height: 200px;
+				}
+			}
+		}*/
+
 		// If there is a fourth product then the third from above is nullified
-		&:nth-child(4n+2) {
+		/*&:nth-child(4n+2) {
 			width: 25%;
 
 			@media @tablet-860px {
@@ -272,7 +333,7 @@ li.product-item {
 				height: 200px;
 				line-height: 200px;
 			}
-		}
+		}*/
 
 		// Some kind of witchcraft, makes everything even until there are 6 products
 		&:nth-child(1):nth-last-child(5),
@@ -556,7 +617,8 @@ li.product-item {
 		}
 
 		.image-button {
-		display: block;
+			cursor: crosshair;
+			display: block;
 
 			.image {
 				width: 100%;
