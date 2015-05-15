@@ -170,31 +170,58 @@ button, .button {
     position: relative;
 
     .container {
+
+        // Flex
         .flex;
         .flex-display;
         .flex-wrap;
     }
 
-    .brand, .template-nav {
+    .brand, .company-link {
+
+        // Flex
+        .flex-display;
         .flex(1 50%);
         .flex-grow(1);
     }
 
-    .template-nav {
-        .align-self(flex-start);
+    // Logo and company name flex
+    [data-widget-type="logo"], [data-widget-type="companyname"] {
+        .flex(0 0 auto);
+    }
+
+    // Keeps company name vertical center of the logo no matter the size
+    [data-widget-type="companyname"] {
+        .align-self(center);
+    }
+
+    // Add space between logo and company name
+    .bk-logo {
+        margin-right: 8px;
+    }
+
+    .company-link {
+        color: @font-swatch4-color;
+    }
+
+    // Color of navigation links when overlaying a feature image
+    .navigation-item {
+        &.selected {
+            color: @color-swatch4;
+        }
+        .item-name {
+            color: @color-swatch5;
+
+            &:hover {
+                color: @color-swatch4;
+            }
+        }
     }
 }
 
 // Logo & Company Name
 .brand {
-    padding-top: 12px;
 
-    // Logo & Company name
-    .widget {
-
-    }
-
-    //
     .company-link {
         text-transform: uppercase;
         vertical-align: text-bottom;
@@ -214,24 +241,55 @@ button, .button {
     width: 100%;
     z-index: 9999;
 
+    // Container for logo and navigation
     .container {
         margin: 0 35px;
         max-width: 100%;
+
+        // Flex
+        .flex;
+        .flex-display;
+        .flex-wrap;
+    }
+
+    // Make sure branding and navigation gets even split
+    .brand, .company-link {
+
+        // Flex
+        .flex-display;
+        .flex(1 50%);
+        .flex-grow(1);
+    }
+
+    // Logo and company name flex
+    [data-widget-type="logo"], [data-widget-type="companyname"] {
+        .flex(0 0 auto);
+    }
+
+    // Keeps company name vertical center of the logo no matter the size
+    [data-widget-type="companyname"] {
+        .align-self(center);
+    }
+
+    // Add space between logo and company name
+    .bk-logo {
+        margin-right: 8px;
     }
 
     .company-link {
-        color: white;
+        color: @font-swatch10-color;
     }
 
+    // Color of navigation links when overlaying a feature image
     .navigation-item {
         &.selected {
-            color: white;
+            color: @color-swatch1;
         }
         .item-name {
-            color: fade(white, 80%);
+            color: fade(black, 28%);
 
             &:hover {
-                color: white;
+                color: @color-swatch1;
             }
         }
     }
@@ -316,287 +374,291 @@ button, .button {
 // Slideshow
 // ---------------
 
-.home-page .responsiveslideshow {
+.home-page {
 
-    // Adds black gradiented overlay to slideshow
-    &:after {
-        background-image: -ms-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-        background-image: -moz-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-        background-image: -o-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.4, fade(@color-swatch4, 20%)), color-stop(1, fade(@color-swatch4, 50%)));
-        background-image: -webkit-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
-        background-image: linear-gradient(to bottom, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+    .responsiveslideshow {
 
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
+        // Adds black gradiented overlay to slideshow
+        &:after {
+            /*background-image: -ms-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+            background-image: -moz-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+            background-image: -o-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.4, fade(@color-swatch4, 20%)), color-stop(1, fade(@color-swatch4, 50%)));
+            background-image: -webkit-linear-gradient(top, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);
+            background-image: linear-gradient(to bottom, fade(@color-swatch4, 20%) 40%, fade(@color-swatch4, 50%) 100%);*/
 
-    .slides-list {
-        position: relative;
-        height: 100vh;
-    }
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-    // Overide the default display method to be able to transition
-    .slide-item {
-        display: list-item!important;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        opacity: 0;
-        height: 0;
-        .transition(1s all ease-in-out);
-        visibility: hidden;
+        .slides-list {
+            position: relative;
+            height: 100vh;
+        }
 
-        // Targeting the slideshow loops currently non visible slides
-        /*&[style="display: none;"] {
+        // Overide the default display method to be able to transition
+        .slide-item {
+            display: list-item!important;
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            opacity: 0!important;
-            height: 0!important;
-            visibility: hidden!important;
-        }*/
-
-        // The active state for the slideshows next and previous controls
-        &.current {
-            height: auto;
-            opacity: 1;
-            visibility: visible;
-            z-index: 1;
-        }
-    }
-
-    // Image element
-    figure {
-        background-repeat: no-repeat;
-        background-size: cover!important;
-        height: 100vh;
-    }
-
-    // Image title and description
-    .caption {
-        background-color: transparent;
-        bottom: initial;
-        padding: 0;
-        text-align: center;
-        top: 45%;
-
-        .image-title, .image-description {
-            color: @color-swatch1;
-        }
-
-        .image-title {
-            font-family: @font-swatch1-font-family;
-            font-size: @font-swatch1-font-size;
-            margin-bottom: 18px;
-        }
-
-        .image-description {
-            font-size: bkscale(@font-swatch5-font-size, 1.1);
-        }
-    }
-
-    // Navigation buttons
-    .slide-navigation {
-        bottom: 35px;
-        position: absolute;
-        left: 35px;
-        margin: 0;
-        z-index: 2;
-
-        @media @mobile-650px {
-            bottom: 20px;
-            left: 20px;
-        }
-
-        // Button styles
-        button {
-            background-color: transparent;
-            border-top: 2px solid fade(white, 40%);
-            border-bottom: 2px solid fade(white, 40%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            .transition(1s all ease-in-out);
-        }
-
-        // Button text
-        .control-text {
-            display: none;
+            opacity: 0;
             height: 0;
+            .transition(1s all ease-in-out);
             visibility: hidden;
+
+            // Targeting the slideshow loops currently non visible slides
+            /*&[style="display: none;"] {
+                top: 0;
+                left: 0;
+                right: 0;
+                opacity: 0!important;
+                height: 0!important;
+                visibility: hidden!important;
+            }*/
+
+            // The active state for the slideshows next and previous controls
+            &.current {
+                height: auto;
+                opacity: 1;
+                visibility: visible;
+                z-index: 1;
+            }
         }
 
-        // Previous and next button
-        .previous-button, .next-button {
-            height: 60px;
-            width: 65px;
+        // Image element
+        figure {
+            background-repeat: no-repeat;
+            background-size: cover!important;
+            height: 100vh;
         }
 
-        // Next button
-        .next-button {
-            border-right: 2px solid fade(white, 40%);
-            margin-left: -4px;
+        // Image title and description
+        .caption {
+            background-color: transparent;
+            bottom: 50px;
+            left: 50px;
+            padding: 0;
+            text-align: left;
+            width: auto;
 
-            &:after {
-                border-style: solid;
-                border-width: 8px 0 8px 10px;
-                border-color: transparent transparent transparent rgba(255,255,255, 0.8);
-                content: "";
-                position: absolute;
-                width: 0;
+            .image-title, .image-description {
+                color: @color-swatch1;
+            }
+
+            .image-title {
+                font-family: @font-swatch1-font-family;
+                font-size: bkscale(@font-swatch1-font-size, 1.65);
+                line-height; bkscale(@font-swatch1-line-height, 1.75);
+                font-size: 52px;
+                line-height: 60px;
+                margin-bottom: 8px;
+            }
+
+            .image-description {
+                font-size: bkscale(@font-swatch5-font-size, 1.1);
+                font-size: 18px;
+                text-align: uppercase;
+            }
+        }
+
+        // Navigation buttons
+        .slide-navigation {
+            bottom: 50px;
+            position: absolute;
+            right: 50px;
+            margin: 0;
+            z-index: 2;
+
+            @media @mobile-650px {
+                bottom: 20px;
+                left: 20px;
+            }
+
+            // Button styles
+            button {
+                background-color: transparent;
+                border-top: 2px solid fade(white, 40%);
+                border-bottom: 2px solid fade(white, 40%);
+                color: white;
+                position: relative;
+                overflow: hidden;
+                .transition(1s all ease-in-out);
+            }
+
+            // Button text
+            .control-text {
+                display: none;
                 height: 0;
-                left: 22px;
-                top: 21px;
-                .transition(0.75s border ease-in-out);
-            }
-
-            &:hover:after {
-                border-color: transparent transparent transparent @color-swatch1;
-            }
-        }
-
-        // Previous button
-        .previous-button {
-            border-left: 2px solid fade(white, 40%);
-            border-right: 2px solid fade(white, 40%);
-
-            margin-right: -3px;
-
-            &:before {
-                border-style: solid;
-                border-width: 8px 10px 8px 0;
-                border-color: transparent rgba(255,255,255, 0.8) transparent transparent;
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 0;
-                right: 22px;
-                top: 21px;
-                .transition(0.75s border ease-in-out);
-            }
-
-            &:hover:before {
-                border-color: transparent @color-swatch1 transparent transparent;
-            }
-        }
-
-        // If the pause button is visible add a border left to the next button
-        .previous-button + .pause-toggle + .next-button {
-            border-left: 2px solid fade(white, 40%);
-        }
-
-        // If the pause button isn't visible remove the minus margin
-        .previous-button + .previous-next {
-            margin-left: 0;
-        }
-
-        // If the previous and next buttons are visible then remove borders from the play/pause button
-        .previous-button + .pause-toggle {
-            border-left: 0;
-            border-right: 0;
-        }
-
-        // Pause button
-        .js-btn-play {
-            border-left: 2px solid fade(white, 40%);
-            border-right: 2px solid fade(white, 40%);
-            height: 60px;
-            width: 100px;
-            vertical-align: top;
-
-            &:after {
-                border-style: solid;
-                border-width: 11px 0 11px 13px;
-                border-color: transparent transparent transparent white;
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 0;
-                left: 38px;
-                top: 18px;
-            }
-
-            &:before {
-                height: 0;
-                opacity: 0;
                 visibility: hidden;
             }
 
-            &.pause {
-                &:before, &:after {
-                    background-color: white;
-                    content: "";
-                    display: inline-block;
-                    margin: 0;
-                    opacity: 1;
-                    position: absolute;
-                    height: 20px;
-                    width: 3px;
-                    top: 19px;
-                    visibility: visible;
-                }
-                &:before {
-                    left: 40px;
-                }
+            // Previous and next button
+            .previous-button, .next-button {
+                height: 60px;
+                width: 65px;
+            }
+
+            // Next button
+            .next-button {
+                border-right: 2px solid fade(white, 40%);
+                margin-left: -4px;
 
                 &:after {
-                    border: none;
-                    left: 50px;
+                    border-style: solid;
+                    border-width: 8px 0 8px 10px;
+                    border-color: transparent transparent transparent rgba(255,255,255, 0.8);
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: 22px;
+                    top: 21px;
+                    .transition(0.75s border ease-in-out);
+                }
+
+                &:hover:after {
+                    border-color: transparent transparent transparent @color-swatch1;
+                }
+            }
+
+            // Previous button
+            .previous-button {
+                border-left: 2px solid fade(white, 40%);
+                border-right: 2px solid fade(white, 40%);
+
+                margin-right: -3px;
+
+                &:before {
+                    border-style: solid;
+                    border-width: 8px 10px 8px 0;
+                    border-color: transparent rgba(255,255,255, 0.8) transparent transparent;
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    right: 22px;
+                    top: 21px;
+                    .transition(0.75s border ease-in-out);
+                }
+
+                &:hover:before {
+                    border-color: transparent @color-swatch1 transparent transparent;
+                }
+            }
+
+            // If the pause button is visible add a border left to the next button
+            .previous-button + .pause-toggle + .next-button {
+                border-left: 2px solid fade(white, 40%);
+            }
+
+            // If the pause button isn't visible remove the minus margin
+            .previous-button + .previous-next {
+                margin-left: 0;
+            }
+
+            // If the previous and next buttons are visible then remove borders from the play/pause button
+            .previous-button + .pause-toggle {
+                border-left: 0;
+                border-right: 0;
+            }
+
+            // Pause button
+            .js-btn-play {
+                border-left: 2px solid fade(white, 40%);
+                border-right: 2px solid fade(white, 40%);
+                height: 60px;
+                width: 100px;
+                vertical-align: top;
+
+                &:after {
+                    border-style: solid;
+                    border-width: 11px 0 11px 13px;
+                    border-color: transparent transparent transparent white;
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: 38px;
+                    top: 18px;
+                }
+
+                &:before {
+                    height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                &.pause {
+                    &:before, &:after {
+                        background-color: white;
+                        content: "";
+                        display: inline-block;
+                        margin: 0;
+                        opacity: 1;
+                        position: absolute;
+                        height: 20px;
+                        width: 3px;
+                        top: 19px;
+                        visibility: visible;
+                    }
+                    &:before {
+                        left: 40px;
+                    }
+
+                    &:after {
+                        border: none;
+                        left: 50px;
+                    }
                 }
             }
         }
-    }
 
-    // Slide pagination
-    .slide-pagination {
-        bottom: 35px;
-        position: absolute;
-        right: 35px;
-        z-index: 2;
+        // Slide pagination
+        .slide-pagination {
+            bottom: 0;
+            position: absolute;
+            height: 100%;
+            right: 55px;
+            z-index: 2;
 
-        @media @mobile-650px {
-            bottom: initial;
-            right: 25px;
-            top: 45%;
-        }
 
-        // Pagination list element
-        .pagination-item {
-            margin-left: 15px;
+            ul.pagination-list {
+                position: absolute;
+                top: 48%;
+            }
 
-            @media @mobile-650px {
+            // Pagination list element
+            li.pagination-item {
                 display: block;
-                margin-bottom: 20px;
-                margin-left: 0;
+                margin-bottom: 12px;
+                
+                &.selected button {
+                    background-color: fade(black, 18%);
+                    border: none;
+                    position: relative;
+                    height: 16px;
+                    width: 16px;    
+                }
             }
-            
-            &.selected button {
-                 background-color: white;
-                 border: 2px solid white;
-                 position: relative;
-                 margin-top: -1px;
-                 height: 15px;
-                 width: 15px;
-            }
-        }
 
-        // Pagination button
-        button {
-            background-color: transparent;
-            border: 2px solid fade(white, 40%);
-            overflow: hidden;
-            padding: 0;
-            .rotate(45deg);
-            text-indent: -9999px;
-            height: 14px;
-            width: 14px;
+            // Pagination button
+            button {
+                background-color: transparent;
+                border: 2px solid fade(black, 14%);
+                overflow: hidden;
+                padding: 0;
+                .rotate(45deg);
+                text-indent: -9999px;
+                height: 15px;
+                width: 15px;
+            }
         }
     }
 }

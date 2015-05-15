@@ -17,11 +17,6 @@
 // ------------------------------------------
 
 
-// Important Mixin
-& {
-  .home-page() !important;
-}
-
 // Border Radius
 .border-radius(@radius: 6px) {
     -webkit-border-radius: @radius;
@@ -156,12 +151,21 @@
 
 
 // Align Items
+.align-self(@align: center) {
+  -webkit-align-self: @align;
+     -moz-align-self: @align;
+      -ms-align-self: @align;
+          align-self: @align;
+}
+
+// Align Items
 .align-items(@align: stretch) {
   -webkit-align-items: @align;
      -moz-align-items: @align;
       -ms-align-items: @align;
           align-items: @align;
 }
+
 
 
 // Ultimate Flexbox

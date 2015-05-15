@@ -10,10 +10,7 @@
     "templateType":"standard",
     "pageTypes": ["home", "ecomproduct", "ecomproductlist"],
     "images":[
-        "images/gallery/1.jpg",
-        "images/gallery/2.jpg",
-        "images/gallery/3.jpg",
-        "images/gallery/4.jpg"
+        "images/slide-1.jpg"
     ],
     "colorSwatches":
     {
@@ -148,7 +145,7 @@
             "font-size": "20px",
             "font-weight": "700",
             "line-height": "inherit",
-            "color": "@color-swatch4",
+            "color": "@color-swatch1",
             "letter-spacing": "1px"
         }
     }

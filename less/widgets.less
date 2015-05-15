@@ -371,142 +371,143 @@ hr.rule {
 // -----------------------------
 
 
-// Slideshow Height
-.responsiveslideshow, .responsiveslideshow__figure {
-    position: relative;
-    min-height: 400px;
-}
+div[role="main"] {
 
-.responsiveslideshow {
-    padding-bottom: 80px;
-
-    // Slide Caption
-    .caption {
-        background-color: transparent;
-        bottom: -84px;
-        display: inline-block;
-        padding-left: 0;
-        width: auto;
-
-        .image-title {
-            color: @font-swatch4-color;
-            font-size: @font-swatch4-font-size;
-        }
-
-        .image-description {
-
-        }
+    // Slideshow Height
+    .responsiveslideshow, .responsiveslideshow__figure {
+        position: relative;
+        min-height: 400px;
     }
 
-    // Slide Navigation Controls
-    .slide-navigation {
-        position: absolute;
-        top: 40%;
-        width: 100%;
+    .responsiveslideshow {
+        padding-bottom: 80px;
 
-        button {
-            background-color: @color-swatch1;
+        // Slide Caption
+        .caption {
+            background-color: transparent;
+            bottom: -84px;
+            display: inline-block;
+            padding-left: 0;
+            width: auto;
+
+            .image-title {
+                color: @font-swatch4-color;
+                font-size: @font-swatch4-font-size;
+            }
+
+            .image-description {
+
+            }
+        }
+
+        // Slide Navigation Controls
+        .slide-navigation {
             position: absolute;
-            height: 65px;
-            width: 65px;
+            top: 40%;
+            width: 100%;
 
-            .icon:before {
-                margin-right: 0;
-            }
-        }
-
-        // Hides button control text (play, pause etc.)
-        button span.control-text {
-            display: none;
-        } 
-
-        // Rotate the previous and next buttons to look like diamonds
-        .previous-button, 
-        .next-button {
-            .transform(@transform: rotate(45deg));
-
-            &:before, &:after {
-                font-size: 28px;
-                line-height: 26px;
-                margin: 0;
+            button {
+                background-color: @color-swatch1;
                 position: absolute;
-                .transform(@transform: rotate(-45deg));
-                left: 18px;
-                right: 18px;
-                bottom: 20px;
-                top: 20px;
+                height: 65px;
+                width: 65px;
+
+                .icon:before {
+                    margin-right: 0;
+                }
             }
-        }
 
-        .previous-button {
-            left: -32px;
-
-            &:before {
-                content: "\2190";
-            }
-        }
-        .next-button {
-            right: -32px;
-
-            &:after {
-                content: "\2192";
-            }
-        }
-        .pause-toggle {
-            background-color: fade(@color-swatch1, 25%);
-            left: 45%;
-
-            &:before {
-                border-left: 3px solid fade(@color-swatch2, 75%);
-                border-right: 3px solid fade(@color-swatch2, 75%);
-                content: "";
-                font-size: 20px;
-                margin: 0;
-                padding: 0 3px;
-                vertical-align: top;
+            // Hides button control text (play, pause etc.)
+            button span.control-text {
+                display: none;
             } 
-        }
-    }
 
-    // Overlay Slide Pagination Over Image
-    .slide-pagination {
-        display: inline-block;
-        float: right;
-        margin: 25px 0;
-        max-width: 40%;
+            // Rotate the previous and next buttons to look like diamonds
+            .previous-button, 
+            .next-button {
+                .transform(@transform: rotate(45deg));
 
-        // Restrict Width of Pagination
-        ul.pagination-list {
-            text-align: right;
-        }
+                &:before, &:after {
+                    font-size: 28px;
+                    line-height: 26px;
+                    margin: 0;
+                    position: absolute;
+                    .transform(@transform: rotate(-45deg));
+                    left: 18px;
+                    right: 18px;
+                    bottom: 20px;
+                    top: 20px;
+                }
+            }
 
-        li.pagination-item {
-            margin-bottom: 5px;
-            margin-left: 15px;
+            .previous-button {
+                left: -32px;
 
-            &.selected button {
-                 background-color: @color-swatch2;
-                 border: 2px solid @color-swatch2;;
-                 position: relative;
-                 margin-top: -1px;
-                 height: 15px;
-                 width: 15px;
+                &:before {
+                    content: "\2190";
+                }
+            }
+            .next-button {
+                right: -32px;
+
+                &:after {
+                    content: "\2192";
+                }
+            }
+            .pause-toggle {
+                background-color: fade(@color-swatch1, 25%);
+                left: 45%;
+
+                &:before {
+                    border-left: 3px solid fade(@color-swatch2, 75%);
+                    border-right: 3px solid fade(@color-swatch2, 75%);
+                    content: "";
+                    font-size: 20px;
+                    margin: 0;
+                    padding: 0 3px;
+                    vertical-align: top;
+                } 
             }
         }
 
-        // Pagination button
-        button {
-            background-color: @color-swatch3;
-            overflow: hidden;
-            padding: 0!important;
-            .rotate(45deg);
-            text-indent: -9999px;
-            height: 14px;
-            width: 14px;
+        // Overlay Slide Pagination Over Image
+        .slide-pagination {
+            display: inline-block;
+            float: right;
+            margin: 25px 0;
+            max-width: 40%;
+
+            // Restrict Width of Pagination
+            ul.pagination-list {
+                text-align: right;
+            }
+
+            li.pagination-item {
+                margin-bottom: 5px;
+                margin-left: 15px;
+
+                &.selected button {
+                     background-color: @color-swatch2;
+                     border: 2px solid @color-swatch2;;
+                     position: relative;
+                     margin-top: -1px;
+                     height: 15px;
+                     width: 15px;
+                }
+            }
+
+            // Pagination button
+            button {
+                background-color: @color-swatch3;
+                overflow: hidden;
+                padding: 0!important;
+                .rotate(45deg);
+                text-indent: -9999px;
+                height: 14px;
+                width: 14px;
+            }
         }
-
     }
-
 }
 
 
@@ -522,7 +523,7 @@ hr.rule {
         margin-bottom: 5px;
     }
 
-    .author-title, .review-author {
+    .author-label, .review-author {
         font-size: 21px;
     }
 
