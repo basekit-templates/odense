@@ -18,6 +18,7 @@
 // -------------------------
 
 @import "@{templateCommon}/bk-less-framework.less";
+@import "@{templateLocal}/vars.less";
 
 
 // Theme Includes
@@ -144,7 +145,8 @@ select::-ms-expand{
 }
 
 // Buttons
-button, .button {
+button, 
+.button {
     background-color: @font-swatch7-background-color;
     color: @font-swatch7-color;
     letter-spacing: @font-swatch7-letter-spacing;
@@ -186,7 +188,8 @@ button, .button {
     }
 
     // Logo and company name flex
-    [data-widget-type="logo"], [data-widget-type="companyname"] {
+    [data-widget-type="logo"], 
+    [data-widget-type="companyname"] {
         .flex(0 0 auto);
     }
 
@@ -257,7 +260,8 @@ button, .button {
     }
 
     // Make sure branding and navigation gets even split
-    .brand, .company-link {
+    .brand, 
+    .company-link {
 
         // Flex
         .flex-display;
@@ -475,7 +479,8 @@ button, .button {
             text-align: left;
             width: auto;
 
-            .image-title, .image-description {
+            .image-title, 
+            .image-description {
                 color: @color-swatch1;
             }
 
@@ -527,7 +532,8 @@ button, .button {
             }
 
             // Previous and next button
-            .previous-button, .next-button {
+            .previous-button, 
+            .next-button {
                 height: 60px;
                 width: 65px;
             }
@@ -710,7 +716,7 @@ div[role="main"] {
 // ---------------
 
 .template-footer {
-    border-top: 1px solid gainsboro;
+    border-top: 1px solid @color-swatch7;
     padding: 30px 0;
     position: relative;
 
