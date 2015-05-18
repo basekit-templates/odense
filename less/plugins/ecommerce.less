@@ -263,7 +263,7 @@ li.product-item {
 			@media @tablet-860px {
 				padding-right: 0;			}
 
-			.product-item-image, .product-item-image .image-link{
+			.product-item-image, .product-item-image .image-link {
 				height: 400px;
 				line-height: 400px;
 
@@ -275,7 +275,7 @@ li.product-item {
 		}
 
 		&:nth-child(3n+3) {
-			padding-right :0;
+			padding-right: 0;
 		}
 
 		/*&:nth-child(3n+3) {
@@ -385,12 +385,14 @@ li.product-item {
 
 
 // Pagination
+
 .listing-pagination {
+
     // Pagination Buttons
     .button {
         background-color: lighten(@font-swatch7-background-color, 45%);
         margin: 30px 0 20px;
-        min-width: 0px;
+        min-width: 0;
         padding: 3px 15px;
         &:hover {
             background-color: @font-swatch7-background-color;
@@ -399,6 +401,7 @@ li.product-item {
     .current .button {
         background-color: @font-swatch7-background-color;
     }
+
     // Previous Button Icon
     .button--previous {
         position: relative;
@@ -409,6 +412,7 @@ li.product-item {
             //.animation(icon-bounce, 1.5s, ease, infinite, normal);
         }
     }
+
     // Next Button Icon
     .button--next {
         position: relative;
@@ -438,6 +442,7 @@ li.product-item {
 	    &:nth-child(3n+1) {
 	        clear: left;
 	    }
+
 	    // Display at 50% at tablet
 	    @media @tablet-860px {
 	        width: 48%;
@@ -454,6 +459,7 @@ li.product-item {
 	            clear: none;
 	        }
 	    }
+
 	    // Display 100% at mobile
 	    @media @mobile {
 	        margin-right: 0!important;
@@ -477,45 +483,23 @@ li.product-item {
 }
 
 
+// Masonry transitions
 
-// Masonry Gallery
-// ---------------
+.masonry {
+  -webkit-transition-duration: 0.3s;
+     -moz-transition-duration: 0.3s;
+      -ms-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
 
-
-
-    // Gallery Masonry Transitions
-    .masonry {
-      -webkit-transition-duration: 0.3s;
-         -moz-transition-duration: 0.3s;
-          -ms-transition-duration: 0.3s;
-           -o-transition-duration: 0.3s;
-              transition-duration: 0.3s;
-    }
-
-    .masonry {
-      -webkit-transition-property: height, width;
-         -moz-transition-property: height, width;
-          -ms-transition-property: height, width;
-           -o-transition-property: height, width;
-              transition-property: height, width;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
 
 
 
@@ -643,7 +627,9 @@ li.product-item {
 			display: inline-block;
 		}
 
-		.product-attribute-title, .tag-link, .category-link {
+		.product-attribute-title, 
+		.tag-link, 
+		.category-link {
 		    font-size: bkscale(@font-swatch7-font-size, 0.86);
 		    font-weight: @font-swatch7-font-weight;
 		    letter-spacing: 1px;
@@ -693,7 +679,8 @@ li.product-item {
 .ecombasketsummary {
 
 	// Remove backgrounds and borders from table elements
-	.summary-table .cell, .summary-table {
+	.summary-table .cell, 
+	.summary-table {
 		background-color: transparent;
 		border: none;
 	}
@@ -720,13 +707,15 @@ li.product-item {
 	}
 
 	// Remove padding from product image column
-	.cell--image, .table-row--heading th:first-child {
+	.cell--image, 
+	.table-row--heading th:first-child {
 		padding-left: 0;
 		width: 20%;
 	}
 
 	// Remove padding from subtotal column
-	.cell--total, .table-row--heading th:last-child {
+	.cell--total, 
+	.table-row--heading th:last-child {
 		padding-right: 0;
 	}
 
@@ -743,7 +732,8 @@ li.product-item {
 	}
 
 	// Product add and remove buttons
-	.quantity-minus, .quantity-plus {
+	.quantity-minus, 
+	.quantity-plus {
 		background-color: transparent;
 		line-height: 0;
 		padding: 0;
@@ -753,7 +743,8 @@ li.product-item {
 	}
 
 	// Adds a diamond style background shape the to the plus and remove quantity buttons
-	.quantity-minus:after, .quantity-plus:after {
+	.quantity-minus:after, 
+	.quantity-plus:after {
 		background-color: @color-swatch3;
 		content: "";
 		display: inline-block;
@@ -776,4 +767,3 @@ li.product-item {
 		text-align: right;
 	}
 }
-

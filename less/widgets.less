@@ -236,11 +236,13 @@ hr.rule {
 // -----------------------------
 
 .widget__gallery {
+
     // Gallery List
     ul.gallery-list {
         .clearfix;
         padding-top: 10px;
     }
+
     // Gallery Item
     li.gallery-item {
         display: inline-block;
@@ -269,6 +271,7 @@ hr.rule {
             width: 100%;
             margin-bottom: 4%;
         }
+
         .image-link {
             -webkit-filter: grayscale(0%);
             .transition(all 0.5s ease-in-out);
@@ -281,7 +284,7 @@ hr.rule {
             }
             figcaption {
                 background-color: fade(@color-swatch4, 65%);
-                display: flex;
+                .flex-display(flex);
                 height: 100%;
                 opacity: 1;
                 .transform(scale(0.85));
@@ -302,22 +305,17 @@ hr.rule {
     }
     .gallery__figure {
         .transition(all 0.5s ease-in-out);
-        &:hover {
-        }
     }
 
     // Hide Figcaption
     figcaption {
+
         // Flex
-        display: flex;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-        -webkit-justify-content: center;
+        .flex-display(flex);
+        .align-items(center);
+        .flex-direction(column);
+        .justify-content(center);
         -ms-flex-pack: center;
-        justify-content: center;
 
         position: absolute;
         display: block;
@@ -333,9 +331,11 @@ hr.rule {
         @media @mobile {
             left: 0;
         }
+
         .caption-link:hover {
             text-decoration: none;
         }
+
         .image-title {
             color: @color-swatch1;
             text-transform: uppercase;
@@ -345,6 +345,7 @@ hr.rule {
             display: block;
             padding: 6px 12px 5px;
         }
+
         .image-description {
             color: darken(@color-swatch1, 15%);
             font-size: 15px;
@@ -359,6 +360,7 @@ hr.rule {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+
         // Hide Inline Image
         .image {
             display: none;
@@ -374,7 +376,8 @@ hr.rule {
 div[role="main"] {
 
     // Slideshow Height
-    .responsiveslideshow, .responsiveslideshow__figure {
+    .responsiveslideshow, 
+    .responsiveslideshow__figure {
         position: relative;
         min-height: 400px;
     }
@@ -393,10 +396,6 @@ div[role="main"] {
             .image-title {
                 color: @font-swatch4-color;
                 font-size: @font-swatch4-font-size;
-            }
-
-            .image-description {
-
             }
         }
 
@@ -425,14 +424,14 @@ div[role="main"] {
             // Rotate the previous and next buttons to look like diamonds
             .previous-button, 
             .next-button {
-                .transform(@transform: rotate(45deg));
+                .transform(rotate(45deg));
 
                 &:before, &:after {
                     font-size: 28px;
                     line-height: 26px;
                     margin: 0;
                     position: absolute;
-                    .transform(@transform: rotate(-45deg));
+                    .transform(rotate(-45deg));
                     left: 18px;
                     right: 18px;
                     bottom: 20px;
@@ -488,7 +487,7 @@ div[role="main"] {
 
                 &.selected button {
                      background-color: @color-swatch2;
-                     border: 2px solid @color-swatch2;;
+                     border: 2px solid @color-swatch2;
                      position: relative;
                      margin-top: -1px;
                      height: 15px;
