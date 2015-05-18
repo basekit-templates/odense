@@ -65,7 +65,7 @@
        "title": "Playfair Display and Lato",
         "font1": {
             "font-family": "\"Playfair Display\", Times New Roman, serif",
-            "font-size": "236px",
+            "font-size": "36px",
             "font-weight": "700",
             "line-height": "42px",
             "color": "@color-swatch4",
@@ -122,7 +122,7 @@
             "color": "@color-swatch2",
             "letter-spacing": "1px",
             "background-color": "@color-swatch3",
-            "background-color-hover": "darken(@color-swatch3, 10%)"
+            "background-color-hover": "@color-swatch3"
         },
         "font8": {
             "font-family": "\"Lato\", Geneva, Tahoma, sans-serif",
