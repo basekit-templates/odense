@@ -64,7 +64,7 @@
     "fontSwatch": {
        "title": "Playfair Display and Lato",
         "font1": {
-            "font-family": "\"Playfair Display\", Times New Roman, serif",
+            "font-family": "\"Abril Fatface\", \"Palatino Linotype\", serif",
             "font-size": "36px",
             "font-weight": "700",
             "line-height": "42px",
@@ -72,7 +72,7 @@
             "letter-spacing": "inherit"
         },
         "font2": {
-            "font-family": "\"Playfair Display\", Times New Roman, serif",
+            "font-family": "\"Abril Fatface\", \"Palatino Linotype\", serif",
             "font-size": "30px",
             "font-weight": "700",
             "line-height": "38px",
