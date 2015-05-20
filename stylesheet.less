@@ -19,6 +19,8 @@
 
 @import "@{templateCommon}/bk-less-framework.less";
 
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 
 // Theme Includes
 // --------------
@@ -68,8 +70,9 @@
 legend {
     color: @font-swatch2-color;
     font-family: @font-swatch2-font-family;
-    font-size: bkscale(@font-swatch3-font-size, 0.9);
+    font-size: bkscale(@font-swatch3-font-size, 0.95);
     font-weight: @font-swatch4-font-weight;
+    line-height: @font-swatch2-line-height;
     margin-bottom: 25px;
 
     @media @mobile-650px {
@@ -81,7 +84,7 @@ legend {
 // Labels
 label {
     color: lighten(@font-swatch4-color, 20%);
-    font-size: bkscale(@font-swatch7-font-size, 0.85);
+    font-size: bkscale(@font-swatch7-font-size, 0.9);
     font-weight: @font-swatch7-font-weight;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -149,8 +152,9 @@ button,
 .button {
     background-color: @font-swatch7-background-color;
     color: @font-swatch7-color;
+    font-weight: @font-swatch7-font-weight;
     letter-spacing: @font-swatch7-letter-spacing;
-    padding: 12px 20px;
+    padding: 11px 20px;
     text-transform: uppercase;
     .transition(all 0.5s ease-in-out);
 
@@ -170,7 +174,7 @@ button,
 .template-header {
     background-color: white;
     border-bottom: 1px solid @color-swatch7;
-    padding: 20px 0;
+    padding: 20px 1em;
     position: relative;
 
     .container {
@@ -238,6 +242,7 @@ button,
 // Header styling if slideshow is present
 .home-page [data-widget-type="responsiveslideshow"] + .template-header {
     background-color: transparent;
+    border-bottom: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -717,7 +722,7 @@ div[role="main"] {
 
 .template-footer {
     border-top: 1px solid @color-swatch7;
-    padding: 30px 0;
+    padding: 30px 1em;
     position: relative;
 
     .container {

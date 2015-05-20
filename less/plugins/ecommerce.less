@@ -370,7 +370,7 @@ li.product-item {
 
 	.product-item-title {
 		color: @font-swatch4-color;
-		font-size: bkscale(@font-swatch4-font-size, 0.85);
+		font-size: bkscale(@font-swatch4-font-size, 0.92);
 
 		a {
 			color: @font-swatch4-color;
@@ -544,6 +544,7 @@ li.product-item {
 
 		&:hover {
 			background-color: darken(@color-swatch4, 10%);
+			color: @color-swatch1;
 		}
 
 		&:before {
@@ -740,6 +741,10 @@ li.product-item {
 		position: relative;
 		height: 22px;
 		width: 22px;
+
+		&:hover {
+			background-color: transparent;
+		}
 	}
 
 	// Adds a diamond style background shape the to the plus and remove quantity buttons
