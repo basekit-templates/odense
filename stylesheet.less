@@ -177,11 +177,19 @@ button,
     padding: 20px 1em;
     position: relative;
 
+    @media @mobile-650px {
+        padding: 20px 0;
+    }
+
     .container {
         // Flex
         .flex;
         .flex-display;
         .flex-wrap;
+
+        @media @mobile-650px {
+            .flex-wrap(wrap);
+        }
     }
 
     .brand, .company-link {
@@ -338,14 +346,26 @@ button,
 
 // Mobile navigation styles
 @media @tablet {
+
+    .template-nav {
+        // Flex
+        .flex-display;
+        .flex(1 0 auto);
+        .align-self(center);
+        .justify-content(flex-end);
+        padding: 15px 0;
+    }
+
     .navigation-toggle {
         background-color: transparent;
         display: inline-block;
-        position: fixed; 
-        right: 25px;
-        margin-top: 20px;
+        line-height: 0;
+        padding: 0;
+        position: relative;
+        height: 18px;
+        width: 32px;
         text-indent: -9999px;
-        z-index: 9999;
+        z-index: 99999;
 
         &:hover {
             background-color: transparent;
@@ -387,7 +407,7 @@ button,
         }
     }
 
-    // Sldie out navigation
+    // Slide out navigation
     .navigation-body {
         background-color: @color-swatch1;
         -webkit-box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
@@ -398,11 +418,14 @@ button,
         right: -75%;
         bottom: 0;
         margin: 0;
+        overflow-x: scroll;
+        padding-left: 15px;
         padding-right: 15px;
         padding-top: 100px;
         height: 100%;
         width: 75%;
         .transition(right 400ms ease);
+        z-index: 9999;
 
         &.open {
             right: 0;
@@ -421,6 +444,16 @@ button,
             }
         }
     }
+
+    // Navigation overlay
+    .bk-extendednavigation.open + #page-zones__template-widgets__extendednavigation-header-nav-bk-overlay {
+        position: fixed!important;
+        left: inherit!important;
+        top: 100px!important;
+        max-width: 75%;
+        width: 100%;
+    }
+
 }
 
 
@@ -709,6 +742,10 @@ button,
 div[role="main"] {
     padding: 3em 1em;
 
+    @media @mobile-650px {
+        padding: 2em 0;
+    }
+
     &.ecom-product {
         min-height: 78vh;
         padding: 0 1em 0 0;
@@ -725,13 +762,17 @@ div[role="main"] {
     padding: 30px 1em;
     position: relative;
 
+    @media @mobile-650px {
+        padding: 25px 0;
+    }
+
     .container {
         // Flex
         .flex;
         .flex-display;
         .flex-wrap;
 
-        @media @tablet-860px {
+        @media @mobile-650px {
             display: block;
         }
     }
@@ -748,7 +789,7 @@ div[role="main"] {
 
         @media @mobile-650px {
             margin-top: 12px;
-            text-align: left;
+            text-align: center;
         }
     }
 }
