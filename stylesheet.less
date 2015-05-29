@@ -248,7 +248,7 @@ button,
 }
 
 // Header styling if slideshow is present
-.home-page [data-widget-type="responsiveslideshow"] + .template-header {
+.home-page [data-widget-type="responsiveslideshow"] + .template-header, .blogpost-page [data-widget-type="blogpost"] + .template-header {
     background-color: transparent;
     border-bottom: none;
     position: absolute;
@@ -342,6 +342,10 @@ button,
 
 .navigation-list {
     margin: 0;
+}
+
+.template-nav {
+    align-self: center;
 }
 
 // Mobile navigation styles
@@ -764,6 +768,7 @@ div[role="main"] {
 
     @media @mobile-650px {
         padding: 25px 0;
+        text-align: center;
     }
 
     .container {
@@ -789,7 +794,7 @@ div[role="main"] {
 
         @media @mobile-650px {
             margin-top: 12px;
-            text-align: center;
+            text-align: inherit;
         }
     }
 }
