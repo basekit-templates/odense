@@ -14,7 +14,11 @@
 // -----------------------------
 
 .menusections {
+	ul {
+		text-transform: uppercase;
+	}
 	li.menusections-item {
+		font-size: 14px;
 		&:after {
 			color: lighten(@font-swatch5-color, 25%);
 			content: "\25C7";
@@ -31,10 +35,10 @@
 	}
 
 	a.menu-item-name {
-		color: @font-swatch2-color;
+		color: @font-swatch6-color;
 		font-weight: @font-swatch6-font-weight;
 		&:hover {
-			color: @font-swatch6-color;
+			color: @font-swatch6-color-hover;
 		}
 	}
 }
@@ -130,7 +134,7 @@
 
 		// Removes gap from inline-block
 		&:nth-child(n+2) {	
-			margin-left: -6px;
+			margin-left: -5px;
 		}
 	}
 }

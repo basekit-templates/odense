@@ -66,7 +66,6 @@
 
 
 // Legends
-
 legend {
     color: @font-swatch2-color;
     font-family: @font-swatch2-font-family;
@@ -205,8 +204,8 @@ button,
         .flex(0 0 auto);
     }
 
-    // Keeps company name vertical center of the logo no matter the size
-    [data-widget-type="companyname"] {
+    // Keeps company name and logo vertically center no matter the size
+    [data-widget-type="companyname"], [data-widget-type="logo"] {
         .align-self(center);
     }
 
@@ -305,13 +304,13 @@ button,
     // Color of navigation links when overlaying a feature image
     .navigation-item {
         &.selected {
-            color: @color-swatch1;
+            color: @font-swatch6-color-hover;
         }
         .item-name {
-            color: fade(black, 28%);
+            color: @font-swatch6-color;
 
             &:hover {
-                color: @color-swatch1;
+                color: @font-swatch6-color-hover;
             }
         }
     }
@@ -338,11 +337,33 @@ button,
     .item-name {
         padding: 6px 12px;
     }
+
+    // Navigation dropdown
+    &.folder {
+        ul {
+            text-align: center;
+
+            .item-name {
+                padding: 6px 12px;
+            }
+        }
+
+        // Navigation dropdown arrow
+        span.item-name:after {
+            content: "\f0dd";
+            font-family: FontAwesome;
+            margin-left: 6px;
+            font-size: 14px;
+            margin-top: -2px;
+        }
+    }
 }
 
 .navigation-list {
     margin: 0;
 }
+
+
 
 // Mobile navigation styles
 @media @tablet {
@@ -517,9 +538,14 @@ button,
             text-align: left;
             width: auto;
 
-            .image-title, 
+            // Slideshow title colour
+            .image-title {
+                color: @font-swatch8-color;
+            }
+
+            // Slideshow title description
             .image-description {
-                color: @color-swatch1;
+                 color: @font-swatch9-color;
             }
 
             .image-title {
@@ -708,27 +734,27 @@ button,
             // Pagination list element
             li.pagination-item {
                 display: block;
-                margin-bottom: 12px;
+                margin-bottom: 15px;
                 
                 &.selected button {
-                    background-color: fade(black, 18%);
+                    background-color: @font-swatch6-color-hover;
                     border: none;
                     position: relative;
-                    height: 16px;
-                    width: 16px;    
+                    height: 14px;
+                    width: 14px;    
                 }
             }
 
             // Pagination button
             button {
-                background-color: transparent;
-                border: 2px solid fade(black, 14%);
+                background-color: fade(@font-swatch6-color, 40%);
+                border: none;
                 overflow: hidden;
                 padding: 0;
                 .rotate(45deg);
                 text-indent: -9999px;
-                height: 15px;
-                width: 15px;
+                height: 13px;
+                width: 13px;
             }
         }
     }
@@ -782,6 +808,10 @@ div[role="main"] {
     }
     .address-line {
         display: inline-block;
+
+        @media @mobile-650px {
+            text-align: center;
+        }
     }
     .copyright {
         padding: 0;
