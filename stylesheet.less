@@ -207,6 +207,7 @@ button,
     // Keeps company name and logo vertically center no matter the size
     [data-widget-type="companyname"], [data-widget-type="logo"] {
         .align-self(center);
+        max-width: 100%;
     }
 
     // Add space between logo and company name
@@ -236,6 +237,7 @@ button,
 
 // Logo & Company Name
 .brand {
+    .flex-wrap(wrap);
     .company-link {
         text-transform: uppercase;
         vertical-align: text-bottom;
@@ -364,7 +366,8 @@ button,
 }
 
 .template-nav {
-    align-self: center;
+    .align-self(center);
+    .flex-grow(1);
 }
 
 // Mobile navigation styles
@@ -374,7 +377,7 @@ button,
         // Flex
         .flex-display;
         .flex(1 0 auto);
-        .align-self(center);
+        .align-self(flex-start);
         .justify-content(flex-end);
         padding: 15px 0;
     }
@@ -386,7 +389,7 @@ button,
         padding: 0;
         position: relative;
         height: 18px;
-        width: 32px;
+        width: 45px;
         text-indent: -9999px;
         z-index: 99999;
 
