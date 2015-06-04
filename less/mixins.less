@@ -116,12 +116,13 @@
 
 // Flex Source Order
 .flex-order(@order: 0) {
-  -webkit-order: @order;
-     -moz-order: @order;
-      -ms-order: @order;
-          order: @order;
+  -webkit-box-ordinal-group: @order;
+              -webkit-order: @order;
+                 -moz-order: @order;
+                  -ms-order: @order;
+             -ms-flex-order: @order;
+                      order: @order;
 }
-
 
 // Flex Grow
 .flex-grow(@grow: 0) {
@@ -155,6 +156,7 @@
   -webkit-align-self: @align;
      -moz-align-self: @align;
       -ms-align-self: @align;
+      -ms-flex-item-align: @align;
           align-self: @align;
 }
 

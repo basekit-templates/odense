@@ -25,7 +25,7 @@
 			{
 				'imageHeight':'auto',
 				'imageWidth':'100%',
-				'url':asset('images/slide-1.jpg'), 
+				'url':asset('images/slide-2.jpeg'), 
 				'title':'Second slide title',
 				'description': 'Second slide description'
 			},
@@ -62,4 +62,21 @@
 </div>
 <!-- END CONTAINER -->
 
+{% endblock %}
+
+{% block scripts %}
+
+	<!-- Fixed Scroll -->
+	<script src="{{asset('js/background-check.js')}}"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Specific images
+			BackgroundCheck.init({
+				targets: '.item-name',
+				images: '.responsiveslideshow__figure'
+			});
+		});
+	</script>
+	
 {% endblock %}

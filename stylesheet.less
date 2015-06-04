@@ -457,12 +457,20 @@ button,
             right: 0;
         }
 
+        .navigation-list {
+            text-align: right;
+        }
+
         .navigation-item {
             display: block;
             width: 100%;
 
              &:last-child .item-name {
                 padding-right: 12px;
+            }
+
+            &.folder ul {
+                text-align: right;
             }
 
             .item-name {
@@ -478,6 +486,7 @@ button,
         top: 100px!important;
         max-width: 75%;
         width: 100%;
+        z-index: 99999!important;
     }
 
 }

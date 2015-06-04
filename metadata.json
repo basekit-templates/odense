@@ -1,6 +1,7 @@
 {
     "name": "Odense",
     "thumbnail": "thumbnail.png",
+    "screenshot" : "odense-screenshot.jpg",
     "widgetVersion": 2,
     "tags": {
         "en": ["photography", "design", "portfolio", "gallery", "camera", "images", "technology", "creative", "media"],
