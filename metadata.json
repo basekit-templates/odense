@@ -121,7 +121,6 @@
             "line-height": "inherit",
             "color": "@color-swatch2",
             "letter-spacing": "1px",
-            "color-hover": "darken(@color-swatch2, 20%)",
             "background-color": "@color-swatch3",
             "background-color-hover": "darken(@color-swatch3, 10%)"
         },
