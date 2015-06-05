@@ -1,8 +1,4 @@
 
-$(function() {
-    FastClick.attach(document.body);
-});
-
 // Toggles class open to display/hide the whole navigation
 $( ".navigation-toggle" ).click(function() {
 	$( ".navigation-body, .bk-extendednavigation" ).toggleClass( "open" );

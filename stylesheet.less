@@ -249,7 +249,10 @@ button,
 }
 
 // Header styling if slideshow is present
-.home-page [data-widget-type="responsiveslideshow"] + .template-header, .blogpost-page [data-widget-type="blogpost"] + .template-header {
+.home-page [data-widget-type="responsiveslideshow"] + .template-header, 
+.blogpost-page [data-widget-type="blogpost"] + .template-header,
+.home-page [data-widget-type="responsiveslideshow"].bk-tpl-hidden + .template-header,
+.blogpost-page [data-widget-type="blogpost"].bk-tpl-hidden + .template-header {
     background-color: transparent;
     border-bottom: none;
     position: absolute;
@@ -491,6 +494,18 @@ button,
 
 }
 
+.background--light .item-name {
+  color: black!important;
+}
+
+.background--dark .item-name {
+  color: white!important;
+}
+
+.background--complex {
+  color: gray;
+}
+
 
 
 // Slideshow
@@ -507,7 +522,7 @@ button,
 
         // Overide the default display method to be able to transition
         .slide-item {
-            display: list-item!important;
+            /*display: list-item!important;
             position: absolute;
             top: 0;
             left: 0;
@@ -515,7 +530,7 @@ button,
             opacity: 0;
             height: 0;
             .transition(1s all ease-in-out);
-            visibility: hidden;
+            visibility: hidden;*/
 
             // Targeting the slideshow loops currently non visible slides
             /*&[style="display: none;"] {
@@ -528,12 +543,12 @@ button,
             }*/
 
             // The active state for the slideshows next and previous controls
-            &.current {
+            /*&.current {
                 height: auto;
                 opacity: 1;
                 visibility: visible;
                 z-index: 1;
-            }
+            }*/
         }
 
         // Image element
@@ -548,32 +563,41 @@ button,
             background-color: transparent;
             bottom: 50px;
             left: 50px;
+            right: 50px;
             padding: 0;
             text-align: left;
             width: auto;
 
-            // Slideshow title colour
+            @media @tablet-860px {
+                max-width: 80%;
+            }
+
+            @media @mobile-650px {
+                bottom: 25px;
+                left: 25px;
+                right: 25px;
+                max-width: 100%;
+            }
+
+            // Slideshow title
             .image-title {
                 color: @font-swatch8-color;
+                font-family: @font-swatch1-font-family;
+                font-size: @font-swatch8-font-size;
+                line-height: @font-swatch8-line-height;
+                margin-bottom: 8px;
+
+                @media @mobile-650px {
+                    font-size: bkscale(@font-swatch8-font-size, 0.6);
+                    line-height: bkscale(@font-swatch8-line-height, 0.6);
+                }
             }
 
             // Slideshow title description
             .image-description {
-                 color: @font-swatch9-color;
-            }
-
-            .image-title {
-                font-family: @font-swatch1-font-family;
-                font-size: bkscale(@font-swatch1-font-size, 1.65);
-                line-height: bkscale(@font-swatch1-line-height, 1.75);
-                font-size: 52px;
-                line-height: 60px;
-                margin-bottom: 8px;
-            }
-
-            .image-description {
-                font-size: bkscale(@font-swatch5-font-size, 1.1);
-                font-size: 18px;
+                color: @font-swatch9-color;
+                font-size: @font-swatch9-font-size;
+                line-height: @font-swatch9-line-height;
                 text-align: uppercase;
             }
         }
@@ -586,9 +610,9 @@ button,
             margin: 0;
             z-index: 2;
 
-            @media @mobile-650px {
-                bottom: 20px;
-                left: 20px;
+            @media @tablet-860px {
+                display: none;
+                visibility: hidden;
             }
 
             // Button styles
@@ -828,9 +852,22 @@ div[role="main"] {
             text-align: center;
         }
     }
+
+    div[data-widget-type="profile"], div[data-widget-type="companyaddress"] {
+        .align-self(center);
+    }
+
+    div[data-widget-type="companyaddress"] {   
+        padding-right: 10px;
+    }
+
+    div[data-widget-type="profile"] {
+        padding-left: 10px;
+        text-align: right;
+    }
+
     .copyright {
         padding: 0;
-        text-align: right;
 
         @media @mobile-650px {
             margin-top: 12px;

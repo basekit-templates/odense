@@ -73,10 +73,19 @@
 		document.addEventListener('DOMContentLoaded', function () {
 			// Specific images
 			BackgroundCheck.init({
-				targets: '.item-name',
+				targets: '.navigation-list',
 				images: '.responsiveslideshow__figure'
 			});
-		});
+			BackgroundCheck.refresh();
+		}); 
+
+
+
+
+		(function Forever(){
+		    BackgroundCheck.refresh();
+		    setTimeout(Forever, 1000);
+		})();
 	</script>
 	
 {% endblock %}

@@ -30,6 +30,7 @@
   /*
    * Initializer
    */
+
   function init(a) {
 
     if (a === undefined || a.targets === undefined) {
@@ -75,7 +76,7 @@
           check();
         }));
 
-        window.addEventListener('scroll', throttle.bind(null, check));
+        window.addEventListener('click', throttle.bind(null, check));
 
         resizeCanvas();
         check();

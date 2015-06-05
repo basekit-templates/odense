@@ -126,17 +126,17 @@
         },
         "font8": {
             "font-family": "\"Lato\", Geneva, Tahoma, sans-serif",
-            "font-size": "46px",
+            "font-size": "52px",
             "font-weight": "700",
-            "line-height": "inherit",
+            "line-height": "60px",
             "color": "@color-swatch4",
             "letter-spacing": "inherit"
         },
         "font9": {
             "font-family": "\"Lato\", Geneva, Tahoma, sans-serif",
-            "font-size": "16px",
+            "font-size": "18px",
             "font-weight": "inherit",
-            "line-height": "inherit",
+            "line-height": "32px",
             "color": "lighten(@color-swatch4, 10%)",
             "letter-spacing": "inherit"
         },
