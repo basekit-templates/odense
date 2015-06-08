@@ -133,9 +133,9 @@ a {
 // Blockquotes
 blockquote {
 	color: @color-swatch2;
-	font-size: bkscale(@font-swatch5-font-size, 1.2);
-	line-height: bkscale(@font-swatch5-line-height, 1.2);
-	padding-left: 20px;
+	font-size: bkscale(@font-swatch5-font-size, 1.1);
+	line-height: bkscale(@font-swatch5-line-height, 1.075);
+	 padding: 1em 40px 2em;
 	font-style: italic;
 }
 
@@ -147,13 +147,13 @@ blockquote {
 			list-style: none;
 			position: relative;
 			&:before {
+				color: @color-swatch2;
 				content: "\25c6";
-				font-size: 17px;
+				font-family: 'FontAwesome', sans-serif;
+				font-size: 16px;
 				margin-top: -2px;
 				position: absolute;
 				left: -28px;
-				font-size: 16px;
-				color: @color-swatch2;
 			}
 		}
 	}

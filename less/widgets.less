@@ -402,11 +402,11 @@ div[role="main"] {
     .responsiveslideshow, 
     .responsiveslideshow__figure {
         position: relative;
-        min-height: 400px;
+        height: 500px;
     }
 
     .responsiveslideshow {
-        margin: 0 22px;
+        margin: 0;
         padding-bottom: 80px;
 
         // Slide Caption
@@ -426,14 +426,22 @@ div[role="main"] {
         // Slide Navigation Controls
         .slide-navigation {
             position: absolute;
-            top: 35%;
+            bottom: 0;
+            top: 0;
+            margin: 0;
             width: 100%;
 
             button {
-                background-color: @color-swatch1;
+                background-color: fade(@color-swatch1, 25%);
+                color: @color-swatch4;
                 position: absolute;
-                height: 65px;
+                height: 500px;
                 width: 65px;
+                .transition(all, 0.5s, ease);
+
+                &:hover {
+                    background-color: fade(@color-swatch1, 80%);
+                }
 
                 .icon:before {
                     margin-right: 0;
@@ -448,38 +456,39 @@ div[role="main"] {
             // Rotate the previous and next buttons to look like diamonds
             .previous-button, 
             .next-button {
-                .transform(rotate(45deg));
 
                 &:before, &:after {
                     font-size: 27px;
-                    line-height: 25px;
                     margin: 0;
                     position: absolute;
-                    .transform(rotate(-45deg));
-                    left: 6px;
-                    right: 18px;
-                    bottom: 20px;
-                    top: 20px;
+                    right: 15px;
+                    left: 15px;
+                    top: 50%;
                 }
             }
 
             .previous-button {
-                left: -28px;
+                left: 0;
 
                 &:before {
-                    content: "\2190";
+                    content: "\f104";
                 }
             }
             .next-button {
-                right: -28px;
+                right: 0;
 
                 &:after {
-                    content: "\2192";
+                    content: "\f105";
                 }
             }
             .pause-toggle {
                 background-color: fade(@color-swatch1, 25%);
                 left: 45%;
+                .transition(all, 0.5s, ease);
+
+                &:hover {
+                    background-color: @color-swatch1;
+                }
 
                 &:before {
                     border-left: 3px solid fade(@color-swatch2, 75%);

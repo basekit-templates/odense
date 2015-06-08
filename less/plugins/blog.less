@@ -48,6 +48,11 @@
 			padding: 12px 0 20px;
 		}
 
+		@media @mobile-650px {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
 		h2 a {
 			color: @font-swatch4-color;
 		}
@@ -130,6 +135,14 @@
 			background-size: cover;
 			background-position: center center;
 			height: 600px;
+
+			@media @tablet-860px {
+				height: 500px;
+			}
+
+			@media @mobile-650px {
+				height: 400px;
+			}
 		}
 
 		.image {
@@ -141,28 +154,54 @@
 	.post-content {
 		margin: 0 auto;
 		max-width: 860px;
-		padding: 4rem 0 2rem;
+		padding: 4rem 30px 2rem;
 
 		@media @tablet-860px {
 			.flex( 0 100%);
 			padding-bottom: 0;
-			padding-right: 0;
+		}
+
+		@media @mobile-650px {
+			padding: 3rem 25px 0;
+		}
+
+		// Make paragraph text larger for blog post content
+		p {
+			font-size: 18px;
+			line-height: 36px;
+		}
+
+
+		// Add additional padding to blog post images
+		img {
+			 padding: 1.5em 0 0.5em;
 		}
 	}
 
 	.post-footer {
+		background: -moz-linear-gradient(top, rgba(0,0,0,0) 10%, rgba(0,0,0,0.63) 97%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(0,0,0,0)), color-stop(97%,rgba(0,0,0,0.63)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 10%,rgba(0,0,0,0.63) 97%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(0,0,0,0) 10%,rgba(0,0,0,0.63) 97%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(0,0,0,0) 10%,rgba(0,0,0,0.63) 97%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 10%,rgba(0,0,0,0.63) 97%,rgba(0,0,0,0.65) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 		.flex-display;
+		.justify-content(flex-end);
+		height: 200px;
 		padding: 0;
 		position: absolute;
-		margin-top: -85px;
-		right: 30px;
+		margin-top: -200px;
+		padding: 10px 25px;
+		left: 0;
+		right: 0;
 
 		@media @tablet-860px {
-			.flex( 0 100%);
-			margin-top: 0;
+			.flex(0 100%);
 		}
 
 		.category-title, .tags-title {
+			color: fade(white, 75%);
 			display: block;
 			line-height: 1;
 
@@ -176,11 +215,8 @@
 		.post-attributes {
 			display: inline-block;
 			.flex-order(1);
+			.align-self(flex-end);
 			margin: 0;
-
-			div {
-
-			}
 		}
 
 		.post-category, .post-tags {
@@ -188,14 +224,15 @@
 			padding: 20px 25px 10px;
 		}
 
+		// Blog publish date
 		.timestamp {
-			
 			display: inline-block;
 			.align-self(flex-end);
 			.flex-order(2);
 			padding: 20px 25px;
 
 			&:before {
+				color: fade(white, 75%);
 				content: "DATE:";
 				display: block;
 				margin-bottom: 6px;
@@ -203,9 +240,13 @@
 			}
 		}
 
+		// Social sharing icons
 		.sharing-links {
-
+			align-self: flex-end;
 			padding: 0 25px;
+		 	position: absolute;
+			left: 15px;
+			bottom: 15px;
 
 			li.network-item {
 				margin: 10px 16px 10px 0;
@@ -213,6 +254,7 @@
 
 			button {
 				background-color: transparent;
+				color: fade(white, 75%);
 				font-size: 16px;
 				min-width: initial;
 				padding: 0;
@@ -220,13 +262,14 @@
 				width: 15px;
 				&:hover {
 					background-color: transparent;
+					color: white;
 				}
 			}
 		}
 	}
 
+	// Font styling for blog metadata
 	.timestamp, .category-title, .category-link, .tags-title, .tag-link {
-		color: lighten(@font-swatch4-color, 20%);
 		font-size: bkscale(@font-swatch7-font-size, 0.85);
 		font-weight: @font-swatch7-font-weight;
 		letter-spacing: 1px;
@@ -234,15 +277,20 @@
 		text-transform: uppercase;
 	}
 
-	.category-link, .tag-link {
-		color: @color-swatch2;
+	// Tags and date text colour
+	.timestamp, .category-link, .tag-link {
+		color: white;
+	}
 
+	// Add comma after any kind of tag
+	.category-link, .tag-link {
 		&:after {
 			content: ",";
 			position: relative;
 		}
 	}
 
+	// Remove comma after last tag
 	.tag-item:last-child .tag-link:after, .category-link:after {
 		display: none;
 	}
