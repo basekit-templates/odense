@@ -22,30 +22,31 @@ h2,
 }
 
 h1 {
-	margin-bottom: 0.4em;
-	@media @tablet {
+	margin-bottom: 0.6em;
+	@media @tablet-860px {
 		font-size: bkscale(@font-swatch1-font-size, 0.9);
 		line-height: bkscale(@font-swatch1-line-height, 0.9);
 	}
-	@media @mobile {
+	@media @mobile-650px {
+		margin-bototm: 0.3em;
 		font-size: bkscale(@font-swatch1-font-size, 0.82);
 		line-height: bkscale(@font-swatch1-line-height, 0.85);
 	}
 }
 
 h2 {
-	@media @tablet {
+	@media @tablet-860px {
 		font-size: bkscale(@font-swatch2-font-size, 0.9);
 		line-height: bkscale(@font-swatch2-line-height, 0.9);
 	}
-	@media @mobile {
+	@media @mobile-650px  {
 		font-size: bkscale(@font-swatch2-font-size, 0.85);
 		line-height: bkscale(@font-swatch2-line-height, 0.85);
 	}
 }
 
 h3 {
-	@media @tablet {
+	@media @tablet-860px {
 		font-size: bkscale(@font-swatch3-font-size, 0.9);
 		line-height: bkscale(@font-swatch3-line-height, 0.9);
 	}
@@ -56,11 +57,11 @@ h3 {
 }
 
 h4 {
-	@media @tablet {
+	@media @tablet-860px {
 		font-size: bkscale(@font-swatch4-font-size, 0.9);
 		line-height: bkscale(@font-swatch4-line-height, 0.9);
 	}
-	@media @tablet {
+	@media @mobile-650px  {
 		font-size: bkscale(@font-swatch4-font-size, 0.85);
 		line-height: bkscale(@font-swatch4-line-height, 0.85);
 	}
@@ -69,7 +70,7 @@ h4 {
 h5 {
 	font-size: bkscale(@font-swatch4-font-size, 0.8);
 	line-height: bkscale(@font-swatch4-line-height, 0.8);
-	@media @mobile {
+	@media @mobile-650px  {
 		font-size: bkscale(@font-swatch3-font-size, 0.75);
 		line-height: bkscale(@font-swatch3-line-height, 0.75);
 	}
@@ -103,9 +104,9 @@ li,
 time.blog-post-publish-date {
 	font-size: bkscale(@font-swatch5-font-size, 1);
 	line-height: bkscale(@font-swatch5-line-height, 1);
-	@media @tablet {
-		font-size: bkscale(@font-swatch5-font-size, 0.9);
-		line-height: bkscale(@font-swatch5-line-height, 0.9);
+	@media @mobile-650px {
+		font-size: bkscale(@font-swatch5-font-size, 0.95);
+		line-height: bkscale(@font-swatch5-line-height, 0.95);
 	}
 }
 
@@ -135,8 +136,12 @@ blockquote {
 	color: @color-swatch2;
 	font-size: bkscale(@font-swatch5-font-size, 1.1);
 	line-height: bkscale(@font-swatch5-line-height, 1.075);
-	 padding: 1em 40px 2em;
+	padding: 1em 40px 2em;
 	font-style: italic;
+
+	@media @mobile-650px {
+		padding: 0.5em 20px 1.5em;
+	}
 }
 
 // List styles for content widgets

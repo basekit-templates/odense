@@ -83,7 +83,7 @@ legend {
 
 // Labels
 label {
-    color: lighten(@font-swatch4-color, 20%);
+    color: lighten(@font-swatch4-color, 25%);
     font-size: bkscale(@font-swatch7-font-size, 0.9);
     font-weight: @font-swatch7-font-weight;
     letter-spacing: 1px;
@@ -254,6 +254,7 @@ button,
 // Logo & Company Name
 .brand {
     .flex-wrap(wrap);
+
     .company-link {
         text-transform: uppercase;
         vertical-align: text-bottom;
@@ -261,6 +262,10 @@ button,
         &:hover {
             text-decoration: none;
         }
+    }
+
+    .bk-logo img {
+        max-height: 300px;
     }
 }
 
@@ -383,7 +388,7 @@ button,
 }
 
 .template-nav {
-    .align-self(center);
+    .align-self(flex-start);
     .flex-grow(1);
     .flex(1 0 auto);
 }
@@ -394,7 +399,6 @@ button,
     .template-nav {
         // Flex
         .flex-display;
-        .align-self(flex-start);
         .justify-content(flex-end);
         padding: 0;
     }
