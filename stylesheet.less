@@ -841,8 +841,36 @@ div[role="main"] {
     }
 
     &.ecom-product {
-        min-height: 78vh;
+        min-height: 90vh;
         padding: 0 1em 0 0;
+
+        @media @tablet-860px {
+            padding: 2em 25px;
+        }
+    }
+}
+
+
+
+// Profile widget
+// ---------------
+
+.default-profile div[data-widget-type="profile"] {
+    background-color: lighten(@color-swatch7, 5%);
+    padding: 80px 30px;
+    text-align: center;
+
+    .bk-profile {
+
+        // Remove padding from profile widget text
+        h2.headline, p.business {
+            padding-bottom: 0;
+        } 
+
+        // Pushes Twitter username away from twitter bird
+        .account-name {
+            padding-right: 40px;
+        }
     }
 }
 
