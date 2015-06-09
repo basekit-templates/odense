@@ -251,6 +251,11 @@ li.product-item {
 					line-height: 200px;
 				}
 			}
+
+			.product-item-image .image {
+				vertical-align: baseline;
+			}
+
 		}
 
 		&:nth-child(4),
@@ -509,6 +514,7 @@ li.product-item {
 
 .ecomproduct {
 
+	// Product wrapper - image and content
 	.product-article {
 		.flex-display;
 		.align-items(center);
@@ -521,18 +527,126 @@ li.product-item {
 		}
 	}
 
+
+	// Product Image Styling
+	// ----------------------
+
+
+	// Hide main image
+	.product-image {
+		display: none;
+
+		@media @tablet {
+			display: block;
+			padding-bottom: 20px;
+		}
+	}
+
+	// Create full size vertical scrolling list of product thumbs
+	.product-images {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 42%;
+		height: 100%;
+		overflow: hidden;
+		overflow-y: scroll;
+
+		@media @tablet {
+			position: relative;
+			width: 100%;
+		}
+	}
+
+	// Product images unordered list
+	.product-gallery {
+		background-color: lighten(@color-swatch7, 5%);
+		margin: 0;
+		position: relative;
+		height: 100%;
+
+		@media @tablet {
+			background-color: transparent;
+			margin-bottom: 20px;
+		}
+
+		// Product images list element
+		.gallery-item {
+			width: 100%;
+			height: auto;
+			line-height: auto;
+			cursor: pointer;
+
+			@media @tablet {
+				line-height: 120px;
+				height: 120px;
+				width: 120px;
+			}
+		}
+
+		// Product image anchor link
+		.image-button {
+			cursor: crosshair;
+			display: block;
+			
+			// Product image
+			.image {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+
+
+	// Product Description Content
+	// ------------------------------
+
+
+	// Product description wrapper
+	.product-content {
+		padding: 40px 30px 40px 50%;
+		max-width: 1750px;
+
+		@media @tablet {
+			padding: 20px 0;
+			max-width: 100%;
+		}
+
+		// Product description paragraph text
+		p {
+			line-height: 35px;
+		}
+	}
+
+	// Hide product legend
 	.ecomproduct__legend {
 		display: none;
 		visibility: hidden;
 	}
 
-	// Brings add and view basket buttons inline
-	.ecomproduct__form, .view-basket-wrap {
-		display: inline-block;
+	// Remove margin from product title
+	.product-title {
+		margin-bottom: 0;
 	}
+
+	// Prodcut price label
+	.product-price {
+		color: @color-swatch2;
+		margin-bottom: 15px;
+	}
+
+
+	// Product Form Styling
+	// ---------------------
+
 
 	.ecomproduct__form {
 		margin-right: 8px;
+	}
+
+	// Brings add and view basket buttons inline
+	.ecomproduct__form, .view-basket-wrap {
+		display: inline-block;
 	}
 
 	// Add to basket button
@@ -552,81 +666,17 @@ li.product-item {
 		}
 	}
 
-	.product-image {
-		display: none;
-
-		@media @tablet {
-			display: block;
-			padding-bottom: 20px;
-		}
+	// Product category and tags wrapper
+	.product-actions {
+		padding: 0;
+		margin: 30px 0 25px;
 	}
 
-
-	.product-images {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 42%;
-		height: 100%;
-		overflow: hidden;
-		overflow-y: scroll;
-
-		@media @tablet {
-			position: relative;
-			width: 100%;
-		}
-	}
-
-	.product-gallery {
-		background-color: lighten(@color-swatch7, 5%);
-		margin: 0;
-		position: relative;
-		height: 100%;
-
-		@media @tablet {
-			background-color: transparent;
-			margin-bottom: 30px;
-		}
-
-		.gallery-item {
-			width: 100%;
-			height: auto;
-			line-height: auto;
-			cursor: pointer;
-
-			@media @tablet {
-				line-height: 120px;
-				height: 120px;
-				width: 120px;
-			}
-		}
-
-		.image-button {
-			cursor: crosshair;
-			display: block;
-
-			.image {
-				width: 100%;
-			}
-		}
-	}
-
-	.product-content {
-		padding-left: 50%;
-		max-width: 2000px;
-
-		@media @tablet {
-			padding-left: 0;
-			max-width: 100%;
-		}
-	}
-
+	// Product category and tags
 	.product-attributes {
-
-		.product-category .product-attribute-title:after {
-			content: ":";
-			display: inline-block;
-		}
+		.flex-display;
+		.flex-wrap(wrap);
+		margin: 0;
 
 		.product-attribute-title, 
 		.tag-link, 
@@ -637,6 +687,10 @@ li.product-item {
 		    text-transform: uppercase;
 		}
 
+		.product-category {
+			margin-right: 25px;
+		}
+
 		.product-attribute-title {
 			color: lighten(@font-swatch4-color, 20%);
 		}
@@ -644,22 +698,23 @@ li.product-item {
 		.tag-link {
 			color: @color-swatch2;
 		}
+
 	}
 
-	.image-link {
-		height: auto;
-		width: auto;
-		.image {
-			vertical-align: top;
-		}
-	}
-
+	// Error message
 	.message {
 		background-color: rgba(194,14,15,0.65);
 		color: white;
 		display: inline-block;
 		margin: 0 0 30px;
 		padding: 0 20px 0 40px;
+
+		@media @tablet {
+			font-size: 16px;
+			margin: 10px 0 25px;
+			padding: 3px 20px 5px 40px;
+		}
+		
 		&:before {
 			left: 15px;
 		}
