@@ -483,7 +483,9 @@ div[role="main"] {
             }
             .pause-toggle {
                 background-color: fade(@color-swatch1, 25%);
-                left: 45%;
+                height: auto;
+                left: 46%;
+                top: 45%;
                 .transition(all, 0.5s, ease);
 
                 &:hover {
@@ -519,8 +521,8 @@ div[role="main"] {
                 margin-left: 15px;
 
                 &.selected button {
-                     background-color: @color-swatch2;
-                     border: 2px solid @color-swatch2;
+                     background-color: @font-swatch6-color-hover;
+                     border: none;
                      position: relative;
                      margin-top: -1px;
                      height: 15px;
@@ -530,7 +532,7 @@ div[role="main"] {
 
             // Pagination button
             button {
-                background-color: @color-swatch3;
+                background-color: fade(@font-swatch6-color, 40%);
                 overflow: hidden;
                 padding: 0!important;
                 .rotate(45deg);

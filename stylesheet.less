@@ -212,6 +212,10 @@ button,
         .flex-display;
         .flex(1 1 auto);
         .flex-grow(1);
+
+        @media @tablet {
+            flex: 1 1 80%;
+        }
     }
 
     // Logo and company name flex
@@ -307,6 +311,10 @@ button,
         .flex-display;
         .flex(1 1 auto);
         .flex-grow(1);
+
+        @media @tablet {
+            flex: 1 1 80%;
+        }
     }
 
     // Keeps company name vertical center of the logo no matter the size
@@ -393,7 +401,6 @@ button,
     .flex(1 0 auto);
 }
 
-// Mobile navigation styles
 @media @tablet {
 
     // Navigation Toggle
@@ -404,15 +411,17 @@ button,
         // Displays as icon's middle bar
         background-color: black;
         background-clip: content-box;
-        display: block;
+        display: inline-block;
         height: 47px;
-        margin: 0;
+        margin: 2px 0 0;
         padding: 22px 10px 22px 15px;
         position: fixed;
         right: 15px;
-        text-indent: 9999px;
+        text-indent: -9999px;
+        .transition(background-color 0.35s ease-in);
         overflow: hidden;
         width: 50px;
+        z-index: 99999;
 
         // Top and bottom navigation item bar
         &:after, &:before {
@@ -425,16 +434,12 @@ button,
             background: black;
             margin-right: 0;
             margin-left: 0;
-            -webkit-transition: all 0.25s ease-in-out;
-            -moz-transition: all 0.25s ease-in-out;
-            -o-transition: all 0.25s ease-in-out;
-            transition: all 0.25s ease-in-out;
+            .transition(all 0.35s ease-in-out);
         }
 
         // Top bar
         &:before {
             top: 14px;
-
         }
 
         // Bottom bar
@@ -444,26 +449,25 @@ button,
 
         &:hover {
             background-color: black;
-
-            &:after, &:before {
-                background: @lack;
-            }
         }
-
 
         // Toggle Button open state
         // ------------------------------
 
         .open & {
-            background-color: fade(black, 0%);
+            background-color: transparent;
+            .transition(background-color 0s ease-out);
             z-index: 100000;
 
             &:before {
-                top: 23px; background: black; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);
-
+                top: 23px; 
+                background: black; 
+                .transform(rotate(45deg));
             }
             &:after {
-                bottom: 21px; background: black; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg);
+                bottom: 21px; 
+                background: black; 
+                .transform(rotate(-45deg));
             }
         }
     }
