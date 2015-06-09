@@ -116,7 +116,7 @@
          },
         "font7": {
             "font-family": "\"Lato\", Geneva, Tahoma, sans-serif",
-            "font-size": "14px",
+            "font-size": "13px",
             "font-weight": "700",
             "line-height": "inherit",
             "color": "@color-swatch2",
