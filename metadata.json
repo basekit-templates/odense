@@ -144,7 +144,7 @@
             "font-family": "\"Lato\", Geneva, Tahoma, sans-serif",
             "font-size": "20px",
             "font-weight": "700",
-            "line-height": "inherit",
+            "line-height": "26px",
             "color": "@color-swatch4",
             "letter-spacing": "1px"
         }
