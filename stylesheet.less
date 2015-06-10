@@ -859,10 +859,55 @@ div[role="main"] {
 
 .default-profile div[data-widget-type="profile"] {
     background-color: lighten(@color-swatch7, 5%);
-    padding: 80px 30px;
+    padding: 60px 30px;
     text-align: center;
 
     .bk-profile {
+
+        // Signup form
+        .signupform {
+            margin: 0 auto;
+            max-width: 550px;
+
+            // Show legend
+            .legend {
+                display: block;
+                visibility: visible;
+            }
+
+            // Hide label
+            .label {
+                display: none;
+                visibility: hidden;
+            }
+
+            // Form group
+            .form-group {
+                padding: 0;
+
+                // Bring button over input
+                &:last-child {
+                    margin-left: -1px;
+                }
+            }
+
+            input, button {
+                height: 60px;
+            }
+
+            // Form input
+            input {
+                border: 1px solid @color-swatch7;
+                border: 1px solid #E2E2E2;
+            }
+
+            // Form button
+            button {
+                background-color: @color-swatch4;
+                color: white;
+                margin: 0;
+            }
+        }
 
         // Remove padding from profile widget text
         h2.headline, p.business {
@@ -882,7 +927,6 @@ div[role="main"] {
 // ---------------
 
 .template-footer {
-    border-top: 1px solid @color-swatch7;
     padding: 30px 1em;
     position: relative;
 

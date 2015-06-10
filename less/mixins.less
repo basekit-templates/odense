@@ -98,6 +98,8 @@
 
 // Flex Direction
 .flex-direction(@direction: row) {
+      -webkit-box-orient: @direction;
+   -webkit-box-direction: @direction;
   -webkit-flex-direction: @direction;
      -moz-flex-direction: @direction;
       -ms-flex-direction: @direction;
@@ -129,12 +131,14 @@
   -webkit-flex-grow: @grow;
      -moz-flex-grow: @grow;
       -ms-flex-grow: @grow;
+  -ms-flex-positive: @grow;
           flex-grow: @grow;
 }
 
 
 // Justify Content
 .justify-content(@justify: flex-start) {
+          webkit-box-pack: @justify;
   -webkit-justify-content: @justify;
      -moz-justify-content: @justify;
       -ms-justify-content: @justify;
@@ -147,6 +151,7 @@
   -webkit-align-content: @align;
      -moz-align-content: @align;
       -ms-align-content: @align;
+     -ms-flex-line-pack: @align;
           align-content: @align;
 }
 
@@ -165,6 +170,7 @@
   -webkit-align-items: @align;
      -moz-align-items: @align;
       -ms-align-items: @align;
+       -ms-flex-align: @align;
           align-items: @align;
 }
 
@@ -182,6 +188,8 @@
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
 
+    -webkit-box-orient: @direction;
+    -webkit-box-direction: @direction;
     -webkit-flex-direction: @direction;
     -moz-flex-direction: @direction;
     -ms-flex-direction: @direction;
@@ -193,9 +201,11 @@
     -ms-flex-wrap: @wrap;
     flex-wrap: @wrap;
 
-    -webkit-box-pack: justify;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
+    webkit-box-pack: justify;
+    -webkit-justify-content: justify;
+    -moz-justify-content: justify;
+    -ms-justify-content: justify;
+    justify-content: justify;
 
     -webkit-justify-content: @justify;
     -moz-justify-content: @justify;
@@ -205,11 +215,13 @@
     -webkit-align-content: @align;
     -moz-align-content: @align;
     -ms-align-content: @align;
+    -ms-flex-line-pack: @align;
     align-content: @align;
 
-    -webkit-align-items: @align-items;
-    -moz-align-items: @align-items;
-    -ms-align-items: @align-items;
-    align-items: @align-items;
+    -webkit-align-items: @align;
+    -moz-align-items: @align;
+    -ms-align-items: @align;
+    -ms-flex-align: @align;
+    align-items: @align;
 }
 
