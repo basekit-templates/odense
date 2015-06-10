@@ -910,6 +910,10 @@ div[role="main"] {
             .form-group {
                 padding: 0;
 
+                @media @mobile-650px {
+                    .flex-grow(1);
+                }
+
                 // Bring button over input
                 &:last-child {
                     margin-left: -1px;
@@ -933,6 +937,10 @@ div[role="main"] {
                 color: white;
                 margin: 0;
                 height: 59px;
+
+                @media @mobile-650px {
+                    width: 100%;
+                }
             }
         }
 
