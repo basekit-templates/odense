@@ -403,6 +403,10 @@ div[role="main"] {
     .responsiveslideshow__figure {
         position: relative;
         height: 500px;
+
+        @media @tablet {
+            height: 350px;
+        }
     }
 
     .responsiveslideshow {
@@ -420,6 +424,12 @@ div[role="main"] {
             .image-title {
                 color: @font-swatch4-color;
                 font-size: @font-swatch4-font-size;
+                font-weight: @font-swatch3-font-weight;
+
+                @media @tablet {
+                    font-size: bkscale(@font-swatch4-font-size, 0.9);
+                    line-height: bkscale(@font-swatch4-font-size, 0.9);
+                }
             }
         }
 
@@ -432,12 +442,18 @@ div[role="main"] {
             width: 100%;
 
             button {
-                background-color: fade(@color-swatch1, 25%);
+                background-color: @color-swatch1;
                 color: @color-swatch4;
+                padding: 0;
                 position: absolute;
-                height: 500px;
-                width: 65px;
-                .transition(all, 0.5s, ease);
+                height: 100px;
+                width: 45px;
+                top: 200px;
+                .transition(all 0.5s ease);
+
+                @media @tablet {
+                    top: 160px;
+                }
 
                 &:hover {
                     background-color: fade(@color-swatch1, 80%);
@@ -453,48 +469,58 @@ div[role="main"] {
                 display: none;
             } 
 
-            // Rotate the previous and next buttons to look like diamonds
+            // Previous and next arrow styling
             .previous-button, 
             .next-button {
-
                 &:before, &:after {
                     font-size: 27px;
                     margin: 0;
-                    position: absolute;
-                    right: 15px;
-                    left: 15px;
-                    top: 50%;
+                    vertical-align: middle;
                 }
             }
 
+            // Previous arrow
             .previous-button {
                 left: 0;
 
                 &:before {
                     content: "\f104";
+                      margin-right: 5px;
                 }
             }
+
+            // Next arrow
             .next-button {
                 right: 0;
 
                 &:after {
                     content: "\f105";
+                    margin-left: 5px;
                 }
             }
+
+            // Pause button
             .pause-toggle {
-                background-color: fade(@color-swatch1, 25%);
-                height: auto;
-                left: 46%;
-                top: 45%;
-                .transition(all, 0.5s, ease);
+                background-color: fade(@color-swatch1, 75%);
+                margin: 0 auto;
+                height: 60px;
+                left: 0;
+                right: 0;
+                width: 60px;
+                top: 225px;
+                .transition(all 0.5s ease);
+
+                @media @tablet {
+                    top: 185px;
+                }
 
                 &:hover {
                     background-color: @color-swatch1;
                 }
 
                 &:before {
-                    border-left: 3px solid fade(@color-swatch2, 75%);
-                    border-right: 3px solid fade(@color-swatch2, 75%);
+                    border-left: 3px solid @font-swatch6-color-hover;
+                    border-right: 3px solid @font-swatch6-color-hover;
                     content: "";
                     font-size: 20px;
                     margin: 0;
@@ -514,6 +540,11 @@ div[role="main"] {
             // Restrict Width of Pagination
             ul.pagination-list {
                 text-align: right;
+
+                @media @tablet {
+                    display: none;
+                    visibility: hidden;
+                }
             }
 
             li.pagination-item {
@@ -522,23 +553,19 @@ div[role="main"] {
 
                 &.selected button {
                      background-color: @font-swatch6-color-hover;
-                     border: none;
-                     position: relative;
-                     margin-top: -1px;
-                     height: 15px;
-                     width: 15px;
                 }
             }
 
             // Pagination button
             button {
                 background-color: fade(@font-swatch6-color, 40%);
+                border: none;
                 overflow: hidden;
                 padding: 0!important;
                 .rotate(45deg);
                 text-indent: -9999px;
-                height: 14px;
-                width: 14px;
+                height: 13px;
+                width: 13px;
             }
         }
     }

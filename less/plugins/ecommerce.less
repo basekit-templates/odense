@@ -170,204 +170,19 @@ form.ecomproductslist__form {
 //  3. Ecommerce Product List
 // -----------------------------
 
-
-// Product list 
-/*ul.product-list {
-	.flex-display;
-	.flex-wrap(wrap);
-}
-
-// Product list item
-li.product-item {
-	.flex-grow(1);
-	.flex(1 25%);
-
-	.product-item-article {
-		margin-right: 30px;
-	}
-
-	// Every third product is larger
-	&:nth-child(3n+3) {
-		.flex(1 50%);
-
-		// Last item in the row, remove right margin
-		.product-item-article {
-			margin-right: 0;
-		}
-	}
-
-	// Every third product is larger
-	&:nth-child(4n+4) {
-		.flex(1 50%);
-	}
-
-	// If there is a fourth product then the third from above is nullified
-	&:nth-child(4n+2) {
-		.flex(1 25%);
-	}
-}*/
-
 .ecomproductslist {
 
-	/*li.product-item {
-		padding: 10px 40px 10px 0;
-		width: 25%;
+	.product-item {
+		float: left;
+		padding: 0 12px 24px;
+		height: auto;
+		width: 33.33%;
+	}
 
-		@media @tablet-860px {
-			width: 50%;
-		}
-
-		@media @mobile-650px {
-			padding: 0!important;
-			width: 100%!important;
-		}
-
-		.product-item-image, .product-item-image .image-link {
-			background-color: transparent;
-		}
-
-		&:nth-child(3),
-		&:nth-child(9),
-		&:nth-child(15),
-		&:nth-child(21),
-		&:nth-child(27) {
-			width: 50%;
-
-			@media @tablet-860px {
-				padding-right: 40px;
-			}
-
-			// Last item in the row, remove right margin
-			.product-item-article {
-				margin-right: 0;
-			}
-
-			.product-item-image, .product-item-image .image-link {
-				height: 400px;
-				line-height: 400px;
-
-				@media @tablet-860px {
-					height: 200px;
-					line-height: 200px;
-				}
-			}
-
-			.product-item-image .image {
-				vertical-align: baseline;
-			}
-
-		}
-
-		&:nth-child(4),
-		&:nth-child(10),
-		&:nth-child(16),
-		&:nth-child(22),
-		&:nth-child(28) {
-			width: 50%;
-
-			@media @tablet-860px {
-				padding-right: 0;			}
-
-			.product-item-image, .product-item-image .image-link {
-				height: 400px;
-				line-height: 400px;
-
-				@media @tablet-860px {
-					height: 200px;
-					line-height: 200px;
-				}
-			}
-		}
-
-		&:nth-child(3n+3) {
-			padding-right: 0;
-		}
-
-		/*&:nth-child(3n+3) {
-			padding-right: 0;
-			width: 50%;
-
-			@media @tablet-860px {
-				padding-right: 40px;
-			}
-
-			// Last item in the row, remove right margin
-			.product-item-article {
-				margin-right: 0;
-			}
-
-			.product-item-image, .product-item-image .image-link {
-				height: 400px;
-				line-height: 400px;
-
-				@media @tablet-860px {
-					height: 200px;
-					line-height: 200px;
-				}
-			}
-		}*/
-
-		// Every third product is larger
-		/*&:nth-child(4n+4) {
-			width: 50%;
-
-			@media @tablet-860px {
-				padding-right: 0;			}
-
-			.product-item-image, .product-item-image .image-link{
-				height: 400px;
-				line-height: 400px;
-
-				@media @tablet-860px {
-					height: 200px;
-					line-height: 200px;
-				}
-			}
-		}*/
-
-		// If there is a fourth product then the third from above is nullified
-		/*&:nth-child(4n+2) {
-			width: 25%;
-
-			@media @tablet-860px {
-				padding-right: 0;
-				width: 50%;
-			}
-
-			.product-item-image, .product-item-image .image-link {
-				height: 200px;
-				line-height: 200px;
-			}
-		}*/
-
-		/* Some kind of witchcraft, makes everything even until there are 6 products
-		&:nth-child(1):nth-last-child(5),
-		&:nth-child(2):nth-last-child(4),
-		&:nth-child(3):nth-last-child(3),
-		&:nth-child(4):nth-last-child(2),
-		&:nth-child(5):nth-last-child(1),
-
-		&:nth-child(1):nth-last-child(4),
-		&:nth-child(2):nth-last-child(3),
-		&:nth-child(3):nth-last-child(2),
-		&:nth-child(4):nth-last-child(1),
-
-		&:nth-child(1):nth-last-child(3),
-		&:nth-child(2):nth-last-child(2),
-		&:nth-child(3):nth-last-child(1) {
-			width: 25%!important;
-
-			@media @tablet-860px {
-				width: 50%;
-			}
-			.product-item-image, .product-item-image .image-link {
-				height: 200px;
-				line-height: 200px;
-			}
-		}
-	}*/
-
-	.product-item-image {
+	.product-item-image, 
+	.product-item-image .image-link {
+		height: auto;
+		width: auto;
 		@media @mobile-650px {
 			margin-top: 25px;
 		}
@@ -390,7 +205,6 @@ li.product-item {
 
 
 // Pagination
-
 .listing-pagination {
 
     // Pagination Buttons
@@ -661,7 +475,6 @@ li.product-item {
 	// Product Form Styling
 	// ---------------------
 
-
 	.ecomproduct__form {
 		margin-right: 8px;
 	}
@@ -848,4 +661,30 @@ li.product-item {
 		font-size: 20px;
 		text-align: right;
 	}
+}
+
+.ecombasket {
+
+	// Product item name
+	.basket-item-name {
+		display: inline-block;
+		font-size: bkscale(@font-swatch-5-font-size, 1.1);
+		line-height: bkscale(@font-swatch5-line-height, 1.1);
+		margin-top: 5px;
+	}
+
+	// Remove product button
+	.item-remove {
+		padding: 12px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+
+		// Hide remove text
+		.remove-text {
+			display: none;
+			visibility: hidden;
+		}
+	}
+
 }

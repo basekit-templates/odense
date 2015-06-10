@@ -237,6 +237,10 @@ button,
     // Add space between logo and company name
     .bk-logo {
         margin-right: 8px;
+
+        .logo-link {
+            display: block;
+        }
     }
 
     // Company name colour
@@ -366,10 +370,6 @@ button,
         padding-right: 0;
     }
 
-    .item-name {
-        padding: 6px 12px;
-    }
-
     // Navigation dropdown
     &.folder {
         ul {
@@ -382,11 +382,13 @@ button,
 
         // Navigation dropdown arrow
         span.item-name:after {
+            color: rgba(0,0,0, 0.45);
             content: "\f0dd";
             font-family: FontAwesome;
-            margin-left: 6px;
             font-size: 14px;
-            margin-top: -2px;
+            margin-left: 7px;
+            position: relative;
+            top: -2px;
         }
     }
 }
@@ -413,7 +415,7 @@ button,
         background-clip: content-box;
         display: inline-block;
         height: 47px;
-        margin: 2px 0 0;
+        margin: 4px 0 0;
         padding: 22px 10px 22px 15px;
         position: fixed;
         right: 15px;
@@ -483,20 +485,21 @@ button,
     // Slide out navigation
     .navigation-body {
         background-color: @color-swatch1;
-        -webkit-box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
-        -moz-box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
-        box-shadow: -5px 0px 12px 0px rgba(0,0,0,0.025);
+        -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
+        -moz-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
+        box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
         position: fixed;
         top: 0;
-        right: -75%;
+        right: -80%;
         bottom: 0;
         margin: 0;
         overflow-x: scroll;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
         padding-top: 100px;
         height: 100%;
-        width: 75%;
+        min-width: 35%;
+        max-width: 80%;
         .transition(right 400ms ease);
         z-index: 9999;
 
@@ -521,7 +524,7 @@ button,
             }
 
             .item-name {
-                font-size: bkscale(@font-swatch6-font-size, 1.2);
+                padding: 10px;
             }
         }
     }
@@ -648,8 +651,8 @@ button,
         // Button styles
         button {
             background-color: transparent;
-            border-top: 2px solid fade(white, 40%);
-            border-bottom: 2px solid fade(white, 40%);
+            border-top: 2px solid fade(@font-swatch6-color, 20%);
+            border-bottom: 2px solid fade(@font-swatch6-color, 20%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -672,13 +675,13 @@ button,
 
         // Next button
         .next-button {
-            border-right: 2px solid fade(white, 40%);
+            border-right: 2px solid fade(@font-swatch6-color, 20%);
             margin-left: -4px;
 
             &:after {
                 border-style: solid;
                 border-width: 8px 0 8px 10px;
-                border-color: transparent transparent transparent rgba(255,255,255, 0.8);
+                border-color: transparent transparent transparent fade(@font-swatch6-color, 20%);
                 content: "";
                 position: absolute;
                 width: 0;
@@ -689,21 +692,20 @@ button,
             }
 
             &:hover:after {
-                border-color: transparent transparent transparent @color-swatch1;
+                border-color: transparent transparent transparent @font-swatch6-color;
             }
         }
 
         // Previous button
         .previous-button {
-            border-left: 2px solid fade(white, 40%);
-            border-right: 2px solid fade(white, 40%);
-
+            border-left: 2px solid fade(@font-swatch6-color, 20%);
+            border-right: 2px solid fade(@font-swatch6-color, 20%);
             margin-right: -3px;
 
             &:before {
                 border-style: solid;
                 border-width: 8px 10px 8px 0;
-                border-color: transparent rgba(255,255,255, 0.8) transparent transparent;
+                border-color: transparent fade(@font-swatch6-color, 20%) transparent transparent;
                 content: "";
                 position: absolute;
                 width: 0;
@@ -714,13 +716,13 @@ button,
             }
 
             &:hover:before {
-                border-color: transparent @color-swatch1 transparent transparent;
+                border-color: transparent @font-swatch6-color; transparent transparent;
             }
         }
 
         // If the pause button is visible add a border left to the next button
         .previous-button + .pause-toggle + .next-button {
-            border-left: 2px solid fade(white, 40%);
+            border-left: 2px solid fade(@font-swatch6-color, 20%);
         }
 
         // If the pause button isn't visible remove the minus margin
@@ -736,8 +738,8 @@ button,
 
         // Pause button
         .js-btn-play {
-            border-left: 2px solid fade(white, 40%);
-            border-right: 2px solid fade(white, 40%);
+            border-left: 2px solid fade(@font-swatch6-color, 20%);
+            border-right: 2px solid fade(@font-swatch6-color, 20%);
             height: 60px;
             width: 100px;
             vertical-align: top;
@@ -745,7 +747,7 @@ button,
             &:after {
                 border-style: solid;
                 border-width: 11px 0 11px 13px;
-                border-color: transparent transparent transparent white;
+                border-color: transparent transparent transparent @font-swatch6-color;
                 content: "";
                 position: absolute;
                 width: 0;
@@ -802,7 +804,7 @@ button,
         // Pagination list element
         li.pagination-item {
             display: block;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             
             &.selected button {
                 background-color: @font-swatch6-color-hover;

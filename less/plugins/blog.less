@@ -153,7 +153,7 @@ div[data-name="blogsearch"] {
 		.flex(0 100%);
 
 		.image-link {
-			background-color: red;
+			background-color: @color-swatch3;
 			background-size: cover;
 			background-position: center center;
 			height: 600px;
@@ -189,8 +189,13 @@ div[data-name="blogsearch"] {
 
 		// Make paragraph text larger for blog post content
 		p {
-			font-size: 18px;
-			line-height: 36px;
+			font-size: bkscale(@font-swatch5-font-size, 1.1);
+			line-height: bkscale(@font-swatch5-line-height, 1.1);
+
+			@media @tablet {
+				font-size: bkscale(@font-swatch5-font-size, 1);
+				line-height: bkscale(@font-swatch5-line-height, 1);
+			}
 		}
 
 
