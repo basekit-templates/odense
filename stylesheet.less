@@ -76,8 +76,8 @@ legend {
     margin-bottom: 25px;
 
     @media @mobile-650px {
-        font-size: bkscale(@font-swatch3-font-size, 0.75);
-        line-height: bkscale(@font-swatch3-line-height, 0.8);
+        font-size: bkscale(@font-swatch3-font-size, 0.8);
+        line-height: bkscale(@font-swatch3-line-height, 0.85);
     }
 }
 
@@ -494,12 +494,10 @@ button,
         bottom: 0;
         margin: 0;
         overflow-x: scroll;
-        padding-left: 50px;
-        padding-right: 25px;
         padding-top: 100px;
         height: 100%;
-        min-width: 35%;
-        max-width: 80%;
+        min-width: 75%;
+        max-width: 85%;
         .transition(right 400ms ease);
         z-index: 9999;
 
@@ -512,11 +510,12 @@ button,
         }
 
         .navigation-item {
+            border-bottom: 1px solid lighten(@color-swatch7, 3%);
             display: block;
             width: 100%;
 
-             &:last-child .item-name {
-                padding-right: 12px;
+            &:last-child  {
+               border: none;
             }
 
             &.folder ul {
@@ -524,27 +523,35 @@ button,
             }
 
             .item-name {
-                padding: 10px;
+                padding: 10px 25px 10px 50px;
             }
         }
+    }
+
+    // Navigation button overlay
+    .bk-extendednavigation + #page-zones__template-widgets__extendednavigation-header-nav-bk-overlay {
+        position: fixed;
+        right: 0px;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        z-index: 8000;
+        cursor: pointer;
+        width: 40px;
+        height: 50px;
+        left: -40px;
     }
 
     // Navigation overlay
     .bk-extendednavigation.open + #page-zones__template-widgets__extendednavigation-header-nav-bk-overlay {
         position: fixed!important;
         left: inherit!important;
-        top: 100px!important;
+        top: 85px!important;
         max-width: 75%;
-        width: 100%;
+        width: 100%!important;
         z-index: 99999!important;
     }
 
-}
-
-@media @mobile-650px {
-    .navigation-body {
-        min-width: 65%;
-    }
 }
 
 
@@ -798,13 +805,13 @@ button,
         bottom: 0;
         position: absolute;
         height: 100%;
-        right: 45px;
+        right: 50px;
+        top: 45%;
         z-index: 2;
 
-
-        ul.pagination-list {
-            position: absolute;
-            top: 48%;
+        @media @mobile-650px {
+            right: 25px;
+            top: 42%;
         }
 
         // Pagination list element
@@ -815,10 +822,7 @@ button,
             &.selected button {
                 background-color: @font-swatch6-color-hover;
                 border: none;
-                margin-left: -1px;
-                position: relative;
-                height: 15px;
-                width: 15px;    
+                position: relative;  
             }
         }
 
@@ -849,7 +853,7 @@ div[role="main"] {
     }
 
     &.ecom-product {
-        min-height: 90vh;
+        min-height: 92vh;
         padding: 0 1em 0 0;
 
         @media @tablet-860px {
@@ -865,20 +869,35 @@ div[role="main"] {
 
 .default-profile div[data-widget-type="profile"] {
     background-color: lighten(@color-swatch7, 5%);
-    padding: 60px 30px;
+    border-top: 1px solid lighten(@color-swatch7, 2%);
+    padding: 55px 30px 50px;
     text-align: center;
+
+    @media @mobile-650px {
+        padding-top: 35px;
+    }
 
     .bk-profile {
 
         // Signup form
         .signupform {
             margin: 0 auto;
-            max-width: 550px;
+            max-width: 600px;
 
             // Show legend
             .legend {
                 display: block;
                 visibility: visible;
+                float: left;
+                margin: 0 25px 0 0;
+                line-height: 60px;
+
+                @media @mobile-650px {
+                    font-size: bkscale(@font-swatch3-font-size, 0.9);
+                    line-height: bkscale(@font-swatch3-line-height, 0.95);
+                    float: none;
+                    margin: 0 0 15px 0;
+                }
             }
 
             // Hide label
@@ -897,14 +916,10 @@ div[role="main"] {
                 }
             }
 
-            input, button {
-                height: 60px;
-            }
-
             // Form input
             input {
                 border: 1px solid @color-swatch7;
-                border: 1px solid #E2E2E2;
+                height: 60px;
             }
 
             // Form button
@@ -912,6 +927,7 @@ div[role="main"] {
                 background-color: @color-swatch4;
                 color: white;
                 margin: 0;
+                height: 59px;
             }
         }
 
@@ -933,6 +949,7 @@ div[role="main"] {
 // ---------------
 
 .template-footer {
+    border-top: 1px solid @color-swatch7;
     padding: 30px 1em;
     position: relative;
 

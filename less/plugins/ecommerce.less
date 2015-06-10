@@ -50,7 +50,7 @@
     .ecomproductslist__button {
     	background: @color-swatch3 image('/images/search-icon.svg') no-repeat center;
     	color: @color-swatch3!important;
-        margin-top: 33px;
+        margin-top: 37px;
         overflow: hidden;
         text-indent: -9999px;
         height: 54px;
@@ -174,9 +174,49 @@ form.ecomproductslist__form {
 
 	.product-item {
 		float: left;
-		padding: 0 12px 24px;
+		padding: 0 20px 24px;
 		height: auto;
 		width: 33.33%;
+
+		@media @tablet-860px {
+			width: 50%;
+		}
+
+		@media @mobile-650px {
+			width: 100%;
+		}
+
+		&:nth-child(3n+3) {
+			padding-right: 0;
+		}
+
+		&:nth-child(3n+1) {
+			padding-left: 0;
+		}
+	}
+
+	@media @tablet-860px {
+		.product-item:not([style*="left: 0"]) {
+			padding-right: 0;
+			padding-left: 20px;
+		}
+
+		.product-item[style*="left: 0"] {
+			padding-left: 0;
+			padding-right: 20px;
+		}
+	}
+
+	@media @mobile-650px {
+		.product-item:not([style*="left: 0"]) {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		.product-item {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 
 	.product-item-image, 
@@ -333,7 +373,7 @@ form.ecomproductslist__form {
 		.flex-display;
 		.align-items(center);
 		position: relative;
-		min-height: 90vh;
+		min-height: 92vh;
 
 		@media @tablet {
 			display: block;
@@ -365,6 +405,7 @@ form.ecomproductslist__form {
 
 	// Create full size vertical scrolling list of product thumbs
 	.product-images {
+		background-color: rgb(244, 244, 244);
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -444,7 +485,7 @@ form.ecomproductslist__form {
 		max-width: 1750px;
 
 		@media @tablet {
-			padding: 20px 0;
+			padding: 10px 0 20px;
 			max-width: 100%;
 		}
 

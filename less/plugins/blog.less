@@ -14,8 +14,67 @@
 //  1. Blog Search
 // -----------------------------
 
-div[data-name="blogsearch"] {
-	margin-bottom: 60px;
+div[data-widget-type="blogsearch"] {
+    background-color: lighten(@color-swatch7, 5%);
+    border-bottom: 1px solid @color-swatch7;
+    margin-bottom: 20px;
+    padding: 40px 30px 45px;
+    text-align: left;
+
+    // Signup form
+    .blogsearch {
+        margin: 0 auto;
+        max-width: 1200px;
+
+        // Show legend
+        .legend {
+            display: block;
+            visibility: visible;
+            margin-bottom: 15px;
+        }
+
+        // Hide label
+        .label {
+            display: none;
+            visibility: hidden;
+        }
+
+        // Form group
+        .form-group {
+            padding: 0;
+
+            // Bring button over input
+            &:last-child {
+                margin-left: -1px;
+            }
+        }
+
+        input, button {
+            height: 60px;
+        }
+
+        // Form input
+        input {
+            border: 1px solid #E2E2E2;
+        }
+
+        // Form button
+        button {
+            background-color: @color-swatch4;
+            color: white;
+            margin: 0;
+        }
+    }
+
+    // Remove padding from profile widget text
+    h2.headline, p.business {
+        padding-bottom: 0;
+    } 
+
+    // Pushes Twitter username away from twitter bird
+    .account-name {
+        padding-right: 40px;
+    }
 }
 
 
@@ -24,7 +83,12 @@ div[data-name="blogsearch"] {
 //  2. Blog Post List
 // -----------------------------
 
+div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
+	margin-top: 0;
+}
+
 .blogpostlist {
+	margin-top: 20px;
 	.post-article {
 		.flex-display;
 		.flex-wrap(wrap);
@@ -100,6 +164,10 @@ div[data-name="blogsearch"] {
 
 	.post-article {
 		margin-bottom: 50px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	.post-footer {
@@ -128,6 +196,11 @@ div[data-name="blogsearch"] {
 				margin: 25px 0 0;
 			}	
 		}
+	}
+
+	// Previous and next buttons
+	.post-list-footer {
+		margin-top: 40px;
 	}
 }
 
