@@ -56,10 +56,6 @@
         height: 54px;
         width: 55px;
 
-        @media @mobile {
-            margin-top: 0;
-        }
-
         &:hover {
         	color: @font-swatch7-background-color-hover!important;
         }
@@ -208,14 +204,11 @@ form.ecomproductslist__form {
 	}
 
 	@media @mobile-650px {
-		.product-item:not([style*="left: 0"]) {
-			padding-right: 0;
-			padding-left: 0;
-		}
-
+		.product-item:not([style*="left: 0"]),
+		.product-item[style*="left: 0"],
 		.product-item {
-			padding-left: 0;
 			padding-right: 0;
+			padding-left: 0;
 		}
 	}
 

@@ -296,7 +296,7 @@ button,
 
     // Container for logo and navigation
     .container {
-        margin: 0 35px;
+        margin: 0 25px;
         max-width: 100%;
 
         // Flex
@@ -532,28 +532,26 @@ button,
 
     // Navigation button overlay
     .bk-extendednavigation + #page-zones__template-widgets__extendednavigation-header-nav-bk-overlay {
-        position: fixed;
-        right: 0px;
-        left: 0px;
-        top: 0px;
-        bottom: 0px;
-        z-index: 8000;
-        cursor: pointer;
-        width: 40px;
-        height: 50px;
-        left: -40px;
+        position: fixed!important;
+        right: 20px!important;
+        left: initial!important;
+        top: 20px!important;
+        bottom: 0px!important;
+        width: 40px!important;
+        height: 50px!important;
     }
 
     // Navigation overlay
     .bk-extendednavigation.open + #page-zones__template-widgets__extendednavigation-header-nav-bk-overlay {
         position: fixed!important;
         left: inherit!important;
+        right: 0!important;
         top: 85px!important;
         max-width: 75%;
+        height: 100%!important;
         width: 100%!important;
         z-index: 99999!important;
     }
-
 }
 
 
@@ -588,8 +586,6 @@ button,
             visibility: hidden;
         }
 
-
-
         // The active state for the slideshows next and previous controls
         &.current,
         &[style="display: none;"] + .slide-item {
@@ -610,9 +606,9 @@ button,
     // Image title and description
     .caption {
         background-color: transparent;
-        bottom: 50px;
-        left: 50px;
-        right: 50px;
+        bottom: 40px;
+        left: 40px;
+        right: 40px;
         padding: 0;
         text-align: left;
         width: auto;
@@ -653,9 +649,9 @@ button,
 
     // Navigation buttons
     .slide-navigation {
-        bottom: 50px;
+        bottom: 40px;
         position: absolute;
-        right: 50px;
+        right: 40px;
         margin: 0;
         z-index: 2;
 
@@ -808,7 +804,7 @@ button,
         bottom: 0;
         position: absolute;
         height: 100%;
-        right: 50px;
+        right: 40px;
         top: 45%;
         z-index: 2;
 
@@ -877,15 +873,19 @@ div[role="main"] {
     text-align: center;
 
     @media @mobile-650px {
-        padding-top: 35px;
+        padding: 35px 30px 35px;
     }
 
     .bk-profile {
+        margin: 0 auto;
+        max-width: 600px;
 
         // Signup form
         .signupform {
-            margin: 0 auto;
-            max-width: 600px;
+
+            .form-body {
+                .flex-wrap(wrap);
+            }
 
             // Show legend
             .legend {
@@ -913,6 +913,10 @@ div[role="main"] {
             .form-group {
                 padding: 0;
 
+                @media @mobile-650px {
+                    .flex-grow(1);
+                }
+
                 // Bring button over input
                 &:last-child {
                     margin-left: -1px;
@@ -925,12 +929,21 @@ div[role="main"] {
                 height: 60px;
             }
 
+            input[type="email"]:focus {
+                border: 1px solid darken(@color-swatch7, 8%);
+                box-shadow: none;
+            }
+
             // Form button
             button {
                 background-color: @color-swatch4;
                 color: white;
                 margin: 0;
                 height: 59px;
+
+                @media @mobile-650px {
+                    width: 100%;
+                }
             }
         }
 
