@@ -17,7 +17,7 @@
 // BK LESS Framework Include
 // -------------------------
 
-@import "@{templateCommon}/bk-less-framework.less";
+@import "../../common/bk-less-framework.less";
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
@@ -28,17 +28,17 @@
 // Theme Includes
 // --------------
 
-@import "@{templateLocal}/less/mixins.less";            // Mixins
-@import "@{templateLocal}/less/type.less";              // Typography
-@import "@{templateLocal}/less/widgets.less";           // Widgets
+@import "less/mixins.less";            // Mixins
+@import "less/type.less";              // Typography
+@import "less/widgets.less";           // Widgets
 
 
 // Plugin Includes
 // ---------------
 
-@import "@{templateLocal}/less/plugins/blog.less";              // Blog
-@import "@{templateLocal}/less/plugins/menu.less";              // Menu
-@import "@{templateLocal}/less/plugins/ecommerce.less";         // Ecommerce
+@import "less/plugins/blog.less";              // Blog
+@import "less/plugins/menu.less";              // Menu
+@import "less/plugins/ecommerce.less";         // Ecommerce
 
 
 
@@ -601,7 +601,6 @@ button,
 
     // Image element
     figure {
-        background-position: center;
         background-repeat: no-repeat;
         background-size: cover!important;
         height: 100vh;

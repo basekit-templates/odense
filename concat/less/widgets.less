@@ -1,0 +1,629 @@
+
+// -----------------------------
+// 	Widgets
+// -----------------------------
+
+//  1.   Contact Form
+//  2.   Twitter Widget
+//	3.	 Social Icons
+//	4.	 HR Line
+//	5.	 
+
+
+
+// -----------------------------
+//  1. Contact Form
+// -----------------------------
+
+.contactform {
+
+}
+
+
+
+// -----------------------------
+//  2. Twitter Widget
+// -----------------------------
+
+
+// Twitter widget container
+ul.tweet-list {
+	padding-left: 0;
+	margin-top: 65px;
+}
+
+// Single tweet
+.tweet-list li {
+	background-color: rgb(250,250,250);
+	border: 1px solid rgb(225,225,225);
+	margin-bottom: 25px;
+	.border-radius(6px);
+	padding: 25px;
+
+	// Take the account name from the first tweet and position it outside the tweet container
+	&:first-child .account-link {
+		top: -50px;
+		position: absolute;
+		left: 0;
+		display: block;
+		width: 100%;
+
+		.account-link {
+			display: block;
+		}
+	}
+
+	// Hide the account name on any tweet that's not the first
+	&:not(:first-child) .account-link {
+		display: none;
+		visibility: hidden;
+	}
+
+	// Re-add margin to final tweet
+	&:last-child {
+		margin-bottom: 25px;
+	}
+
+	// Adds chat style triangle to last tweet
+	&:last-child:after {
+		border-style: solid;
+		border-width: 0 30px 30px 0;
+		border-color: transparent rgb(250,250,250) transparent transparent;
+		content: "";
+		margin-top: 25px;
+		position: absolute;
+		right: 25px;
+		width: 0;
+		height: 0;
+	}
+
+	&:last-child:before {
+		  border-style: solid;
+		  border-width: 0 31px 30px 0;
+		  border-color: transparent rgb(225,225,225) transparent transparent;
+		  content: "";
+		  margin-top: 25px;
+		  position: absolute;
+		  right: 24px;
+		  width: 0;
+		  height: 0;
+		  position: absolute;
+		  bottom: -5px;
+	}
+}
+
+// Twitter account name styling
+.account-name {
+	font-family: @font-swatch2-font-family;
+	font-size: bkscale(@font-swatch2-font-size, 0.85);
+
+	// Adds twitter icon to the right of the account name
+	&:after {
+		color: @color-swatch2;
+		content: "\f099";
+		font-family: 'FontAwesome', sans-serif;
+		position: absolute;
+		right: 0;
+	}
+}
+
+// Hide Twitter avatar
+.twitter__avatar {
+	display: none;
+	visibility: hidden;
+}
+
+// Tweet content
+.tweet-content {
+	color: lighten(@font-swatch4-color, 10%);
+    line-height: bkscale(@font-swatch5-line-height, 0.9);
+	padding-bottom: 10px;
+    word-break: break-word;
+}
+
+// Tweet metadata (Date and platform)
+.tweet-metadata {
+	font-size: bkscale(@font-swatch5-font-size, 0.85);
+	font-style: italic;
+	time, span {
+		color: darken(@font-swatch5-color, 5%);
+	}
+}
+
+
+
+// -----------------------------
+//  3. Social Icons
+// -----------------------------
+
+
+// Hide social icons text
+.social-name {
+	display: none;
+	visibility: hidden;
+}
+
+// Social links background
+.social-link {
+	background-color: @font-swatch7-background-color;
+	color: @font-swatch7-color;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+
+	&:before {
+		font-size: 18px;
+		line-height: 40px;
+		margin: 0;
+	}
+
+	&:hover {
+		background-color: @font-swatch7-background-color-hover;
+		color: darken(@color-swatch2, 20%);
+	}
+}
+
+
+
+// -----------------------------
+//  4. HR Line
+// -----------------------------
+
+hr.rule {
+	background-color: @color-swatch7;
+}
+
+
+
+// -----------------------------
+//  5. Company Address
+// -----------------------------
+
+.companyaddress {
+	p {
+		padding-bottom: 0.25em;
+	}
+}
+
+
+
+// -----------------------------
+//  6. Sign Up Widget
+// -----------------------------
+
+.signupform, .blogsearch {
+
+	.form-body {
+		.flex-display;
+	}
+
+	.form-group {
+		.flex-grow(0);
+
+		&:first-child {
+			.flex-grow(1);
+			padding-right: 15px;
+		}
+	}
+
+    // Hides Legend
+    legend {
+        display: none;
+        visibility: hidden;
+    }
+
+    // Brings button inline with input
+    .button {
+        margin-top: 37px;
+    }
+}
+
+
+
+// -----------------------------
+//  7. Dropbox Widget
+// -----------------------------
+
+.dropbox {
+    // Dropbox Label
+    span.label {
+        margin-left: 6px;
+    }
+}
+
+
+
+
+// -----------------------------
+//  7. Image Widget
+// -----------------------------
+
+.imagewidget {
+	.image-title {
+		color: @font-swatch2-color;
+		font-family: @font-swatch2-font-family;
+		font-size: @font-swatch4-font-size;
+		margin-bottom: 8px;
+	}
+	.image-description {
+		font-family: @font-swatch5-font-family;
+		font-size: @font-swatch5-font-size;
+	}
+}
+
+
+
+// -----------------------------
+//  8. Gallery Widget
+// -----------------------------
+
+.widget__gallery {
+
+    // Gallery List
+    ul.gallery-list {
+        .clearfix;
+        padding-top: 10px;
+    }
+
+    // Gallery Item
+    li.gallery-item {
+        display: inline-block;
+        float: left;
+        margin-right: 3.33%;
+        position: relative;
+        width: 31%;
+        margin-bottom: 2%;
+        vertical-align: top;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+        // Display at 50% at tablet
+        @media @tablet-860px {
+            width: 48%;
+            &:nth-child(2n) {
+                margin-right: 0!important;
+            }
+            &:nth-child(3n) {
+                margin-right: 3.33%;
+            }
+        }
+        // Display at 100% at mobile
+        @media @mobile-650px {
+            margin-right: 0!important;
+            width: 100%;
+            margin-bottom: 4%;
+        }
+
+        .image-link {
+            -webkit-filter: grayscale(0%);
+            .transition(all 0.5s ease-in-out);
+        }
+        &:hover {
+            opacity: 1!important;
+            .image-link {
+                background-blend-mode: multiply;
+                text-decoration: none;
+            }
+            figcaption {
+                background-color: fade(@color-swatch4, 65%);
+                .flex-display(flex);
+                height: 100%;
+                opacity: 1;
+                .transform(scale(0.85));
+                .transition(all 0.5s ease-in-out);
+                visibility: visible;
+                overflow: hidden;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    height: 10px;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    .gradient(fade(@color-swatch4, 0%), fade(@color-swatch4, 10%));
+                }
+            }
+        }
+    }
+    .gallery__figure {
+        .transition(all 0.5s ease-in-out);
+    }
+
+    // Hide Figcaption
+    figcaption {
+
+        // Flex
+        .flex-display(flex);
+        .align-items(center);
+        .flex-direction(column);
+        .justify-content(center);
+        -ms-flex-pack: center;
+
+        position: absolute;
+        display: block;
+        height: 0;
+        margin: 0;
+        padding: 0 15px;
+        opacity: 0;
+        text-align: center;
+        top: 0;
+        .transform(scale(0.85));
+        width: 100%;
+        visibility: hidden;
+        @media @mobile {
+            left: 0;
+        }
+
+        .caption-link:hover {
+            text-decoration: none;
+        }
+
+        .image-title {
+            color: @color-swatch1;
+            text-transform: uppercase;
+            font-family: @font-swatch4-font-family;
+            letter-spacing: 1px;
+            font-size: 15px;
+            display: block;
+            padding: 6px 12px 5px;
+        }
+
+        .image-description {
+            color: darken(@color-swatch1, 15%);
+            font-size: 15px;
+            line-height: 23px;
+        }
+    }
+
+    // Use Background Image
+    .image-link {
+        display: block;
+        padding-bottom: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        // Hide Inline Image
+        .image {
+            display: none;
+        }
+    }
+}
+
+// -----------------------------
+// 7.  Slideshow
+// -----------------------------
+
+
+div[role="main"] {
+
+    // Slideshow Height
+    .responsiveslideshow, 
+    .responsiveslideshow__figure {
+        position: relative;
+        height: 500px;
+
+        @media @tablet {
+            height: 350px;
+        }
+    }
+
+    .responsiveslideshow {
+        margin: 0 0 60px 0;
+
+        // Slide Caption
+        .caption {
+            background-color: fade(@color-swatch1, 40%);
+            display: inline-block;
+            margin: 0 auto;
+            max-width: 80%;
+            padding: 25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            width: auto;
+
+            @media @tablet {
+                max-width: 70%;
+            }
+
+            .image-title {
+                color: @font-swatch4-color;
+                font-size: bkscale(@font-swatch4-font-size, 0.9);
+                font-weight: @font-swatch3-font-weight;
+                line-height: bkscale(@font-swatch4-line-height, 0.9); 
+                margin-bottom: 4px;
+
+                @media @tablet {
+                    font-size: bkscale(@font-swatch4-font-size, 0.9);
+                    line-height: bkscale(@font-swatch4-font-size, 0.9);
+                }
+            }
+        }
+
+        // Slide Navigation Controls
+        .slide-navigation {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            margin: 0;
+            width: 100%;
+
+            button {
+                background-color: @color-swatch1;
+                color: @color-swatch4;
+                padding: 0;
+                position: absolute;
+                height: 100px;
+                width: 45px;
+                top: 200px;
+                .transition(all 0.5s ease);
+
+                @media @tablet {
+                    top: 125px;
+                }
+
+                &:hover {
+                    background-color: fade(@color-swatch1, 80%);
+                }
+
+                .icon:before {
+                    margin-right: 0;
+                }
+            }
+
+            // Hides button control text (play, pause etc.)
+            button span.control-text {
+                display: none;
+            } 
+
+            // Previous and next arrow styling
+            .previous-button, 
+            .next-button {
+                &:before, &:after {
+                    font-size: 27px;
+                    margin: 0;
+                    vertical-align: middle;
+                }
+            }
+
+            // Previous arrow
+            .previous-button {
+                left: 0;
+
+                &:before {
+                    content: "\f104";
+                      margin-right: 5px;
+                }
+            }
+
+            // Next arrow
+            .next-button {
+                right: 0;
+
+                &:after {
+                    content: "\f105";
+                    margin-left: 5px;
+                }
+            }
+
+            // Pause button
+            .pause-toggle {
+                background-color: fade(@color-swatch1, 75%);
+                margin: 0 auto;
+                height: 60px;
+                left: 0;
+                right: 0;
+                width: 60px;
+                top: 225px;
+                display: inline-block;
+                visibility: visible;
+
+                @media @tablet {
+                    top: 145px;
+                }
+
+                &:hover {
+                    background-color: @color-swatch1;
+                }
+
+                &:before {
+                    border-left: 3px solid @font-swatch6-color-hover;
+                    border-right: 3px solid @font-swatch6-color-hover;
+                    content: "";
+                    font-size: 20px;
+                    margin: 0;
+                    padding: 0 3px;
+                    vertical-align: top;
+                } 
+            }
+        }
+
+        // Overlay Slide Pagination Over Image
+        .slide-pagination {
+            display: block;
+            margin: 25px 0;
+
+            // Restrict Width of Pagination
+            ul.pagination-list {
+                text-align: center;
+
+                @media @tablet {
+                    display: none;
+                    visibility: hidden;
+                }
+            }
+
+            li.pagination-item {
+                margin-bottom: 5px;
+                margin-left: 15px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &.selected button {
+                     background-color: @font-swatch6-color-hover;
+                }
+            }
+
+            // Pagination button
+            button {
+                background-color: fade(@font-swatch6-color, 40%);
+                border: none;
+                overflow: hidden;
+                padding: 0!important;
+                .rotate(45deg);
+                text-indent: -9999px;
+                height: 13px;
+                width: 13px;
+            }
+        }
+    }
+}
+
+
+
+// -----------------------------
+//  1. Company Description
+// -----------------------------
+
+.companydescription h3 {
+    font-size: bkscale(@font-swatch4-font-size, 0.9);
+    font-weight: @font-swatch4-font-weight;
+    line-height: @font-swatch4-line-height;
+}
+
+// -----------------------------
+//  1. Yelp Widget
+// -----------------------------
+
+.review-list {
+    margin-left: 0;
+
+    .review-title {
+        margin-bottom: 5px;
+    }
+
+    .author-label, 
+    .review-author {
+        font-size: 21px;
+    }
+
+    .review-text {
+        padding: 10px 0px 2px;
+    }
+
+    .review-footer {
+        margin-top: 10px;
+
+        .timestamp {
+            font-size: 15px;
+        }
+    }
+
+    li {
+        list-style: none;
+    }
+}
