@@ -42,7 +42,7 @@ ul.tweet-list {
 
 	// Take the account name from the first tweet and position it outside the tweet container
 	&:first-child .account-link {
-		top: -50px;
+		top: -70px;
 		position: absolute;
 		left: 0;
 		display: block;
@@ -96,6 +96,11 @@ ul.tweet-list {
 .account-name {
 	font-family: @font-swatch2-font-family;
 	font-size: bkscale(@font-swatch2-font-size, 0.85);
+
+    @media @tablet-860px {
+        font-size: bkscale(@font-swatch2-font-size, 0.75);   
+        line-height: bkscale(@font-swatch2-font-size, 0.75);
+    }
 
 	// Adds twitter icon to the right of the account name
 	&:after {
