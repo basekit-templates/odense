@@ -229,17 +229,17 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 
 .blogpost {
 	.post-article {
-		.flex-display;
-		.flex-wrap(wrap);
+		/*.flex-display;
+		.flex-wrap(wrap);*/
 		position: relative;
 	}
 
-	.post-image, .post-content, .post-footer {
+	/*.post-image, .post-content, .post-footer {
 		.flex-grow(0);
-	}
+	}*/
 
 	.post-image {
-		.flex(0 100%);
+		/*.flex(0 100%);*/
 
 		.image-link {
 			background-color: @color-swatch3;
@@ -265,7 +265,7 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 	.post-content {
 		margin: 0 auto;
 		max-width: 860px;
-		padding: 4rem 30px 2rem;
+		padding: 10rem 30px 2rem;
 
 		@media @tablet-860px {
 			.flex( 0 100%);
@@ -273,7 +273,7 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 		}
 
 		@media @mobile-650px {
-			padding: 2.5rem 25px 0;
+			padding: 6.5rem 25px 0;
 		}
 
 		// Make paragraph text larger for blog post content
@@ -368,6 +368,14 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 }
 
 // If image is available these styles are applied
+.blogpost .post-article > .post-image ~ .post-content {
+	padding: 4rem 30px 2rem;
+
+	@media @mobile-650px {
+		padding: 2.5rem 30px 2rem;
+	}
+}
+
 .blogpost .post-article > .post-image ~ .post-footer {
 	background: -moz-linear-gradient(top, rgba(0,0,0,0) 10%, rgba(0,0,0,0.5) 100%, rgba(0,0,0,0.7) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0.7))); /* Chrome,Safari4+ */
@@ -382,19 +390,21 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 	height: 200px;
 	padding: 0;
 	position: absolute;
-	margin-top: -200px;
 	max-width: 100%;
 	padding: 10px 25px 10px 140px;
 	left: 0;
 	right: 0;
+	top: 400px;
 
 	@media @tablet-860px {
 		.flex(0 100%);
+		top: 300px;
 	}
 
 	@media @mobile-650px {
 		.justify-content(flex-start);
 		padding-left: 25px;
+		top: 200px;
 	}
 
 	.category-title, .tags-title {
@@ -433,7 +443,8 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 		.align-self(flex-end);
 		-ms-flex-item-align: end;
 		.flex-order(2);
-		padding: 20px 25px;
+		margin-right: 0;
+		padding: 20px 0 20px 25px;
 
 		@media @mobile-650px {
 			padding: 20px 0;
