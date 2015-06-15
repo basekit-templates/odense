@@ -137,6 +137,7 @@ form.ecomproductslist__form {
 
         .form-group {
             .flex-grow(1);
+            margin-right: 15px;
 
             @media @tablet-860px {
                 width: 47.5%;
@@ -168,6 +169,19 @@ form.ecomproductslist__form {
 
 .ecomproductslist {
 
+	// Section title, filters section
+	.listing-header {
+		padding-bottom: 20px;
+	}
+
+	.listing-title {
+		padding-bottom: 25px;
+	}
+
+	.listing-order {
+		padding-bottom: 30px 0 0;
+	}
+
 	.product-item {
 		float: left;
 		padding: 0 20px 24px;
@@ -181,18 +195,26 @@ form.ecomproductslist__form {
 		@media @mobile-650px {
 			width: 100%;
 		}
+	}
 
-		&:nth-child(3n+3) {
-			padding-right: 0;
-		}
+	.product-item:not([style*="left: 0"]) {
+		padding-right: 0;
+		padding-left: 20px;
+	}
 
-		&:nth-child(3n+1) {
-			padding-left: 0;
-		}
+	.product-item[style*="left: 0"] + li {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.product-item[style*="left: 0"] {
+		padding-left: 0;
+		padding-right: 20px;
 	}
 
 	@media @tablet-860px {
-		.product-item:not([style*="left: 0"]) {
+		.product-item:not([style*="left: 0"]),
+		.product-item[style*="left: 0"] + li {
 			padding-right: 0;
 			padding-left: 20px;
 		}
@@ -214,6 +236,7 @@ form.ecomproductslist__form {
 
 	.product-item-image, 
 	.product-item-image .image-link {
+		max-height: 450px;
 		height: auto;
 		width: auto;
 		@media @mobile-650px {
@@ -535,10 +558,14 @@ form.ecomproductslist__form {
 		}
 	}
 
+	.product-body {
+		margin-bottom: 30px;
+	}
+
 	// Product category and tags wrapper
 	.product-actions {
 		padding: 0;
-		margin: 30px 0 25px;
+		margin: 0 0 25px;
 	}
 
 	// Product category and tags
@@ -562,6 +589,11 @@ form.ecomproductslist__form {
 
 		.product-attribute-title {
 			color: lighten(@font-swatch4-color, 20%);
+
+			&:after {
+				content: ":";
+				display: inline-block;
+			}
 		}
 
 		.tag-link {
@@ -575,7 +607,7 @@ form.ecomproductslist__form {
 		background-color: rgba(194,14,15,0.65);
 		color: white;
 		display: inline-block;
-		margin: 0 0 30px;
+		margin: 12px 0 30px;
 		padding: 0 20px 0 40px;
 
 		@media @tablet {
@@ -586,6 +618,7 @@ form.ecomproductslist__form {
 
 		&:before {
 			left: 15px;
+			top: 0.3em;
 		}
 
 		p {
@@ -644,6 +677,15 @@ form.ecomproductslist__form {
 		padding-right: 0;
 	}
 
+	.summary-title {
+		padding-bottom: 10px;
+	}
+
+	// Continue shopping button
+	.continue-shopping  {
+		margin-top: 20px;
+	}
+
 	// Product item title
 	.summary-item-link {
 		color: @color-swatch4;
@@ -660,6 +702,7 @@ form.ecomproductslist__form {
 	.quantity-minus, 
 	.quantity-plus {
 		background-color: transparent;
+		color: @color-swatch4;
 		line-height: 0;
 		padding: 0;
 		position: relative;
@@ -674,7 +717,7 @@ form.ecomproductslist__form {
 	// Adds a diamond style background shape the to the plus and remove quantity buttons
 	.quantity-minus:after, 
 	.quantity-plus:after {
-		background-color: @color-swatch3;
+		background-color: @color-swatch7;
 		content: "";
 		display: inline-block;
 		left: 0;
@@ -682,7 +725,6 @@ form.ecomproductslist__form {
 		height: 22px;
 		width: 22px;
 		position: absolute;
-		.transform(rotate(45deg));
 		z-index: -1;
 	}
 
@@ -695,6 +737,11 @@ form.ecomproductslist__form {
 		font-size: 20px;
 		text-align: right;
 	}
+}
+
+.summary-form {
+	margin-top: 35px;
+	text-align: right;
 }
 
 .ecombasket {
