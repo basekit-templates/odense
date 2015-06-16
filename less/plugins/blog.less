@@ -229,23 +229,17 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 
 .blogpost {
 	.post-article {
-		/*.flex-display;
-		.flex-wrap(wrap);*/
 		position: relative;
 	}
 
-	/*.post-image, .post-content, .post-footer {
-		.flex-grow(0);
-	}*/
-
 	.post-image {
-		/*.flex(0 100%);*/
 
 		.image-link {
 			background-color: @color-swatch3;
 			background-size: cover;
 			background-position: center center;
 			height: 600px;
+			.transition(none);
 
 			@media @tablet-860px {
 				height: 500px;
@@ -259,6 +253,13 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 		.image {
 			display: none;
 			visibility: hidden;
+		}
+	}
+
+	.post-title {
+		@media @mobile-650px {
+			font-size: bkscale(@font-swatch1-font-size, 0.75);
+			line-height: bkscale(@font-swatch1-line-height, 0.78);
 		}
 	}
 
