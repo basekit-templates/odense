@@ -14,6 +14,7 @@
 			'showBullets': true,
 			'allowPause': false,
 			'allowLoop': false,
+			'crop': true,
 			'images':[
 			{
 				'imageHeight':'auto',
@@ -62,30 +63,4 @@
 </div>
 <!-- END CONTAINER -->
 
-{% endblock %}
-
-{% block scripts %}
-
-	<!-- Background Check 
-	<script src="{{asset('js/background-check.js')}}"></script>
-
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			// Specific images
-			BackgroundCheck.init({
-				targets: '.navigation-list',
-				images: '.responsiveslideshow__figure'
-			});
-			BackgroundCheck.refresh();
-		}); 
-
-
-
-
-		(function Forever(){
-		    BackgroundCheck.refresh();
-		    setTimeout(Forever, 1000);
-		})();
-	</script>-->
-	
 {% endblock %}
