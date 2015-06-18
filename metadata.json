@@ -13,7 +13,8 @@
     "images":[
         "images/logo.png",
         "images/slide-1.jpg",
-        "images/slide-2.jpg"
+        "images/slide-2.jpg",
+        "images/slide-3.jpg"
     ],
     "colorSwatches":
     {
@@ -85,7 +86,7 @@
             "font-family": "\"Lato\", Geneva, Tahoma, sans-serif",
             "font-size": "26px",
             "font-weight": "400",
-            "line-height": "inherit",
+            "line-height": "38px",
             "color": "@color-swatch4",
             "letter-spacing": "inherit"
         },

@@ -1,0 +1,169 @@
+
+// -----------------------------
+// Typography
+// -----------------------------
+
+
+
+// Headings
+// -------------------------
+
+h5, h6 {
+	margin: 0;
+	padding-bottom: 10px;
+}
+
+h1, 
+h2, 
+.image-title,
+.account-link {
+	font-weight: @font-swatch4-font-weight;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1 {
+	margin-bottom: 0.6em;
+	@media @tablet-860px {
+		font-size: bkscale(@font-swatch1-font-size, 0.9);
+		line-height: bkscale(@font-swatch1-line-height, 0.9);
+	}
+	@media @mobile-650px {
+		margin-bototm: 0.3em;
+		font-size: bkscale(@font-swatch1-font-size, 0.82);
+		line-height: bkscale(@font-swatch1-line-height, 0.85);
+	}
+}
+
+h2 {
+	@media @tablet-860px {
+		font-size: bkscale(@font-swatch2-font-size, 0.9);
+		line-height: bkscale(@font-swatch2-line-height, 0.9);
+	}
+	@media @mobile-650px  {
+		font-size: bkscale(@font-swatch2-font-size, 0.85);
+		line-height: bkscale(@font-swatch2-line-height, 0.85);
+	}
+}
+
+h3 {
+	@media @tablet-860px {
+		font-size: bkscale(@font-swatch3-font-size, 0.9);
+		line-height: bkscale(@font-swatch3-line-height, 0.9);
+	}
+	@media @mobile {
+		font-size: bkscale(@font-swatch3-font-size, 0.85);
+		line-height: bkscale(@font-swatch3-line-height, 0.85);
+	}
+}
+
+h4 {
+	@media @tablet-860px {
+		font-size: bkscale(@font-swatch4-font-size, 0.9);
+		line-height: bkscale(@font-swatch4-line-height, 0.9);
+	}
+	@media @mobile-650px  {
+		font-size: bkscale(@font-swatch4-font-size, 0.85);
+		line-height: bkscale(@font-swatch4-line-height, 0.85);
+	}
+}
+
+h5 {
+	font-size: bkscale(@font-swatch4-font-size, 0.8);
+	line-height: bkscale(@font-swatch4-line-height, 0.8);
+	@media @mobile-650px  {
+		font-size: bkscale(@font-swatch3-font-size, 0.75);
+		line-height: bkscale(@font-swatch3-line-height, 0.75);
+	}
+}
+
+h6 {
+	font-size: bkscale(@font-swatch4-font-size, 0.6);
+	line-height: bkscale(@font-swatch4-line-height, 0.6);
+	font-style: normal;
+}
+
+
+
+// Normal Text
+// ---------------------------------------
+
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+p {
+	padding-bottom: 1em;
+}
+
+p, 
+ul, 
+ol,
+li, 
+.p-font, 
+time.blog-post-publish-date {
+	font-size: bkscale(@font-swatch5-font-size, 1);
+	line-height: bkscale(@font-swatch5-line-height, 1);
+	@media @mobile-650px {
+		font-size: bkscale(@font-swatch5-font-size, 0.95);
+		line-height: bkscale(@font-swatch5-line-height, 0.95);
+	}
+}
+
+
+// Anchor links
+a {
+	text-decoration: none;
+	.transition(all .5s ease-in-out);
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.widget__content a {
+	border-bottom: 1px solid transparent;
+	.transition(all .5s ease-out);
+	&:hover {
+		border-bottom: 1px solid @color-swatch2;
+		padding-bottom: 1px;
+		text-decoration: none;
+		.transition(all .5s ease-in-out);
+	}
+}
+
+// Blockquotes
+blockquote {
+	color: @color-swatch2;
+	font-size: bkscale(@font-swatch5-font-size, 1.1);
+	line-height: bkscale(@font-swatch5-line-height, 1.075);
+	padding: 1em 40px 2em;
+	font-style: italic;
+
+	@media @mobile-650px {
+		padding: 0.5em 20px 1.5em;
+	}
+}
+
+// List styles for content widgets
+.widget__content {
+	ul {
+		padding-left: 20px;
+		li {
+			list-style: none;
+			position: relative;
+			&:before {
+				color: @color-swatch2;
+				content: "\25c6";
+				font-family: 'FontAwesome', sans-serif;
+				font-size: 16px;
+				margin-top: -2px;
+				position: absolute;
+				left: -28px;
+			}
+		}
+	}
+
+	ol {
+		padding-left: 14px;
+	}
+}

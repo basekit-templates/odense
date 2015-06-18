@@ -23,3 +23,14 @@
 <!-- END CONTAINER -->
 
 {% endblock %}
+
+{% block scripts %}
+
+<script>
+	if($(".ecomproduct__product-gallery").length == 0) 
+    { 
+       $("body").addClass("product-one-image"); 
+    } 
+</script>
+	
+{% endblock %}

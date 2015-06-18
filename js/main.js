@@ -10,3 +10,9 @@ $( ".navigation-item.folder" ).each(function() {
 		$( this ).toggleClass( "open" );
 	});
 });
+
+$('.basket-body').click(function(e) {
+    if (e.target == this) { 
+    	$(".widget").removeClass("show-content");
+    }
+});
