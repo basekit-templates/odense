@@ -36,7 +36,6 @@
 button.basket-toggle {
 	background-color: @font-swatch6-color-hover;
 	color: @font-swatch6-background-color;
-	position: absolute;
 	right: 0;
 	margin-bottom: 0;
 	padding: 12px 20px;
@@ -444,7 +443,11 @@ form.ecomproductslist__form {
 
 	.product-item-title {
 		color: @font-swatch4-color;
-		font-size: bkscale(@font-swatch4-font-size, 0.92);
+		font-family: @font-swatch2-font-family;
+		font-size: bkscale(@font-swatch3-font-size, 1.05);
+		font-weight: @font-swatch2-font-weight;
+		line-height: bkscale(@font-swatch3-line-height, 1.05);
+		margin-bottom: 0;
 
 		a {
 			color: @font-swatch4-color;
@@ -453,7 +456,7 @@ form.ecomproductslist__form {
 
 	.product-item-price {
 		color: @color-swatch2;
-		font-size: bkscale(@font-swatch3-font-size, 0.95);
+		font-size: bkscale(@font-swatch4-font-size, 0.92);
 	}
 }
 
@@ -542,7 +545,11 @@ form.ecomproductslist__form {
 
 	.product-item-title {
 		color: @font-swatch4-color;
-		font-size: bkscale(@font-swatch4-font-size, 0.85);
+		font-family: @font-swatch2-font-family;
+		font-size: bkscale(@font-swatch3-font-size, 1.05);
+		font-weight: @font-swatch2-font-weight;
+		line-height: bkscale(@font-swatch3-line-height, 1.05);
+		margin-bottom: 0;
 
 		a {
 			color: @font-swatch4-color;
@@ -551,27 +558,8 @@ form.ecomproductslist__form {
 
 	.product-item-price {
 		color: @color-swatch2;
-		font-size: bkscale(@font-swatch3-font-size, 0.95);
+		font-size: bkscale(@font-swatch4-font-size, 0.92);
 	}
-}
-
-
-// Masonry transitions
-
-.masonry {
-  -webkit-transition-duration: 0.3s;
-     -moz-transition-duration: 0.3s;
-      -ms-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-}
-
-.masonry {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
 }
 
 
