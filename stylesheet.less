@@ -19,8 +19,8 @@
 
 @import "@{templateCommon}/bk-less-framework.less";
 
-/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);*/
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 
 
 // Theme Includes
@@ -211,7 +211,13 @@ button,
         .flex-wrap;
     }
 
-    .brand, .company-link {
+    .brand {
+        .flex-display;
+        .flex(0 1 auto);
+        .flex-grow(1);
+    }
+
+    .company-link {
         // Flex
         .flex-display;
         .flex(1 1 auto);
@@ -315,8 +321,13 @@ button,
         }
     }
 
+    .brand {
+        .flex-display;
+        .flex(0 1 auto);
+        .flex-grow(1);
+    }
+
     // Make sure branding and navigation gets even split
-    .brand, 
     .company-link {
 
         // Flex
@@ -426,8 +437,8 @@ button,
         height: 47px;
         margin: 4px 0 0;
         padding: 22px 10px 22px 15px;
-        position: fixed;
-        right: 15px;
+        position: absolute;
+        right: -15px;
         text-indent: -9999px;
         .transition(background-color 0.35s ease-in);
         overflow: hidden;
@@ -459,7 +470,7 @@ button,
         }
 
         &:hover {
-            //background-color: darken(@color-swatch6-color-hover, 15%);
+            background-color: darken(@font-swatch6-color-hover, 15%);
         }
 
         // Toggle Button open state

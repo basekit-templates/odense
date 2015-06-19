@@ -23,7 +23,8 @@
 
 	.basket-list,
 	.basket-footer {
-		.transition(all 0.75s ease-in-out);
+		opacity: 1;
+		.transition(opacity 1s ease-in-out);
 	}
 
 }
@@ -33,6 +34,8 @@
 }
 
 button.basket-toggle {
+	background-color: @font-swatch6-color-hover;
+	color: @font-swatch6-background-color;
 	position: absolute;
 	right: 0;
 	margin-bottom: 0;
@@ -41,7 +44,18 @@ button.basket-toggle {
 	height: 54px;
 	overflow: hidden;
 	z-index: 99999;
-	.transition(right 0.75s ease-in-out);
+
+	@media @tablet {
+		position: fixed;
+		bottom: 30px;
+		right: 25px;
+		.transition(all 0.75s ease-in-out);
+	}
+
+	&:hover {
+		background-color: lighten(@font-swatch6-color-hover, 10%);
+		color: @font-swatch6-background-color;
+	}
 
 	&:before {
 		font-size: 15px;
@@ -50,9 +64,14 @@ button.basket-toggle {
 }
 
 .show-content .basket-toggle {
-	right: 0;
+	background-color: @font-swatch6-background-color;
+	color: @font-swatch6-color-hover;
 	width: auto;
-	height: auto;
+
+	&:hover {
+		background-color: @font-swatch6-background-color;
+		color: @font-swatch6-color-hover;
+	}
 }
 
 .basket-body {
@@ -70,7 +89,7 @@ button.basket-toggle {
 	height: 0;
 	opacity: 0;
 	visibility: hidden;
-	.transition(opacity 0.5s ease-in-out);
+	.transition(opacity 1s ease-in-out);
 }
 
 .basket-list,
@@ -80,6 +99,7 @@ button.basket-toggle {
 	margin: 0 auto;
 	height: auto;
 	padding: 30px;
+	opacity: 0;
 
 	@media @tablet {
 		margin: 0 30px;
@@ -268,7 +288,7 @@ button.basket-toggle {
 // Form Container
 form.ecomproductslist__form {
 	.ultimate-flex;
-	.flex-wrap(nowrap)!important;
+	.flex-wrap(wrap)!important;
 
 	// Search and Filters
 	.fieldset--search, .fieldset--filters {
@@ -803,7 +823,7 @@ form.ecomproductslist__form {
 
 		&:before {
 			left: 15px;
-			top: 0.3em;
+			top: 0.2em;
 		}
 
 		p {
