@@ -18,7 +18,14 @@
 .show-content .basket-body {
 	display: initial!important;
 	height: 100%;
+	padding-top: 20%;
+	position: fixed;
+	height: 100%;
+	width: 100%;
 	opacity: 1;
+	top: 0;
+	left: 0;
+	right: 0;
 	visibility: visible;
 
 	.basket-list,
@@ -76,13 +83,7 @@ button.basket-toggle {
 .basket-body {
 	background-color: rgba(0,0,0,0.75);
 	display: initial!important;
-	height: 100%;
-	width: 100%;
-	padding-top: 20%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+	padding: 0;
 	z-index: 999;
 
 	height: 0;
@@ -94,6 +95,7 @@ button.basket-toggle {
 .basket-list,
 .basket-footer {
 	background-color: white;
+	display: none;
 	max-width: 800px;
 	margin: 0 auto;
 	height: auto;
@@ -105,7 +107,12 @@ button.basket-toggle {
 	}
 }
 
-.basket-item {
+.show-content .basket-list,
+.show-content .basket-footer {
+	display: block;
+}
+
+.show-content .basket-item {
 	.flex-display;
 	.flex-wrap(nowrap);
 	border-top: 1px solid rgb(234, 234, 234);
@@ -182,7 +189,7 @@ button.basket-toggle {
 	}	
 }
 
-.basket-footer {
+.show-content .basket-footer {
 	border-top: 1px solid rgb(234, 234, 234);
 	.flex-display;
 	.flex-wrap(nowrap);

@@ -213,7 +213,7 @@ button,
 
     .brand {
         .flex-display;
-        .flex(0 1 auto);
+        .flex(1 0 auto);
         .flex-grow(1);
     }
 
@@ -413,14 +413,40 @@ button,
 }
 
 .navigation-list {
+    height: 100%;
     margin: 0;
+    max-height: 80%;
+    overflow: hidden;
 }
 
 .template-nav {
     .align-self(flex-start);
     .flex-grow(1);
-    .flex(1 0 auto);
-    padding-right: 15px;
+    .flex(1 1 auto);
+    padding-right: 25px;
+
+    @media @tablet {
+        background-color: @color-swatch1;
+        -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
+        -moz-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
+        box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
+        position: fixed;
+        top: 0;
+        right: -80%;
+        bottom: 0;
+        margin: 0;
+        overflow-x: scroll;
+        padding-top: 100px;
+        height: 100%;
+        min-width: 75%;
+        max-width: 85%;
+        .transition(right 400ms ease);
+        z-index: 9999;
+
+        &.open {
+            right: 0;
+        }
+    }
 }
 
 @media @tablet {
@@ -435,10 +461,10 @@ button,
         background-clip: content-box;
         display: inline-block;
         height: 47px;
-        margin: 4px 0 0;
+        margin: 25px 0 0;
         padding: 22px 10px 22px 15px;
-        position: absolute;
-        right: -15px;
+        position: fixed;
+        right: 15px;
         text-indent: -9999px;
         .transition(background-color 0.35s ease-in);
         overflow: hidden;
@@ -504,28 +530,10 @@ button,
 
     // Slide out navigation
     .navigation-body {
-        background-color: @color-swatch1;
-        -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
-        -moz-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
-        box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
-        position: fixed;
-        top: 0;
-        right: -80%;
-        bottom: 0;
-        margin: 0;
-        overflow-x: scroll;
-        padding-top: 100px;
-        height: 100%;
-        min-width: 75%;
-        max-width: 85%;
-        .transition(right 400ms ease);
-        z-index: 9999;
-
-        &.open {
-            right: 0;
-        }
+        background-color: transparent;
 
         .navigation-list {
+            padding-top: 85px;
             text-align: right;
         }
 
