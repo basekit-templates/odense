@@ -201,69 +201,53 @@ button,
     padding: 20px 0;
     position: relative;
 
-    @media @tablet-860px {
-        min-height: 95px;
-    }
-
-    @media @mobile-650px {
-        padding: 20px 0;
-    }
-
+    // Header flexbox alignment
     .container {
         // Flex
         .flex;
         .flex-display;
-        .flex-wrap(nowrap);
-    }
-
-    .brand {
-        .flex-display;
-        .flex(1 0 auto);
-        .flex-grow(1);
-        padding-right: 45px;
-    }
-
-    .company-link {
-        // Flex
-        .flex-display;
-        .flex(1 1 auto);
-        .flex-grow(1);
+        .flex-wrap(wrap);
+        .align-content(flex-start);
+        .align-items(center);
+        .justify-content(flex-start);
+        margin: 0 25px;
+        position: relative;
 
         @media @tablet {
-            .flex(1 1 80%);
-        }
-
-        @media @mobile-650px {
-            .flex(1 1 70%);
+            .flex-wrap(nowrap);
+            margin: 0 0 0 25px;
         }
     }
 
-    // Logo and company name flex
+    // Logo & Companyname
     [data-widget-type="logo"], 
     [data-widget-type="companyname"] {
-        .flex(0 0 auto);
-        max-width: 100%;
+        @media @tablet {
+            z-index: 9999;
+        }
     }
 
+    // Logo
     [data-widget-type="logo"] {
-        .align-self(center);
-    }
-
-    // Keeps companyname vertically center no matter the size
-    [data-widget-type="companyname"] {
-        .align-self(center);
-    }
-
-    // Add space between logo and company name
-    .bk-logo {
         margin-right: 8px;
+        max-width: 100%;
 
         .logo-link {
             display: block;
         }
+
+        img {
+            max-height: 300px;
+        }
     }
 
-    // Company name colour
+    // Companyname
+    [data-widget-type="companyname"] {
+        @media @tablet {
+            padding-right: 60px;
+        }
+    }
+
     .company-link {
         color: @font-swatch4-color;
     }
@@ -283,24 +267,6 @@ button,
     }
 }
 
-// Logo & Company Name
-.brand {
-    .flex-wrap(wrap);
-
-    .company-link {
-        text-transform: uppercase;
-        vertical-align: text-bottom;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    .bk-logo img {
-        max-height: 300px;
-    }
-}
-
 // Header styling if slideshow is present
 .home-page [data-widget-type="responsiveslideshow"] + .template-header, 
 .blogpost-page [data-widget-type="blogpost"] + .template-header {
@@ -312,58 +278,8 @@ button,
     width: 100%;
     z-index: 9999;
 
-    // Container for logo and navigation
     .container {
-        margin: 0 25px;
         max-width: 100%;
-
-        // Flex
-        .flex;
-        .flex-display;
-        .flex-wrap;
-
-        @media @tablet-860px {
-            margin: 0 25px;
-        }
-    }
-
-    .brand {
-        .flex-display;
-        .flex(1 0 auto);
-        .flex-grow(1);
-
-        @media @tablet {
-            padding-right: 45px;
-        }
-    }
-
-    // Make sure branding and navigation gets even split
-    .company-link {
-
-        // Flex
-        .flex-display;
-        .flex(1 1 auto);
-        .flex-grow(1);
-
-        @media @tablet {
-            flex: 1 1 80%;
-        }
-    }
-
-    // Keeps company name vertical center of the logo no matter the size
-    [data-widget-type="logo"], [data-widget-type="companyname"] {
-        .flex(0 0 auto);
-        .align-self(center);
-    }
-
-    // Add space between logo and company name
-    .bk-logo {
-        margin-right: 8px;
-    }
-
-    // Company name colour when placed over a feature
-    .company-link {
-        color: @font-swatch10-color;
     }
 
     // Color of navigation links when overlaying a feature image
@@ -452,25 +368,34 @@ ul.navigation-list--children {
     margin: 0;
 }
 
-.template-nav {
-    .align-self(flex-start);
-    .flex-grow(1);
+div[data-widget-type="extendednavigation"] {
     .flex(1 1 auto);
-    padding-right: 35px;
+    padding-right: 85px;
+}
 
-    @media @tablet {
+@media @tablet {
+
+    div[data-widget-type="extendednavigation"] {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+
+    .navigation-body {
         background-color: @color-swatch1;
         -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
         -moz-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
         box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
-        position: fixed;
-        top: 0;
+        position: absolute;
+        top: -25px;
         right: -80%;
         bottom: 0;
         margin: 0;
         overflow-x: scroll;
-        padding-top: 100px;
-        height: 100%;
+        padding-top: 20px;
+        height: 101vh;
         width: 75%;
         .transition(right 400ms ease);
         z-index: 9999;
@@ -479,16 +404,9 @@ ul.navigation-list--children {
             right: 0;
         }
     }
-}
-
-@media @tablet {
 
     // Navigation Toggle
     // -----------------
-
-    div[data-widget-type="extendednavigation"] {
-        width: 100%;
-    }
 
     .navigation-toggle {
        
@@ -497,10 +415,11 @@ ul.navigation-list--children {
         background-clip: content-box;
         display: inline-block;
         height: 47px;
-        margin: 25px 0 0;
+        margin: 0;
         padding: 22px 10px 22px 15px;
-        position: fixed;
-        right: 15px;
+        position: absolute;
+        right: 10px;
+        top: 0;
         text-indent: -9999px;
         .transition(background-color 0.35s ease-in);
         width: 50px;
@@ -555,24 +474,14 @@ ul.navigation-list--children {
         }
     }
 
-    // Navigation slide out
-    .template-nav {
-        // Flex
-        .flex-display;
-        .justify-content(flex-end);
-        padding: 0;
-    }
 
     // Slide out navigation
     .navigation-body {
-        background-color: transparent;
-        position: fixed;
-        width: 75%;
 
         .navigation-list {
-            margin-top: 85px;
+            margin-top: 65px;
             text-align: right;
-            max-height: 80vh;
+            max-height: 70vh;
             overflow-x: scroll;
         }
 
