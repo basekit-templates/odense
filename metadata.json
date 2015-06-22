@@ -111,7 +111,7 @@
             "font-size": "17px",
             "font-weight": "400",
             "line-height": "inherit",
-            "color": "fade(@color-swatch6, 50%)",
+            "color": "lighten(@color-swatch6, 50%)",
             "color-hover": "@color-swatch6",
             "letter-spacing": "inherit",
             "background-color": "@color-swatch1",

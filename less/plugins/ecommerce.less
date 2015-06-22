@@ -69,6 +69,20 @@ button.basket-toggle {
 	}
 }
 
+#page-zones__template-widgets__ecombasket-shopbasket-bk-overlay {
+	left: initial!important;
+	top: 40px!important;
+	right: 20px!important;
+	height: 55px;
+	width: 55px;
+
+	@media @tablet {
+		position: fixed!important;
+		bottom: 30px!important;
+		right: 25px!important;
+	}
+}
+
 .show-content .basket-toggle {
 	background-color: @font-swatch6-background-color;
 	color: @font-swatch6-color-hover;
@@ -87,6 +101,7 @@ button.basket-toggle {
 	z-index: 999;
 
 	height: 0;
+	width: 0;
 	opacity: 0;
 	visibility: hidden;
 	.transition(opacity 1s ease-in-out);
