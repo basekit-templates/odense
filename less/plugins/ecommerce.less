@@ -60,7 +60,7 @@ button.basket-toggle {
 	color: @font-swatch6-background-color;
 	right: 0;
 	margin-bottom: 0;
-	padding: 10px 16px;
+	padding: 10px 0;
 	position: relative;
 	width: 50px;
 	height: 50px;
@@ -81,7 +81,7 @@ button.basket-toggle {
 
 	&:before {
 		font-size: 15px;
-		margin-right: 20px;
+		margin: 0 17px;
 	}
 }
 
@@ -274,9 +274,19 @@ button.basket-toggle {
 
 		// Button Container
         &:last-child {
+        	.align-self(flex-end);
         	.flex-grow(0);
+        	margin-bottom: 0;
         	margin-right: 0;
         }
+    }
+
+    .button--clear {
+    	background: #B83838 image('/images/cancel-icon.png') no-repeat center;
+    	height: 50px;
+    	white-space: nowrap;
+    	overflow: hidden;
+    	text-indent: -99999px;
     }
 
     .ecomproductslist__button {
@@ -926,6 +936,10 @@ form.ecomproductslist__form {
 	// Product item title
 	.summary-item-link {
 		color: @color-swatch4;
+
+		img {
+			width: 100%;
+		}
 	}
 
 	// Add, remove buttons and item quantity wrapper
@@ -940,7 +954,7 @@ form.ecomproductslist__form {
 	.quantity-plus {
 		background-color: transparent;
 		color: @color-swatch4;
-		line-height: 0;
+		line-height: 22px;
 		padding: 0;
 		position: relative;
 		height: 22px;
