@@ -252,6 +252,7 @@ button.basket-toggle {
 
     // Input and Button Full Width at Mobile
     .form-group {
+    	.align-self(flex-end);
 
         // Input Container
         &:first-child {
@@ -283,16 +284,21 @@ button.basket-toggle {
 
     .button--clear {
     	background: #B83838 image('/images/cancel-icon.png') no-repeat center;
-    	height: 50px;
+    	height: 54px;
+    	width: 55px;
     	white-space: nowrap;
     	overflow: hidden;
     	text-indent: -99999px;
+
+    	&:hover {
+    		background-color: darken(#B83838, 10%);
+    	}
     }
 
     .ecomproductslist__button {
     	background: @color-swatch3 image('/images/search-icon.svg') no-repeat center;
     	color: @color-swatch3!important;
-        margin-top: 37px;
+        margin-top: 0;
         overflow: hidden;
         text-indent: -9999px;
         height: 54px;
