@@ -15,6 +15,21 @@
 //  1. Ecommerce Basket
 // -----------------------------
 
+.ecom-basket {
+	.flex(1 0 auto);
+	.flex-grow(0);
+	.align-self(center);
+}
+
+.template-default {
+	.ecom-basket {
+		position: relative;
+	}
+	.template-nav {
+		padding-right: 35px;
+	}
+}
+
 .show-content .basket-body {
 	display: initial!important;
 	height: 100%;
@@ -45,9 +60,10 @@ button.basket-toggle {
 	color: @font-swatch6-background-color;
 	right: 0;
 	margin-bottom: 0;
-	padding: 12px 20px;
-	width: 55px;
-	height: 54px;
+	padding: 10px 16px;
+	position: relative;
+	width: 50px;
+	height: 50px;
 	overflow: hidden;
 	z-index: 99999;
 
@@ -623,12 +639,13 @@ form.ecomproductslist__form {
 			height: auto;
 			line-height: auto;
 			@media @tablet-860px {
-				line-height: 400px;
-				height: 400px;
+				line-height: auto;
+				height: auto;
 			}
 
 			.image {
 				display: block;
+				max-height: 500px;
   				width: 100%;
 			}
 		}
@@ -636,7 +653,7 @@ form.ecomproductslist__form {
 
 	// Create full size vertical scrolling list of product thumbs
 	.product-images {
-		background-color: rgb(244, 244, 244);
+		background-color: transparent;
 		position: absolute;
 		left: 0;
 		top: 0;

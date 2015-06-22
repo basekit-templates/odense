@@ -60,6 +60,11 @@
     }
 }
 
+.template-container {
+    position: relative;
+    overflow: hidden;
+}
+
 
 
 // Form Styles
@@ -193,7 +198,7 @@ button,
 .blogpost-page [data-widget-type="blogpost"].bk-tpl-hidden + .template-header {
     background-color: white;
     border-bottom: 1px solid @color-swatch7;
-    padding: 20px 1em;
+    padding: 20px 0;
     position: relative;
 
     @media @tablet-860px {
@@ -208,13 +213,14 @@ button,
         // Flex
         .flex;
         .flex-display;
-        .flex-wrap;
+        .flex-wrap(wrap);
     }
 
     .brand {
         .flex-display;
         .flex(1 0 auto);
         .flex-grow(1);
+        padding-right: 45px;
     }
 
     .company-link {
@@ -323,8 +329,12 @@ button,
 
     .brand {
         .flex-display;
-        .flex(0 1 auto);
+        .flex(1 0 auto);
         .flex-grow(1);
+
+        @media @tablet {
+            padding-right: 45px;
+        }
     }
 
     // Make sure branding and navigation gets even split
@@ -446,7 +456,7 @@ ul.navigation-list--children {
     .align-self(flex-start);
     .flex-grow(1);
     .flex(1 1 auto);
-    padding-right: 25px;
+    padding-right: 35px;
 
     @media @tablet {
         background-color: @color-swatch1;
@@ -560,9 +570,10 @@ ul.navigation-list--children {
         width: 75%;
 
         .navigation-list {
-            padding-top: 85px;
+            margin-top: 85px;
             text-align: right;
-            max-height: 80%;
+            max-height: 80vh;
+            overflow-x: scroll;
         }
 
         .navigation-list .navigation-item {
@@ -574,7 +585,7 @@ ul.navigation-list--children {
             }
 
             &.folder ul {
-                padding-top: 10px;
+                margin-top: 10px;
                 text-align: right;
             }
 
