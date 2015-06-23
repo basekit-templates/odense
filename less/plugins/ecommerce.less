@@ -31,9 +31,12 @@ div[data-widget-type="ecombasket"] {
 }
 
 .show-content .basket-body {
-	display: initial!important;
+	.flex-display(flex!important);
+	.flex-direction(column);
+	.align-items(center);
+	.justify-content(center);
 	height: 100%;
-	padding-top: 10%;
+	padding: 90px 25px 100px;
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -42,13 +45,31 @@ div[data-widget-type="ecombasket"] {
 	left: 0;
 	right: 0;
 	visibility: visible;
+	z-index: 9999;
+
+	@media @tablet {
+		padding: 0 30px;
+	}
 
 	.basket-list,
 	.basket-footer {
 		opacity: 1;
 		.transition(opacity 1s ease-in-out);
+		width: 100%;
 	}
+}
 
+.basket-body {
+	background-color: rgba(0,0,0,0.75);
+	display: initial!important;
+	padding: 0;
+	position: relative;
+	z-index: 999;
+	height: 0;
+	width: 0;
+	opacity: 0;
+	visibility: hidden;
+	.transition(opacity 1s ease-in-out);
 }
 
 .ecom-basket .widget {
@@ -66,12 +87,12 @@ button.basket-toggle {
 	height: 50px;
 	overflow: hidden;
 	z-index: 99999;
+	.transition(width 0.35s ease-in-out);
 
 	@media @tablet {
 		position: fixed;
 		bottom: 30px;
 		right: 25px;
-		.transition(all 0.75s ease-in-out);
 	}
 
 	&:hover {
@@ -82,6 +103,17 @@ button.basket-toggle {
 	&:before {
 		font-size: 15px;
 		margin: 0 17px;
+	}
+}
+
+.show-content .basket-toggle {
+	background-color: @font-swatch6-background-color;
+	color: @font-swatch6-color-hover;
+	width: 150px;
+
+	&:hover {
+		background-color: @font-swatch6-background-color;
+		color: @font-swatch6-color-hover;
 	}
 }
 
@@ -99,30 +131,6 @@ button.basket-toggle {
 	}
 }
 
-.show-content .basket-toggle {
-	background-color: @font-swatch6-background-color;
-	color: @font-swatch6-color-hover;
-	width: auto;
-
-	&:hover {
-		background-color: @font-swatch6-background-color;
-		color: @font-swatch6-color-hover;
-	}
-}
-
-.basket-body {
-	background-color: rgba(0,0,0,0.75);
-	display: initial!important;
-	padding: 0;
-	z-index: 999;
-
-	height: 0;
-	width: 0;
-	opacity: 0;
-	visibility: hidden;
-	.transition(opacity 1s ease-in-out);
-}
-
 .basket-list,
 .basket-footer {
 	background-color: white;
@@ -133,14 +141,18 @@ button.basket-toggle {
 	padding: 30px;
 	opacity: 0;
 
-	@media @tablet {
-		margin: 0 30px;
+	@media @mobile-650px {
+		padding: 20px 25px;
 	}
 }
 
 .show-content .basket-list,
 .show-content .basket-footer {
 	display: block;
+}
+
+.show-content .basket-list {
+	overflow-x: scroll;
 }
 
 .show-content .basket-item {
@@ -163,6 +175,12 @@ button.basket-toggle {
 		}
 	}
 
+	&:last-child {
+		@media @mobile-650px {
+			margin-bottom: 0;
+		}
+	}
+
 	.basket-item-image {
 		.flex(0 1 auto);
 		margin-right: 30px;
@@ -175,12 +193,19 @@ button.basket-toggle {
 			line-height: 125px;
 			height: 125px;
 			width: 125px;
+
+			@media @mobile-650px {
+				line-height: 80px;
+				height: 80px;
+				width: 80px
+			}
 		}
 	}
 
 	.basket-item-details {
 		.flex(1 1 auto);
 		.align-self(center);
+		padding-right: 25px;
 	}
 
 	.basket-item-name {
@@ -191,6 +216,11 @@ button.basket-toggle {
 		line-height: 32px;
 		font-weight: 600;
 		margin: 5px 0;
+
+		@media @mobile-650px {
+			font-size: 23px;
+			line-height: 27px;
+		}
 	}
 
 	.item-remove {
@@ -907,6 +937,10 @@ form.ecomproductslist__form {
 
 	.cell {
 		padding: 25px 12px;
+
+		@media @mobile {
+			padding: 10px 12px 15px 0;
+		}
 	}
 
 	// Table header labels
@@ -923,6 +957,10 @@ form.ecomproductslist__form {
 	.table-row--heading th:first-child {
 		padding-left: 0;
 		width: 20%;
+
+		@media @mobile {
+			width: 100%;
+		}
 	}
 
 	// Remove padding from subtotal column
@@ -943,6 +981,15 @@ form.ecomproductslist__form {
 	// Product item title
 	.summary-item-link {
 		color: @color-swatch4;
+		font-family: @font-swatch2-font-family;
+		font-size: @font-swatch4-font-size;
+		font-weight: @font-swatch2-font-weight;
+		line-height: @font-swatch4-line-height;
+
+		@media @mobile {
+			font-size: bkscale(@font-swatch4-font-size, 0.8);
+			line-height: bkscale(@font-swatch4-line-height, 0.8);
+		}
 
 		img {
 			width: 100%;
@@ -988,6 +1035,7 @@ form.ecomproductslist__form {
 
 	// Product quantity field
 	.quantity-field {
+		margin: 0 10px;
 		text-align: center;
 	}
 
