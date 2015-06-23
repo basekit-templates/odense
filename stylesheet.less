@@ -201,6 +201,10 @@ button,
     padding: 20px;
     position: relative;
 
+    @media @tablet {
+        padding: 20px 0 20px 20px;
+    }
+
     @media @mobile-650px {
         margin: 0;
         padding: 20px 0 20px 25px;
@@ -260,20 +264,6 @@ button,
     .company-link {
         color: @font-swatch4-color;
     }
-
-    // Color of navigation links when overlaying a feature image
-    .navigation-item {
-        &.selected {
-            color: @color-swatch4;
-        }
-        .item-name {
-            color: @color-swatch5;
-
-            &:hover {
-                color: @color-swatch4;
-            }
-        }
-    }
 }
 
 // Header styling if slideshow is present
@@ -298,7 +288,7 @@ button,
             color: @font-swatch6-color-hover;
         }
         .item-name {
-            color: fade(@font-swatch6-color, 65%);
+            color: fade(@font-swatch6-color, 70%);
 
             &:hover {
                 color: @font-swatch6-color-hover;
@@ -326,6 +316,7 @@ button,
     }
 
     .item-name {
+        color: fade(@font-swatch6-color, 65%);
         text-overflow: initial;
         word-wrap: break-word;
         white-space: normal;
@@ -338,7 +329,7 @@ button,
 
     // Navigation dropdown
     &.folder {
-        .transition(all, 0.2s, ease-in-out);
+        .transition(all 0.2s ease-in-out);
 
         &.open, &:hover {
             background-color: fade(@color-swatch6, 8%);
@@ -443,7 +434,7 @@ div[data-widget-type="extendednavigation"] {
         margin: 0;
         padding: 22px 10px 22px 15px;
         position: absolute;
-        right: 10px;
+        right: 25px;
         top: 0;
         text-indent: -9999px;
         .transition(background-color 0.35s ease-in);
@@ -538,11 +529,11 @@ div[data-widget-type="extendednavigation"] {
     // Navigation button overlay
     .bk-extendednavigation + #page-zones__template-widgets__extendednavigation-header-nav-bk-overlay {
         position: fixed!important;
-        right: 20px!important;
+        right: 15px!important;
         left: initial!important;
-        top: 20px!important;
+        top: 18px!important;
         bottom: 0px!important;
-        width: 40px!important;
+        width: 50px!important;
         height: 50px!important;
     }
 
@@ -556,6 +547,12 @@ div[data-widget-type="extendednavigation"] {
         height: 100%!important;
         width: 75%!important;
         z-index: 99999!important;
+    }
+}
+
+.navigation-toggle {
+    @media @mobile {
+        right: 15px;
     }
 }
 
