@@ -11,9 +11,21 @@ $( ".navigation-item.folder .item-name--parent" ).each(function() {
 	});
 });
 
-// Closes shopping basket modal when clicking on the outer overlay
+/*
 $('.basket-body').click(function(e) {
     if (e.target == this) { 
     	$("#page-zones__template-widgets__ecombasket-shopbasket").removeClass("show-content");
     }
+});*/
+
+
+$( ".ecombasket__basket-toggle" ).click(function() {
+	$( "body" ).toggleClass( "basket-open" );
+});
+
+
+$('.basket-body').click(function(e) {
+	if (e.target == this) {
+	$( "body" ).removeClass( "basket-open" );
+	}
 });

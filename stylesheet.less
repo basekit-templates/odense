@@ -219,7 +219,7 @@ button,
         .align-content(flex-start);
         .align-items(center);
         .justify-content(flex-start);
-        margin: 0 0 0 15px;
+        margin: 0 auto;
         position: relative;
 
         @media @tablet {
@@ -278,7 +278,12 @@ button,
     z-index: 9999;
 
     .container {
+        margin: 0 0 0 15px;
         max-width: 100%;
+
+         @media @mobile-650px {
+            margin: 0;
+        }
     }
 
     // Color of navigation links when overlaying a feature image
@@ -494,10 +499,9 @@ div[data-widget-type="extendednavigation"] {
     .navigation-body {
 
         .navigation-list {
-            margin-top: 65px;
+            margin-top: 60px;
             text-align: right;
             max-height: 70%;
-            max-height: 70vh;
             overflow-x: scroll;
         }
 
@@ -591,7 +595,7 @@ div[data-widget-type="extendednavigation"] {
     figure {
         background-position: center right;
         background-repeat: no-repeat;
-        min-height: 450px;
+        min-height: 0;
         height: 100vh;
     }
 
@@ -840,6 +844,10 @@ div[data-widget-type="extendednavigation"] {
 
 div[role="main"] {
     padding: 3em 1em;
+
+    @media @tablet-860px {
+        padding: 3em 0;
+    }
 
     @media @mobile-650px {
         padding: 2em 0;

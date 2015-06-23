@@ -15,11 +15,6 @@
 //  1. Ecommerce Basket
 // -----------------------------
 
-div[data-widget-type="ecombasket"] {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
 
 .template-default {
 	.ecom-basket {
@@ -30,7 +25,7 @@ div[data-widget-type="ecombasket"] {
 	}
 }
 
-.show-content .basket-body {
+.basket-open .basket-body {
 	.flex-display(flex!important);
 	.flex-direction(column);
 	.align-items(center);
@@ -60,7 +55,7 @@ div[data-widget-type="ecombasket"] {
 }
 
 .basket-body {
-	background-color: rgba(0,0,0,0.75);
+	background-color: rgba(0,0,0,0.5);
 	display: initial!important;
 	padding: 0;
 	position: relative;
@@ -114,7 +109,7 @@ button.basket-toggle {
 	}
 }
 
-.show-content .basket-toggle {
+.basket-open .basket-toggle {
 	background-color: @font-swatch6-background-color;
 	color: @font-swatch6-color-hover;
 	width: 150px;
@@ -160,16 +155,16 @@ button.basket-toggle {
 	}
 }
 
-.show-content .basket-list,
-.show-content .basket-footer {
+.basket-open .basket-list,
+.basket-open .basket-footer {
 	display: block;
 }
 
-.show-content .basket-list {
+.basket-open .basket-list {
 	overflow-x: scroll;
 }
 
-.show-content .basket-item {
+.basket-open .basket-item {
 	.flex-display;
 	.flex-wrap(nowrap);
 	border-top: 1px solid rgb(234, 234, 234);
@@ -264,7 +259,7 @@ button.basket-toggle {
 	}	
 }
 
-.show-content .basket-footer {
+.basket-open .basket-footer {
 	border-top: 1px solid rgb(234, 234, 234);
 	.flex-display;
 	.flex-wrap(nowrap);
