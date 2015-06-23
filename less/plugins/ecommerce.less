@@ -423,10 +423,6 @@ form.ecomproductslist__form {
     // Filters
     .fieldset--filters {
 
-    	@media @mobile-650px {
-    		display: block;
-    	}
-    	
         .form-group {
             .flex-grow(1);
             margin-right: 15px;
@@ -439,6 +435,7 @@ form.ecomproductslist__form {
 	            }
             }
             @media @mobile-650px {
+    			display: block;
             	margin-right: 0;
                 width: 100%;
             }
@@ -1011,8 +1008,8 @@ form.ecomproductslist__form {
 		line-height: @font-swatch4-line-height;
 
 		@media @mobile-650px {
-			font-size: bkscale(@font-swatch4-font-size, 0.8);
-			line-height: bkscale(@font-swatch4-line-height, 0.8);
+			font-size: bkscale(@font-swatch4-font-size, 0.9);
+			line-height: bkscale(@font-swatch4-line-height, 0.9);
 		}
 
 		img {

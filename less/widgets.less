@@ -242,6 +242,10 @@ hr.rule {
 		&:first-child {
 			.flex-grow(1);
 			padding-right: 15px;
+
+            @media @mobile-650px {
+                padding-right: 0;
+            }
 		}
 	}
 
@@ -254,6 +258,11 @@ hr.rule {
     // Brings button inline with input
     .button {
         margin-top: 37px;
+
+        @media @mobile-650px {
+            margin-top: 0;
+            width: 100%;
+        }
     }
 }
 
