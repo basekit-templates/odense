@@ -48,7 +48,7 @@ div[data-widget-type="ecombasket"] {
 	z-index: 9999;
 
 	@media @tablet {
-		padding: 0 30px;
+		padding: 0 30px 100px;
 	}
 
 	.basket-list,
@@ -90,9 +90,17 @@ button.basket-toggle {
 	.transition(width 0.35s ease-in-out);
 
 	@media @tablet {
+		border-top: 30px solid @color-swatch1;
 		position: fixed;
 		bottom: 30px;
-		right: 25px;
+		right: -80%;
+		height: 80px;
+		width: 150px;
+		.transition(right 0.35s ease-in-out);
+
+		&.open {
+			right: 25px;
+		}
 	}
 
 	&:hover {
@@ -114,6 +122,13 @@ button.basket-toggle {
 	&:hover {
 		background-color: @font-swatch6-background-color;
 		color: @font-swatch6-color-hover;
+	}
+
+	&.open {
+		@media @tablet {
+			border-top: none;
+			height: 50px;
+		}
 	}
 }
 

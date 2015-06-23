@@ -40,7 +40,7 @@ ul.tweet-list {
 	.border-radius(6px);
 	padding: 25px;
 
-	// Take the account name from the first tweet and position it outside the tweet container
+	/*
 	&:first-child .account-link {
 		top: -50px;
 		position: absolute;
@@ -51,13 +51,42 @@ ul.tweet-list {
 		.account-link {
 			display: block;
 		}
-	}
+	}*/
 
-	// Hide the account name on any tweet that's not the first
+    &:first-child .tweet-content{
+        &:before {
+            content: "Latest tweets";
+            top: -50px;
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            font-family: "Playfair Display", "Futura", Helvetica Neue, sans-serif;
+            font-size: 27.2px;
+            font-weight: 600;
+        }
+
+        &:after {
+            color: #87ad92;
+            content: "\f099";
+            font-family: 'FontAwesome', sans-serif;
+            position: absolute;
+            right: 0;
+            top: -50px;
+            font-size: 24px;
+        }
+    }
+
+	/*
 	&:not(:first-child) .account-link {
 		display: none;
 		visibility: hidden;
-	}
+	}*/
+
+    .account-link {
+        display: none;
+        visibility: hidden;
+    }
 
 	// Re-add margin to final tweet
 	&:last-child {

@@ -219,12 +219,11 @@ button,
         .align-content(flex-start);
         .align-items(center);
         .justify-content(flex-start);
-        marginL 0 0 0 15px;
+        margin: 0 0 0 15px;
         position: relative;
 
         @media @tablet {
             .flex-wrap(nowrap);
-            margin: 0 0 0 25px;
         }
 
         @media @mobile-650px {
@@ -399,14 +398,14 @@ div[data-widget-type="extendednavigation"] {
         -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
         -moz-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
         box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.065);
-        position: absolute;
-        top: -25px;
+        position: fixed;
+        top: 0;
         right: -80%;
         bottom: 0;
         margin: 0;
         overflow-x: scroll;
         padding-top: 20px;
-        height: 101vh;
+        height: 100vh;
         width: 75%;
         .transition(right 400ms ease);
         z-index: 9999;
@@ -433,9 +432,9 @@ div[data-widget-type="extendednavigation"] {
         height: 47px;
         margin: 0;
         padding: 22px 10px 22px 15px;
-        position: absolute;
+        position: fixed;
         right: 25px;
-        top: 0;
+        top: 24px;
         text-indent: -9999px;
         .transition(background-color 0.35s ease-in);
         width: 50px;
