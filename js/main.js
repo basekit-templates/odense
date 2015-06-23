@@ -1,7 +1,7 @@
 
 // Toggles class open to display/hide the whole navigation
 $( ".navigation-toggle" ).click(function() {
-	$( ".navigation-body, .bk-extendednavigation, .template-nav" ).toggleClass( "open" );
+	$( ".navigation-body, .bk-extendednavigation, .template-nav, .navigation-toggle" ).toggleClass( "open" );
 });
 
  // Toggles class open to display/hide folders

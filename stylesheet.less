@@ -202,7 +202,8 @@ button,
     position: relative;
 
     @media @mobile-650px {
-        padding: 20px 0;
+        margin: 0;
+        padding: 20px 0 20px 25px;
     }
 
     // Header flexbox alignment
@@ -214,11 +215,16 @@ button,
         .align-content(flex-start);
         .align-items(center);
         .justify-content(flex-start);
+        marginL 0 0 0 15px;
         position: relative;
 
         @media @tablet {
             .flex-wrap(nowrap);
             margin: 0 0 0 25px;
+        }
+
+        @media @mobile-650px {
+            margin: 0;
         }
     }
 
@@ -276,7 +282,6 @@ button,
     background-color: transparent;
     border-bottom: none;
     margin: 0;
-    padding: 20px 0 20px 25px;
     position: absolute;
     left: 0;
     top: 0;
@@ -284,7 +289,6 @@ button,
     z-index: 9999;
 
     .container {
-        margin: 0;
         max-width: 100%;
     }
 
@@ -332,10 +336,6 @@ button,
         padding-left: 0;
     }
 
-    &:last-child .item-name {
-        padding-right: 0;
-    }
-
     // Navigation dropdown
     &.folder {
         .transition(all, 0.2s, ease-in-out);
@@ -379,7 +379,7 @@ ul.navigation-list--children {
     position: absolute;
     left: 0;
     top: 100%;
-    min-width: 80px;
+    min-width: 125px;
     max-width: 160px;
 }
 
