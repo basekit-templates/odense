@@ -9,7 +9,7 @@
         "br": ["fotografia", "design", "portfolio", "galeria", "câmara", "imagens", "tecnologia", "criativo", "mídia"]
     },
     "templateType":"standard",
-    "pageTypes": ["home"],
+    "pageTypes": ["home", "blogpost"],
     "images":[
         "images/logo.png",
         "images/slide-1.jpg",
