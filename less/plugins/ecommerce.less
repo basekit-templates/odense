@@ -26,7 +26,11 @@
 }
 
 .basket-open .basket-body {
-	.flex-display(flex!important);
+	display: -webkit-flex!important;
+	display: -moz-flex!important;
+	display: -ms-flexbox!important;
+	display: -ms-flex!important;
+	display: flex!important;
 	.flex-direction(column);
 	.align-items(center);
 	.justify-content(center);
@@ -428,7 +432,7 @@ form.ecomproductslist__form {
     			display: block;
     		}
     	}
-    	
+
         .form-group {
             .flex-grow(1);
             margin-right: 15px;
