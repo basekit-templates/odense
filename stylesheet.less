@@ -350,6 +350,11 @@ button,
         .transition(all 0.2s ease-in-out);
 
         &.open, &:hover {
+
+            ul {
+                display: block;
+            }
+
             .navigation-list--children {
                 display: block;
                 opacity: 1;
@@ -359,6 +364,7 @@ button,
 
         ul {
             border: 1px solid @color-swatch7;
+            display: none;
             text-align: left;
 
             .item-name {
