@@ -287,7 +287,7 @@ button,
     }
 
     .folder .navigation-list {
-        background-color: fade(@font-swatch6-color, 6%);
+        background-color: fade(@font-swatch6-color, 18%);
         border: 0;
 
         @media @tablet {
@@ -303,7 +303,7 @@ button,
             color: @font-swatch6-color-hover;
         }
         .item-name {
-            color: fade(@font-swatch6-color, 70%);
+            color: fade(@font-swatch6-color, 80%);
 
             &:hover {
                 color: @font-swatch6-color-hover;
@@ -350,14 +350,8 @@ button,
         .transition(all 0.2s ease-in-out);
 
         &.open, &:hover {
-
             ul {
                 display: block;
-            }
-
-            .navigation-list--children {
-                display: block;
-                opacity: 1;
                 height: auto;
             }
         }
@@ -523,7 +517,6 @@ div[data-widget-type="extendednavigation"] {
         .navigation-list {
             margin-top: 60px;
             text-align: right;
-            max-height: 70%;
             overflow-x: scroll;
         }
 
@@ -609,7 +602,7 @@ div[data-widget-type="extendednavigation"] {
 
     // Image element
     figure {
-        background-position: center center;
+        background-position: center;
         background-repeat: no-repeat;
         min-height: 0;
         height: 100vh;
