@@ -286,6 +286,17 @@ button,
         }
     }
 
+    .folder .navigation-list {
+        background-color: fade(@font-swatch6-color, 6%);
+        border: 0;
+
+        @media @tablet {
+            background-color: transparent;
+            border-bottom: 1px solid @color-swatch7;
+            border-top: 1px solid @color-swatch7;
+        }
+    }
+
     // Color of navigation links when overlaying a feature image
     .navigation-item {
         &.selected {
@@ -339,12 +350,7 @@ button,
         .transition(all 0.2s ease-in-out);
 
         &.open, &:hover {
-            background-color: fade(@color-swatch6, 8%);
-        }
-
-        &.open, &:hover {
             .navigation-list--children {
-                background-color: fade(@color-swatch6, 8%);
                 display: block;
                 opacity: 1;
                 height: auto;
@@ -352,6 +358,7 @@ button,
         }
 
         ul {
+            border: 1px solid @color-swatch7;
             text-align: left;
 
             .item-name {
@@ -424,9 +431,15 @@ div[data-widget-type="extendednavigation"] {
     }
 
     .navigation-body.open .navigation-item.folder ul {
-        display: block;
-        padding: 0 15px;
+        border-bottom: 1px solid @color-swatch7;
+        border-top: 1px solid @color-swatch7;
+        padding: 5px 25px 5px;
+
+        .item-name {
+            padding: 10px 12px 8px;
+        }
     }
+
 
     // Navigation Toggle
     // -----------------
@@ -590,7 +603,7 @@ div[data-widget-type="extendednavigation"] {
 
     // Image element
     figure {
-        background-position: center right;
+        background-position: center center;
         background-repeat: no-repeat;
         min-height: 0;
         height: 100vh;
