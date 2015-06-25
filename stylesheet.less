@@ -529,8 +529,13 @@ div[data-widget-type="extendednavigation"] {
             }
 
             &.folder ul {
+                display: none;
                 margin-top: 0;
                 text-align: right;
+            }
+
+            &.folder.open ul {
+                display: block;
             }
 
             .item-name {
