@@ -286,16 +286,7 @@ button,
         }
     }
 
-    .folder .navigation-list {
-        background-color: fade(@font-swatch6-color, 18%);
-        border: 0;
-
-        @media @tablet {
-            background-color: transparent;
-            border-bottom: 1px solid @color-swatch7;
-            border-top: 1px solid @color-swatch7;
-        }
-    }
+   
 
     // Color of navigation links when overlaying a feature image
     .navigation-item {
@@ -424,10 +415,10 @@ div[data-widget-type="extendednavigation"] {
         width: 75%;
         .transition(right 400ms ease);
         z-index: 9999;
+    }
 
-        &.open {
-            right: 0;
-        }
+    .nav-open .navigation-body {
+        right: 0;
     }
 
     .navigation-body.open .navigation-item.folder ul {
@@ -488,25 +479,26 @@ div[data-widget-type="extendednavigation"] {
         &:hover {
             background-color: darken(@font-swatch6-color-hover, 15%);
         }
+    }
+
+    .nav-open .navigation-toggle {
 
         // Toggle Button open state
         // ------------------------------
 
-        .open {
-            background-color: transparent;
-            .transition(background-color 0s ease-out);
-            z-index: 100000;
+        background-color: transparent;
+        .transition(background-color 0s ease-out);
+        z-index: 100000;
 
-            &:before {
-                top: 23px; 
-                background: @font-swatch6-color-hover; 
-                .transform(rotate(45deg));
-            }
-            &:after {
-                bottom: 21px; 
-                background: @font-swatch6-color-hover; 
-                .transform(rotate(-45deg));
-            }
+        &:before {
+            top: 23px; 
+            background: @font-swatch6-color-hover; 
+            .transform(rotate(45deg));
+        }
+        &:after {
+            bottom: 21px; 
+            background: @font-swatch6-color-hover; 
+            .transform(rotate(-45deg));
         }
     }
 
