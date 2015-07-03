@@ -6,18 +6,66 @@ $( ".navigation-item.folder .item-name--parent" ).each(function() {
 	});
 });
 
-$( ".ecombasket__basket-toggle" ).click(function() {
+/*$( ".ecombasket__basket-toggle" ).click(function() {
 	$( "body" ).toggleClass( "basket-open" );
-});
+});*/
 
 
-$('.basket-body').click(function(e) {
+/*$('.basket-body').click(function(e) {
 	if (e.target == this) {
 	$( "body" ).removeClass( "basket-open" );
 	}
-});
+});*/
+
+var publishedmode = true;
+
+
+if($("body.edit-mode").length > 0) {
+    publishedmode = false;
+}
+
+if(publishedmode==true) {
+
+    $(document).on("click", ".basket-toggle", function() {
+        $( "body" ).toggleClass( "basket-open" );
+    });
+
+
+    $(document).click(function(event) {
+        if( $(event.target).is(".basket-body") ) {
+            $( "body" ).removeClass( "basket-open" );
+            $( "#page-zones__template-widgets__ecombasket-shopbasket" ).removeClass( "show-content" );
+        }
+    });
+
+
+
+    $('.basket-body').click(function(e) {
+        if (e.target == this) {
+            $( "body" ).removeClass( "basket-open" );
+            $( "#page-zones__template-widgets__ecombasket-shopbasket" ).removeClass( "show-content" );
+        }
+    });
+}
 
 // Toggles class open to display/hide the whole navigation
 $( ".navigation-toggle" ).click(function() {
 	$( "body" ).toggleClass( "nav-open" );
 });
+
+function closeEverything() {
+    $( ".widget__extendednavigation" ).removeClass( "open" );;
+    $( "body" ).removeClass( "basket-open" );
+    $( "#page-zones__template-widgets__ecombasket-shopbasket" ).removeClass( "show-content" );
+    $( ".navigation-item.folder" ).removeClass( "open" );
+}
+
+
+// On ESC key
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        closeEverything();
+    }
+};
