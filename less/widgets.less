@@ -415,6 +415,7 @@ hr.rule {
             font-size: 15px;
             line-height: 24px;
             display: block;
+            width: 100%;
             padding: 6px 0 5px;
         }
 
@@ -439,7 +440,6 @@ hr.rule {
         }
     }
 }
-
 
 
 // Gallery Images
@@ -595,34 +595,56 @@ div[role="main"] {
             }
 
             // Pause button
-            .pause-toggle {
-                background-color: fade(@color-swatch1, 75%);
+            .js-btn-play {
+                background-color: fade(white, 65%);
+                height: 58px;
+                width: 95px;
                 margin: 0 auto;
-                height: 60px;
                 left: 0;
                 right: 0;
-                width: 60px;
                 top: 225px;
-                display: inline-block;
-                visibility: visible;
+                vertical-align: top;
 
-                @media @tablet {
-                    top: 145px;
-                }
-
-                &:hover {
-                    background-color: @color-swatch1;
+                &:after {
+                    border-style: solid;
+                    border-width: 11px 0 11px 13px;
+                    border-color: transparent transparent transparent @font-swatch6-color;
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: 38px;
+                    top: 18px;
                 }
 
                 &:before {
-                    border-left: 3px solid @font-swatch6-color-hover;
-                    border-right: 3px solid @font-swatch6-color-hover;
-                    content: "";
-                    font-size: 20px;
-                    margin: 0;
-                    padding: 0 3px;
-                    vertical-align: top;
-                } 
+                    height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                &.pause {
+                    &:before, &:after {
+                        background-color: @font-swatch6-color;
+                        content: "";
+                        display: inline-block;
+                        margin: 0;
+                        opacity: 1;
+                        position: absolute;
+                        height: 20px;
+                        width: 3px;
+                        top: 19px;
+                        visibility: visible;
+                    }
+                    &:before {
+                        left: 40px;
+                    }
+
+                    &:after {
+                        border: none;
+                        left: 50px;
+                    }
+                }
             }
         }
 
@@ -666,6 +688,18 @@ div[role="main"] {
                 width: 13px;
             }
         }
+    }
+}
+
+.responsiveslideshow {
+    .pause-toggle {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &:hover .pause-toggle {
+        opacity: 1;
+        visibility: visible;
     }
 }
 

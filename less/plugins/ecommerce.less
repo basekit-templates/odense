@@ -26,10 +26,16 @@
 }
 
 .ecombasket {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	.transition(width 0.35s ease-in-out);
+
 	@media @tablet {
 		background-color: @color-swatch1;
 		display: block;
 		position: fixed;
+		overflow: visible;
 		width: 75%;
 		height: 100px;
 		bottom: 0;
@@ -37,6 +43,11 @@
 		z-index: 9999;
 		.transition(right 400ms ease);
 	}
+}
+
+.basket-open .ecombasket {
+	.transition(width 0.35s ease-in-out);
+	width: 150px;
 }
 
 .nav-open .ecombasket {
@@ -103,7 +114,6 @@
 .basket-open button.basket-toggle {
 	background-color: @font-swatch6-background-color;
 	color: @font-swatch6-color-hover;
-	width: 150px;
 
 	&:hover {
 		background-color: @font-swatch6-background-color;
@@ -126,11 +136,7 @@ button.basket-toggle,
 	right: 0;
 	margin-bottom: 0;
 	padding: 10px 20px 10px 0;
-	position: relative;
-	width: 50px;
-	height: 50px;
-	overflow: hidden;
-	.transition(width 0.35s ease-in-out);
+	position: relative;;
 
 	@media @tablet {
 		position: fixed;
