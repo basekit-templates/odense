@@ -288,9 +288,9 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 		}
 
 		// Make paragraph text larger for blog post content
-		p {
-			font-size: bkscale(@font-swatch5-font-size, 1.1);
-			line-height: bkscale(@font-swatch5-line-height, 1.1);
+		p, blockquote {
+			font-size: bkscale(@font-swatch5-font-size, 1.05);
+			line-height: bkscale(@font-swatch5-line-height, 1.05);
 
 			@media @tablet {
 				font-size: bkscale(@font-swatch5-font-size, 1);
@@ -301,7 +301,7 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 
 		// Add additional padding to blog post images
 		img {
-			 padding: 1.5em 0 0.5em;
+			 padding: 1em 0 0.5em;
 		}
 	}
 
