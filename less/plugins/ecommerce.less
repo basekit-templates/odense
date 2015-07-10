@@ -26,8 +26,11 @@
 }
 
 .ecombasket {
-	width: 50px;
-	height: 50px;
+	position: absolute;
+	right: 0;
+	top: -24px;
+	width: 48px;
+	height: 48px;
 	overflow: hidden;
 	.transition(width 0.35s ease-in-out);
 
@@ -40,6 +43,7 @@
 		height: 100px;
 		bottom: 0;
 		right: -80%;
+		top: initial;
 		z-index: 9999;
 		.transition(right 400ms ease);
 	}
@@ -600,9 +604,9 @@ form.ecomproductslist__form {
 	.product-item-title {
 		color: @font-swatch4-color;
 		font-family: @font-swatch2-font-family;
-		font-size: bkscale(@font-swatch3-font-size, 1.05);
+		font-size: @font-swatch2-font-size;
 		font-weight: @font-swatch2-font-weight;
-		line-height: bkscale(@font-swatch3-line-height, 1.05);
+		line-height: @font-swatch2-line-height;
 		margin-bottom: 0;
 
 		a {
@@ -612,7 +616,7 @@ form.ecomproductslist__form {
 
 	.product-item-price {
 		color: @color-swatch2;
-		font-size: bkscale(@font-swatch4-font-size, 0.92);
+		font-size: bkscale(@font-swatch4-font-size, 0.88);
 	}
 }
 
@@ -868,13 +872,18 @@ form.ecomproductslist__form {
 
 	// Remove margin from product title
 	.product-title {
+		font-size: bkscale(@font-swatch1-font-size, 1.105);
+		line-height: bkscale(@font-swatch1-font-size, 1.2);
 		margin-bottom: 0;
+		padding-bottom: 5px;
 	}
 
 	// Prodcut price label
 	.product-price {
 		color: @color-swatch2;
-		margin-bottom: 15px;
+		font-size: @font-swatch4-font-size;
+		line-height: @font-swatch4-line-height;
+		margin-bottom: 14px;
 	}
 
 
@@ -882,7 +891,7 @@ form.ecomproductslist__form {
 	// ---------------------
 
 	.ecomproduct__form {
-		margin-right: 8px;
+		margin-right: 10px;
 	}
 
 	// Brings add and view basket buttons inline
@@ -908,7 +917,7 @@ form.ecomproductslist__form {
 	}
 
 	.product-body {
-		margin-bottom: 30px;
+		margin-bottom: 5px;
 	}
 
 	// Product category and tags wrapper
