@@ -115,9 +115,17 @@
 	position: initial;
 }
 
+button.basket-toggle {
+	padding: 9px 16px;
+	width: 48px;
+	height: 48px;
+}
+
 .basket-open button.basket-toggle {
 	background-color: @font-swatch6-background-color;
 	color: @font-swatch6-color-hover;
+	text-align: center;
+	width: 150px;
 
 	&:hover {
 		background-color: @font-swatch6-background-color;
@@ -139,8 +147,7 @@ button.basket-toggle,
 	color: @font-swatch6-background-color;
 	right: 0;
 	margin-bottom: 0;
-	padding: 10px 20px 10px 0;
-	position: relative;;
+	position: relative;
 
 	@media @tablet {
 		position: fixed;
@@ -157,7 +164,7 @@ button.basket-toggle,
 
 	&:before {
 		font-size: 15px;
-		margin: 0 17px;
+		margin-right: 17px;
 	}
 }
 
