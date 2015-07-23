@@ -67,7 +67,7 @@
        "title": "Playfair Display & Lato",
         "font1": {
             "font-family": "\"Playfair Display\", \"Futura\", Helvetica Neue, sans-serif",
-            "font-size": "38px",
+            "font-size": "40px",
             "font-weight": "700",
             "line-height": "44px",
             "color": "@color-swatch4",

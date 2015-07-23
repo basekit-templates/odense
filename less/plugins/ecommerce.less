@@ -29,8 +29,8 @@
 	position: absolute;
 	right: 0;
 	top: -24px;
-	width: 48px;
-	height: 48px;
+	width: 50px;
+	height: 50px;
 	overflow: hidden;
 	.transition(width 0.35s ease-in-out);
 
@@ -117,8 +117,12 @@
 
 button.basket-toggle {
 	padding: 9px 16px;
-	width: 48px;
-	height: 48px;
+	width: 50px;
+	height: 50px;
+
+	&.icon--basket:before {
+		display: none;
+	}
 }
 
 .basket-open button.basket-toggle {
@@ -135,7 +139,10 @@ button.basket-toggle {
 
 .basket-open.nav-open button.basket-toggle {
 	@media @tablet {
+		background: white image('/images/basket-icon.svg') no-repeat 16px 13px;
+		background-size: 18px;
 		border-top: none;
+		color: @font-swatch6-color;
 		height: 50px;
 	}
 }
@@ -143,10 +150,12 @@ button.basket-toggle {
 button.basket-toggle,
 .basket-open .bk-selected .basket-toggle,
 .bk-selected .basket-toggle {
-	background-color: @font-swatch6-color-hover;
-	color: @font-swatch6-background-color;
+	background: transparent image('/images/basket-icon.svg') no-repeat 15px 11px;
+	background-size: 20px;
+	color: @font-swatch6-color;
 	right: 0;
 	margin-bottom: 0;
+	padding-left: 50px;
 	position: relative;
 
 	@media @tablet {
@@ -158,7 +167,7 @@ button.basket-toggle,
 	}
 
 	&:hover {
-		background-color: lighten(@font-swatch6-color-hover, 10%);
+		background-color: transparent;
 		color: @font-swatch6-background-color;
 	}
 
@@ -176,6 +185,10 @@ button.basket-toggle,
 .basket-open.nav-open .bk-selected .basket-toggle,
 .nav-open .bk-selected .basket-toggle {
 	@media @tablet {
+		background: @font-swatch6-color-hover image('/images/basket-icon-white.svg') no-repeat 16px 13px;
+		background-size: 18px;
+		color: @font-swatch6-background-color;
+		padding-left: 40px;
 		right: 25px;
 	}
 }
@@ -424,8 +437,9 @@ button.basket-toggle,
 // Products Title
 .listing-title {
     padding-bottom: 35px;
+
     @media @mobile-650px {
-        padding-top: 20px;
+        padding-top: 0;
     }
 }
 
@@ -535,7 +549,7 @@ form.ecomproductslist__form {
 	}
 
 	.listing-order {
-		padding-bottom: 30px 0 0;
+		padding: 30px 0 0;
 	}
 
 	.product-list {
@@ -544,7 +558,7 @@ form.ecomproductslist__form {
 
 	.product-item {
 		float: left;
-		padding: 0 12px 24px;
+		padding: 0 12px 30px;
 		height: auto;
 		width: 33.33%;
 
@@ -603,7 +617,6 @@ form.ecomproductslist__form {
 		height: auto;
 		width: auto;
 		@media @mobile-650px {
-			margin-top: 25px;
 			max-height: auto;
 		}
 	}
@@ -808,6 +821,10 @@ form.ecomproductslist__form {
 			margin-bottom: 20px;
 		}
 
+		@media @mobile-650px {
+			margin-bottom: 10px;
+		}
+
 		// Product images list element
 		.gallery-item {
 			width: 100%;
@@ -824,8 +841,6 @@ form.ecomproductslist__form {
 			}
 
 			@media @mobile-650px {
-				line-height: 120px;
-				height: 120px;
 				margin-bottom: 8px;
 				margin-left: -2px;
 				margin-right: 4%;
@@ -891,6 +906,10 @@ form.ecomproductslist__form {
 		font-size: @font-swatch4-font-size;
 		line-height: @font-swatch4-line-height;
 		margin-bottom: 14px;
+
+		@media @mobile-650px {
+			margin-bottom: 5px;
+		}
 	}
 
 
@@ -899,11 +918,22 @@ form.ecomproductslist__form {
 
 	.ecomproduct__form {
 		margin-right: 10px;
+
+		@media @mobile-650px {
+			margin-right: 0;
+		}
 	}
 
 	// Brings add and view basket buttons inline
 	.ecomproduct__form, .view-basket-wrap {
-		display: inline-block;
+		display: block;
+	}
+
+	.ecomproduct__button {
+		@media @mobile-650px {
+			display: block;
+			text-align: center;
+		}
 	}
 
 	// Add to basket button
@@ -924,7 +954,7 @@ form.ecomproductslist__form {
 	}
 
 	.product-body {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 	}
 
 	// Product category and tags wrapper
@@ -961,8 +991,25 @@ form.ecomproductslist__form {
 			}
 		}
 
+		.tags-title {
+			margin-right: 5px;
+		}
+
+		// Adds divider to tags
+		.tag-item:after {
+			content: "-";
+			color: rgb(222, 222, 222);
+			font-size: 13px;
+			margin: 0 2px;
+		}
+
+		// Removes last divider in list
+		.tag-item:last-child:after {
+			display: none;
+		}
+
 		.tag-link {
-			color: @color-swatch2;
+			color: lighten(@font-swatch4-color, 35%);
 		}
 
 	}
@@ -1040,7 +1087,7 @@ form.ecomproductslist__form {
 	.cell {
 		padding: 25px 12px;
 
-		@media @mobile {
+		@media @mobile-650px {
 			padding: 10px 12px 15px 0;
 		}
 	}

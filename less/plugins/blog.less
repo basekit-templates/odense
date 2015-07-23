@@ -25,11 +25,30 @@ div[data-widget-type="blogsearch"] {
         margin: 0 auto;
         max-width: 1200px;
 
-        // Show legend
+        .fieldset {
+        	position: relative;
+        }
+
+        // Positions legend over input
         .legend {
+        	background-color: white;
             display: block;
+            font-family: @font-swatch5-font-family;
+            font-size: 13px;
+            margin-bottom: 0;
+            padding: 5px 10px 5px 130px;
+            position: absolute;
+            left: 4px;
+            top: 7px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             visibility: visible;
-            margin-bottom: 15px;
+
+            @media @mobile-650px {
+            	display: none;
+            	visibility: hidden;
+            	padding: 5px 15px 5px 15px;
+            }
         }
 
         // Hide label
@@ -55,6 +74,7 @@ div[data-widget-type="blogsearch"] {
         // Form input
         input {
             border: 1px solid #E2E2E2;
+            text-indent: 125px;
         }
 
         // Form button
@@ -112,6 +132,10 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 			background-position: center center;
 			background-size: cover;
 			height: 275px;
+
+			@media @mobile-650px {
+				height: 250px;
+			}
 		}
 
 		.image {
@@ -136,6 +160,10 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 
 		.post-title {
 			 padding-bottom: 15px;
+
+			 @media @mobile-650px {
+			 	padding-bottom: 10px;
+			 }
 		}
 
 		h2 a {
