@@ -36,7 +36,7 @@ div[data-widget-type="blogsearch"] {
             font-family: @font-swatch5-font-family;
             font-size: 13px;
             margin-bottom: 0;
-            padding: 5px 10px 5px 130px;
+            padding: 5px 10px 5px 15px;
             position: absolute;
             left: 4px;
             top: 7px;
@@ -74,7 +74,11 @@ div[data-widget-type="blogsearch"] {
         // Form input
         input {
             border: 1px solid #E2E2E2;
-            text-indent: 125px;
+            padding-left: 125px;
+
+            @media @mobile-650px {
+            	padding-left: 15px;
+            }
         }
 
         // Form button

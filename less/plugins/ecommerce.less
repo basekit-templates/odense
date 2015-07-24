@@ -139,8 +139,12 @@ button.basket-toggle {
 
 .basket-open.nav-open button.basket-toggle {
 	@media @tablet {
-		background: white image('/images/basket-icon.svg') no-repeat 16px 13px;
-		background-size: 18px;
+		background-color: white;
+		background-image: image('/images/basket-icon.png');
+		background-image: image('/images/basket-icon.svg'), none;
+		background-repeat: no-repeat;
+    	background-position: 16px 14px;
+		background-size: 17px;
 		border-top: none;
 		color: @font-swatch6-color;
 		height: 50px;
@@ -150,8 +154,12 @@ button.basket-toggle {
 button.basket-toggle,
 .basket-open .bk-selected .basket-toggle,
 .bk-selected .basket-toggle {
-	background: transparent image('/images/basket-icon.svg') no-repeat 15px 11px;
-	background-size: 20px;
+	background-color: transparent;
+	background-image: image('/images/basket-icon.png');
+	background-image: image('/images/basket-icon.svg'), none;
+	background-repeat: no-repeat;
+    background-position: 20px 12px;
+	background-size: 17px;
 	color: @font-swatch6-color;
 	right: 0;
 	margin-bottom: 0;
@@ -185,8 +193,12 @@ button.basket-toggle,
 .basket-open.nav-open .bk-selected .basket-toggle,
 .nav-open .bk-selected .basket-toggle {
 	@media @tablet {
-		background: @font-swatch6-color-hover image('/images/basket-icon-white.svg') no-repeat 16px 13px;
-		background-size: 18px;
+		background-color: @font-swatch6-color-hover;
+		background-image: image('/images/basket-icon-white.png');
+		background-image: image('/images/basket-icon-white.svg'), none;
+		background-repeat: no-repeat;
+    	background-position: 16px 14px;
+		background-size: 17px;
 		color: @font-swatch6-background-color;
 		padding-left: 40px;
 		right: 25px;
@@ -404,7 +416,10 @@ button.basket-toggle,
     }
 
     .ecomproductslist__button {
-    	background: @color-swatch3 image('/images/search-icon.svg') no-repeat center;
+    	background: @color-swatch3 image('/images/search-icon.png');
+    	background: @color-swatch3 image('/images/search-icon.svg'), none;
+    	background-repeat: no-repeat;
+    	background-position: center;
     	color: @color-swatch3!important;
         margin-top: 0;
         overflow: hidden;
@@ -926,7 +941,11 @@ form.ecomproductslist__form {
 
 	// Brings add and view basket buttons inline
 	.ecomproduct__form, .view-basket-wrap {
-		display: block;
+		display: inline-block;
+
+		@media @mobile-650px {
+			display: block;
+		}
 	}
 
 	.ecomproduct__button {
@@ -998,7 +1017,7 @@ form.ecomproductslist__form {
 		// Adds divider to tags
 		.tag-item:after {
 			content: "-";
-			color: rgb(222, 222, 222);
+			color: rgb(210, 210, 210);
 			font-size: 13px;
 			margin: 0 2px;
 		}
@@ -1008,7 +1027,8 @@ form.ecomproductslist__form {
 			display: none;
 		}
 
-		.tag-link {
+		.tag-link, 
+		.category-link {
 			color: lighten(@font-swatch4-color, 35%);
 		}
 

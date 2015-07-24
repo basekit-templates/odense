@@ -287,7 +287,9 @@ button,
         }
     }
 
-   
+    .bk-extendednavigation:after {
+        background-color: fade(@font-swatch6-color, 25%);
+    }   
 
     // Color of navigation links when overlaying a feature image
     .navigation-item {
@@ -316,6 +318,18 @@ button,
 // Hide navigation toggle button
 .navigation-toggle {
     display: none;
+}
+
+// Divider between nav and basket
+.bk-extendednavigation:after {
+    content: "";
+    width: 1px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    right: -15px;
+    background-color: fade(@font-swatch6-color, 15%);
+    top: 15px;
 }
 
 // Universal navigation styling
@@ -387,7 +401,8 @@ ul.navigation-list--children {
 
 div[data-widget-type="extendednavigation"] {
     .flex(1 1 auto);
-    padding-right: 70px;
+    margin-right: 75px;
+    position: relative;
 }
 
 @media @tablet {
