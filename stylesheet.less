@@ -289,6 +289,10 @@ button,
 
     .bk-extendednavigation:after {
         background-color: fade(@font-swatch6-color, 25%);
+
+        @media @tablet-860px {
+            display: none;
+        }
     }   
 
     // Color of navigation links when overlaying a feature image
@@ -330,6 +334,10 @@ button,
     right: -15px;
     background-color: fade(@font-swatch6-color, 15%);
     top: 15px;
+
+     @media @tablet-860px {
+        display: none;
+    }
 }
 
 // Universal navigation styling
