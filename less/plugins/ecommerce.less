@@ -578,10 +578,12 @@ form.ecomproductslist__form {
 		width: 33.33%;
 
 		&:nth-child(3n+1) {
+			clear: left;
 			padding-left: 0;
 			padding-right: 24px;
 
 			@media @tablet-860px {
+				clear: none;
 				padding-left: 20px;
 			}
 		}
@@ -611,15 +613,15 @@ form.ecomproductslist__form {
 		}
 
 		@media @mobile-650px {
-			padding-left: 0;
-			padding-right: 0;
 			width: 100%;
+
+			&:nth-child(even) {
+				padding-right: 0;
+				padding-left: 0;
+			}
 
 			&:nth-child(odd) {
 				padding-right: 0;
-			}
-
-			&:nth-child(even) {
 				padding-left: 0;
 			}
 		}
@@ -631,8 +633,9 @@ form.ecomproductslist__form {
 		max-height: 500px;
 		height: auto;
 		width: auto;
+		
 		@media @mobile-650px {
-			max-height: auto;
+			max-height: initial;
 		}
 	}
 
