@@ -8,7 +8,7 @@
         "es": ["fotografía", "diseño", "portafolio", "galería", "cámara", "imágenes", "tecnología", "creativo", "comunicación"],
         "br": ["fotografia", "design", "portfolio", "galeria", "câmara", "imagens", "tecnologia", "criativo", "mídia"]
     },
-    "templateType":"standard",
+    "templateType":"ecommerce",
     "pageTypes": ["home", "ecomproductslist"],
     "images":[
         "images/logo.png",
