@@ -6,7 +6,7 @@
 	<div class="blogpost-page">
 
 	<!-- BLOG POST -->
-	{{widget('blogpost', 'singleblogpost', {})|raw}}
+	{{zone('main')|raw}}
 
 	<!-- HEADER -->
 	{% include "includes/header.twig" %}
@@ -31,5 +31,5 @@
 	    $('.dark').find('.template-nav').addClass('dark');
 	  });
 	</script>-->
-	
+
 {% endblock %}

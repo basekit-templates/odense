@@ -11,7 +11,7 @@
 	<div role="main" class="ecom-product">
 
 		<!-- ECOM WIDGET ZONE -->
-		{{widget('ecomproduct', 'singleproduct', {})|raw}} 
+		{{zone('main')|raw}}
 
 	</div>
 	<!-- END MAIN SECTION -->
@@ -27,10 +27,10 @@
 {% block scripts %}
 
 <script>
-	if($(".ecomproduct__product-gallery").length == 0) 
-    { 
-       $("body").addClass("product-one-image"); 
-    } 
+	if($(".ecomproduct__product-gallery").length == 0)
+    {
+       $("body").addClass("product-one-image");
+    }
 </script>
-	
+
 {% endblock %}
