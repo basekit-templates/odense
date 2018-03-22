@@ -31,30 +31,23 @@ div[data-widget-type="blogsearch"] {
 
         // Positions legend over input
         .legend {
-        	background-color: white;
             display: block;
             font-family: @font-swatch5-font-family;
-            font-size: 13px;
+            font-size: 14px;
             margin-bottom: 0;
-            padding: 5px 10px 5px 15px;
-            position: absolute;
-            left: 4px;
-            top: 7px;
             letter-spacing: 1px;
             text-transform: uppercase;
             visibility: visible;
 
             @media @mobile-650px {
-            	display: none;
-            	visibility: hidden;
-            	padding: 5px 15px 5px 15px;
+            	margin-bottom 10px;
             }
         }
 
-        // Hide label
-        .label {
-            display: none;
-            visibility: hidden;
+
+        label {
+        	display: none;
+        	visibility: hidden;
         }
 
         // Form group
@@ -74,11 +67,7 @@ div[data-widget-type="blogsearch"] {
         // Form input
         input {
             border: 1px solid #E2E2E2;
-            padding-left: 135px;
-
-            @media @mobile-650px {
-            	padding-left: 15px;
-            }
+            padding-left: 20px;
         }
 
         // Form button
@@ -92,7 +81,7 @@ div[data-widget-type="blogsearch"] {
     // Remove padding from profile widget text
     h2.headline, p.business {
         padding-bottom: 0;
-    } 
+    }
 
     // Pushes Twitter username away from twitter bird
     .account-name {
@@ -226,7 +215,7 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 
 			@media @tablet-860px {
 				margin: 25px 0 0;
-			}	
+			}
 		}
 	}
 
@@ -244,7 +233,7 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 	@media @tablet-860px {
 		padding-left: 0;
 	}
-} 
+}
 
 .blogpostlist .post-article > .post-image ~ .post-content {
 	padding-left: 65px;
@@ -252,7 +241,7 @@ div[data-widget-type="blogsearch"] + div[role="main"] .blogpostlist {
 	@media @tablet-860px {
 		padding: 12px 0 0;
 	}
-} 
+}
 
 
 // -----------------------------
