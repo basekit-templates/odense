@@ -1,5 +1,6 @@
 {
     "name": "Odense",
+    "versionTenCompatible": 1,
     "thumbnail": "thumbnail.png",
     "screenshot" : "odense-screenshot.jpg",
     "widgetVersion": 2,
