@@ -1,0 +1,174 @@
+// -----------------------------
+// Migration Styles
+// -----------------------------
+
+
+#migrated-site {
+    // Stylseheet overrides
+    // -----------------------------
+    // make row controls visible
+    .template-container {
+        overflow: unset;
+    }
+
+    // hide horizontal scrollbar if possible
+    .home-page {
+        overflow: hidden;
+    }
+
+    // Main content spacing (replace with corresponding template class)
+    #main {
+        padding: 0;
+    }
+
+    #main .container {
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
+    }
+
+    // Widget overflow to allow 10S overlays to display correctly
+    .widget.content {
+        overflow: inherit;
+    }
+
+
+    // Migration styles
+    // -----------------------------
+    // Replace with corresponding template values
+    @container-width: 1200px;
+    @spacing__first--desktop: 3em;
+    @spacing__first--tablet: 3em;
+    @spacing__first--mobile: 2em;
+    @widget-bottom-margin: 20px;
+    @spacing--other: 30px;
+
+    @mobile-breakpoint: 650px;
+    @tablet-breakpoint: 860px;
+
+    // Applies spacing to widgets to mimic container width
+    .empty-zone,
+    #page-zones__main:empty,
+    #page-zones__main > .widget:not([data-name="row"]),
+    .row:not(.widget):not(.row--width-no-padding) .row__container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: ~'calc(@{container-width} + 2em)';
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 100%;
+
+        @media only screen and (min-width: @tablet-breakpoint + 1px) {
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    }
+
+    // remove bottom margin for rows
+    #page-zones__main > .widget[data-name="row"]  {
+        margin-bottom: 0;
+    }
+
+    // Move spacing to first widget in the main zone (not sections)
+    &.edit #page-zones__main-overlay + .widget:not([data-name="row"]),
+    #page-zones__main > .widget:not([data-name="row"]):first-child {
+        margin-top: @spacing__first--desktop;
+
+        @media only screen and (max-width: @tablet-breakpoint) {
+            margin-top: @spacing__first--tablet;
+        }
+
+        @media only screen and (max-width: @mobile-breakpoint) {
+            margin-top: @spacing__first--mobile;
+        }
+    }
+
+    // Move spacing to last widget in the main zone (not sections)
+    #page-zones__main > .widget:not([data-name="row"]):last-child {
+        margin-bottom: ~'calc(@{spacing__first--desktop} + @{widget-bottom-margin})';
+
+        @media only screen and (max-width: @tablet-breakpoint) {
+            margin-bottom: ~'calc(@{spacing__first--tablet} + @{widget-bottom-margin})';
+        }
+
+        @media only screen and (max-width: @mobile-breakpoint) {
+            margin-bottom: ~'calc(@{spacing__first--mobile} + @{widget-bottom-margin})';
+        }
+    }
+
+    // Add spacing to the top of a widget when it follows a section
+    #page-zones__main > .widget[data-name="row"] + .widget:not([data-name="row"]) {
+        margin-top: @spacing--other;
+    }
+
+    // Remove spacing if widget follows a light section (change to dark if template has a dark BG)
+    #page-zones__main > .widget[data-name="row"].style--light + .widget:not([data-name="row"]) {
+        margin-top: 0;
+    }
+
+    // Adds spacing to the section when a widget is before it
+    #page-zones__main > .widget:not([data-name="row"]) + .widget[data-name="row"] {
+        margin-bottom: @spacing--other;
+        margin-top: @spacing--other;
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    // Remove bottom from the last row widget in the main zone
+    #page-zones__main > .widget[data-name="row"]:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    // fix margin top in blog page
+    [data-widget-type="blogsearch"] {
+        & + #main #page-zones__main > .widget[data-name="row"]:first-child {
+            margin-top: -20px;
+        }
+
+        & + #main #page-zones__main > .widget:not([data-name="row"]):first-child {
+            margin-top: ~'calc(@{spacing__first--desktop} + @{widget-bottom-margin})';
+
+            @media only screen and (max-width: @tablet-breakpoint) {
+                margin-top: ~'calc(@{spacing__first--tablet} + @{widget-bottom-margin})';
+            }
+
+            @media only screen and (max-width: @mobile-breakpoint) {
+                margin-top: ~'calc(@{spacing__first--mobile} + @{widget-bottom-margin})';
+            }
+        }
+    }
+
+    // special fix for single ecom product page
+    [role="main"].ecom-product {
+        padding: 0;
+
+        .widget[data-name="ecomproduct"] {
+            padding-right: 2em;
+        }
+
+        #page-zones__main > .widget[data-name="ecomproduct"]:first-child {
+            margin-top: 2em;
+
+            @media only screen and (min-width: @tablet-breakpoint + 1px) {
+                margin-top: 0;
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 1em;
+            }
+        }
+
+        #page-zones__main > .widget[data-name="ecomproduct"]:last-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    // hide navigation menu in row edit mode
+    &.row-editing .navigation-toggle {
+        display: none;
+    }
+
+}
+
+// End of #migrated-site
