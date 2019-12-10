@@ -32,6 +32,10 @@
         overflow: inherit;
     }
 
+    .select-wrap {
+        -moz-appearance: none;
+    }
+
 
     // Migration styles
     // -----------------------------
@@ -49,19 +53,12 @@
     // Applies spacing to widgets to mimic container width
     .empty-zone,
     #page-zones__main:empty,
-    #page-zones__main > .widget:not([data-name="row"]),
+    #page-zones__main > .widget:not([data-name="row"]):not([data-name="blogpost"]),
     .row:not(.widget):not(.row--width-no-padding) .row__container {
         margin-left: auto;
         margin-right: auto;
-        max-width: ~'calc(@{container-width} + 2em)';
-        padding-left: 25px;
-        padding-right: 25px;
-        width: 100%;
-
-        @media only screen and (min-width: @tablet-breakpoint + 1px) {
-            padding-left: 1em;
-            padding-right: 1em;
-        }
+        max-width: @container-width;
+        width: ~"calc(100% - 50px)";
     }
 
     // remove bottom margin for rows
@@ -71,7 +68,7 @@
 
     // Move spacing to first widget in the main zone (not sections)
     &.edit #page-zones__main-overlay + .widget:not([data-name="row"]),
-    #page-zones__main > .widget:not([data-name="row"]):first-child {
+    #page-zones__main > .widget:not([data-name="row"]):not([data-name="blogpost"]):first-child {
         margin-top: @spacing__first--desktop;
 
         @media only screen and (max-width: @tablet-breakpoint) {
@@ -84,7 +81,7 @@
     }
 
     // Move spacing to last widget in the main zone (not sections)
-    #page-zones__main > .widget:not([data-name="row"]):last-child {
+    #page-zones__main > .widget:not([data-name="row"]):not([data-name="blogpost"]):last-child {
         margin-bottom: ~'calc(@{spacing__first--desktop} + @{widget-bottom-margin})';
 
         @media only screen and (max-width: @tablet-breakpoint) {
